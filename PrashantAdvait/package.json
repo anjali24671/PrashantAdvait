@@ -31,6 +31,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"jose": "^5.4.0",
 		"mongoose": "^8.4.1",
 		"razorpay": "^2.9.4"
 	}

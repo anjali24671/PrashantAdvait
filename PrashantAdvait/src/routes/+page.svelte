@@ -1,2 +1,4 @@
-<h1>Home</h1>
 
+
+<signup-form></signup-form>
+<h1>hello</h1>
