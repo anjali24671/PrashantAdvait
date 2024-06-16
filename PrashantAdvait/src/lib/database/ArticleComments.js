@@ -1,16 +1,21 @@
 import mongoose from "mongoose";
 import Articles from "./Articles";
 
-const ArticleCategoriesSchema = new mongoose.Schema({
+const ArticleCommentsSchema = new mongoose.Schema({
     articleId: {
         type: mongoose.Types.ObjectId,
-        ref: "Articles"
+        ref: "Articles",
+        required:true
     },
-    content: String,
+    content: {
+        type: String,
+        required: true
+    },
     status: {
         type: String,
-        else: ['active', 'inactive']
+        required: true,
+        enum: ['active', 'inactive']
     }
 })
 
-export default mongoose.model('ArticleCategories', ArticleCategoriesSchema)
+export default mongoose.model('ArticleCommentsSchema', ArticleCommentsSchema)

@@ -1,5 +1,2 @@
-<script context="module">
+<h1>Home</h1>
 
-</script>
-
-<h1>hello world</h1>

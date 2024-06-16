@@ -3,12 +3,26 @@ import mongoose from "mongoose";
 const OrderShippingAddressesSchema = new mongoose.Schema({
     orderId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Orders'
+        ref: 'Orders',
+        required: true
     },
-    shippingAddress: String,
-    state: String,
-    city: String,
-    pincode: String,
+    shippingAddress: {
+        type: String,
+        required: true
+    },
+    state: {
+        type: String,
+        required: true
+    },
+    city: {
+        type: String,
+        required: true
+    },
+    pincode: {
+        type: Number,
+        required: true,
+
+    },
    
 })
 

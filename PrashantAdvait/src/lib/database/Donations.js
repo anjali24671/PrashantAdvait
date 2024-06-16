@@ -3,11 +3,17 @@ import mongoose from "mongoose";
 const DonationsSchema = new mongoose.Schema({
     user_id: {
         type: mongoose.Schema.Types.ObjectId,
+        required:true,
         ref: 'Users'
     },
-    amount: Number,
+    amount: {
+        type: Number,
+        required: true,
+        min:0
+    },
     date: {
         type: Date,
+        required: true,
         default: Date.now
     }
 })

@@ -1,10 +1,19 @@
 import mongoose from "mongoose";
 
 const ArticleSchema = new mongoose.Schema({
-    name: String,
-    content: String,
+    name: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    content: {
+        type: String,
+        required: true,
+        trim: true,
+    },
     reading_time: {
         type: Number,
+        required: true,
         default: 0,
         min:0
     },
@@ -20,6 +29,8 @@ const ArticleSchema = new mongoose.Schema({
     },
     status: {
         type: String,
+        required: true,
+        default: 'active',
         enum:['active', 'inactive']
     }
 })

@@ -1,10 +1,15 @@
 import mongoose from "mongoose";
 
 const VideoCategories = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true,
+        trim: true
+    },
     status: {
         type: String,
-        enum:['active', 'inactive']
+        enum: ['active', 'inactive'],
+        default: 'active'
     }
 })
 

@@ -1,20 +1,38 @@
 import mongoose from "mongoose";
 
 const UsersSchema = new mongoose.Schema({
-    role_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'UserRoles'
+    role_name: {
+        type: String,
+        ref: 'UserRoles',
+        required:true
     },
-    fullname: String,
-    email: String,
-    password: String,
+    fullname: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    email: {
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true
+    },
+    password: {
+        type: String,
+        required: true,
+        trim: true
+    },
     phone_number: {
         type: Number, 
-        maxLength:10
+        maxLength: 10,
+        required: true,
+        trim: true
     },
     status: {
         type: String,
-        enum:['active', 'inactive']
+        enum: ['active', 'inactive'],
+        default: 'active'
+        
     }
    
 })

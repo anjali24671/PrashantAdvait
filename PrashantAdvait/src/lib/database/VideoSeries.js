@@ -1,18 +1,39 @@
 import mongoose from "mongoose";
 
 const VideoSeriesSchema = new mongoose.Schema({
-    subCategory_id: {
+    category_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'VideoSubCategories'
+        ref: 'VideoCategories',
+        required: true
     },
-    language: String,
-    title: String,
-    description: String,
+    photoURL: {
+        type: String,
+        required: true,
+        trim:true
+    },
+    language: {
+        type: String,
+        required: true,
+        trim:true
+    },
+    title: {
+        type: String,
+        required: true,
+        trim:true
+    },
+    description: {
+        type: String,
+        required: true,
+    },
     status: {
         type: String,
-        enum:['active', 'inactive']
+        enum: ['active', 'inactive'],
+        default: 'active'
     },
-    benefits: String
+    benefits: {
+        type: String,
+        required: true,
+    }
 })
 
 export default mongoose.model('VideoSeries', VideoSeriesSchema);
