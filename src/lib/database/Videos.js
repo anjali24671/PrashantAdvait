@@ -11,7 +11,6 @@ const VideoSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    
     status: {
         type: String,
         enum: ['active', 'inactive'],

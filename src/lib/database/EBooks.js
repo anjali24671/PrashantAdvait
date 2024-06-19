@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const BooksSchema = new mongoose.Schema({
+const EBooksSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -10,28 +10,17 @@ const BooksSchema = new mongoose.Schema({
     photoURL: {
         type: String,
         required: true,
-        trim: true
+        trim:true
     },
     language: {
         type: String,
         required: true,
         trim: true
     },
-    printLength: {
-        type: Number,
-        required: true,
-        default: 0,
-        min:0
-    },
+    content: { type: String, required: true },
     description: String,
     indexContent: String,
-    
-    price:  {
-        type: Number,
-        required: true,
-        min: 0
-    },
-    stocks:  {
+    price: {
         type: Number,
         required: true,
         min: 0
@@ -58,5 +47,4 @@ const BooksSchema = new mongoose.Schema({
     }
 })
 
-
-export default mongoose.model('Books', BooksSchema);
+export default mongoose.model('EBooks', EBooksSchema)

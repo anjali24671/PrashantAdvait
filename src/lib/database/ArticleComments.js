@@ -5,7 +5,7 @@ const ArticleCommentsSchema = new mongoose.Schema({
     articleId: {
         type: mongoose.Types.ObjectId,
         ref: "Articles",
-        required:true
+        required:true   
     },
     content: {
         type: String,
@@ -18,4 +18,4 @@ const ArticleCommentsSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('ArticleCommentsSchema', ArticleCommentsSchema)
+export default mongoose.model('ArticleComments', ArticleCommentsSchema)

@@ -4,7 +4,7 @@ const ArticleCategoriesSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        trim: true,
+        trim: true
     },
 
     numberOfArticles: {
@@ -17,8 +17,13 @@ const ArticleCategoriesSchema = new mongoose.Schema({
         type: String, 
         enum: ['active', 'inactive'],
         default:'inactive'
+    },
+    level_of_difficulty: {
+        type: String, 
+        required: true,
+        enum:['beginner', 'intermediate', 'advanced']
     }
     }
 )
 
-export default mongoose.model("ArticleCategories", ArticleCategoriesSchema)
+export default mongoose.models.ArticleCategories || mongoose.model('ArticleCategories', ArticleCategoriesSchema);

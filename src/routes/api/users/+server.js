@@ -8,16 +8,12 @@ export async function POST({ request }) {
         // userRole to add
         let document = {}
 
-        if (!data.role_name || !data.fullname || !data.email || !data.password || !data.phone_number) {
-            console.log("add all details")
-            throw new Error("please fill all details")
+        if (!data.userFront_id) {
+            console.log("user id is needed")
+            throw new Error("user id is needed")
         }
 
-        document['role_name'] = data.role_name
-        document['fullname '] = data.fullname 
-        document['email '] = data.email 
-        document['password '] = data.password 
-        document['phone_number '] = data.phone_number 
+        document['userFront_id'] = data.userFront_id
         if (data.status) document['status'] = data.status        
 
         await connect()

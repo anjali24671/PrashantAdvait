@@ -1,15 +1,25 @@
 import mongoose from "mongoose";
 
-const CartsSchema = new mongoose.Schema({
+const cartsSchema = new mongoose.Schema({
     user_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Users',
         required: true
     },
-    product_id: {
+    book_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Books',
-        required: true
+       
+    },
+    Ebook_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'EBooks',
+        
+    },
+    video_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Videos',
+      
     },
     quantity: {
         type: Number,
@@ -22,12 +32,11 @@ const CartsSchema = new mongoose.Schema({
         default: Date.now,
         required: true
     },
-    price: {
-        type: Number,
-        default: 0,
-        min: 0,
+    type: {
+        type: String,
         required: true
     }
+
 })
 
-export default mongoose.model('Carts', CartsSchema)
+export default mongoose.model('Carts', cartsSchema)

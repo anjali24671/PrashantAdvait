@@ -8,13 +8,15 @@ export async function POST({ request }) {
         // cart to add
         let document = {}
         
-        if (!data.user_id || !data.product_id || !data.price) {
+        if (!data.user_id || !data.type ) {
             throw new Error("please fill all details")           
         }
 
         document['user_id'] = data.user_id
-        document['product_id'] = data.product_id
-        document['price'] = data.price
+        document['type'] = data.type
+        if (data.book_id) document['book_id'] = data.book_id
+        if (data.Ebook_id) document['EBook_id'] = data.Ebook_id
+        if (data.video_id) document['video_id'] = data.video_id
 
         await connect()
 

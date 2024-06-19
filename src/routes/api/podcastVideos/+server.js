@@ -1,27 +1,27 @@
 import connect from '$lib/database/connection'
-import EBookContents from '$lib/database/EBookContents'
+import PodcastVideos from '$lib/database/PodcastVideos'
 
 export async function POST({ request }) {
    
     const data = await request.json()
     try {
-        // EBookContents to add
+        // PodcastVideos to add
         let document = {}
 
-        if (!data.EBookId || !data.content) {
+        if (!data.name || !data.videoURL) {
             throw new Error("please fill all details")           
         }
 
-        document['EBookId'] = data.EBookId
-        document['content'] = data.content
+        document['name'] = data.name
+        document['videoURL'] = data.videoURL
 
         await connect()
 
-        // add the EBookContents to collection
-        const newEBookContents = await EBookContents.create(document)
+        // add the PodcastVideos to collection
+        const newPodcastVideos = await PodcastVideos.create(document)
 
         return new Response(JSON.stringify(
-            { success: true, message: "EBookContents added succesfully" }
+            { success: true, message: "PodcastVideos added succesfully" }
         ))
     } catch (e) {
         return new Response(JSON.stringify(

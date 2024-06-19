@@ -7,22 +7,23 @@ export async function POST({ request }) {
         // book to add
         let document = {}
 
-        if (!data.name || !data.categoryId || !data.photoURL || !data.printLength|| !data.EBookPrice || !data.paperBookPrice || !data.stocks ) {
+        if (!data.name || !data.photoURL || !data.printLength||  !data.price || !data.stocks || !data.language || !data.indexContent) {
             throw new Error("please fill all details")
         }
 
         document['name'] = data.name
-        document['categoryId'] = data.categoryId
         document['photoURL'] = data.photoURL
         document['printLength'] = data.printLength
-        document['EBookPrice'] = data.EBookPrice
-        document['paperBookPrice'] = data.paperBookPrice
+       
+        document['price'] = data.price
         document['stocks'] = data.stocks
+        document['language'] = data.language
         if (data['description']) document['description'] = data.description
         if (data['number_of_orders']) document['number_of_orders'] = data.number_of_orders
-        if (data['indexContent']) document['indexContent'] = data.indexContent
+        document['indexContent'] = data.indexContent
         if (data['status']) document['status'] = data.status
-        document['created_at'] = data.created_at
+        if(data['created_at']) document['created_at'] = data.created_at
+        document['tags'] = data.tags
 
         await connect()
 
