@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import {MONGODB_URI} from "$env/static/private"
+const MONGODB_URI = import.meta.env.MONGODB_URI;
+
 
 
 async function connect() {
