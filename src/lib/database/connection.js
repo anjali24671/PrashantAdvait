@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const MONGODB_URI = import.meta.env.MONGODB_URI;
+import {MONGODB_URI} from "$env/static/private"
 
 
 

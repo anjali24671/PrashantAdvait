@@ -8,4 +8,4 @@ const GallerySchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('Gallery', GallerySchema);
+export default mongoose.models.Gallery || mongoose.model('Gallery', GallerySchema);

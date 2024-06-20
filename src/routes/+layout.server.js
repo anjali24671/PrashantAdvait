@@ -1,4 +1,7 @@
-export async function load({locals}) {
+
+
+
+export async function load({ locals }) {
     if (!locals.auth) return {
         "authenticated":false
     }

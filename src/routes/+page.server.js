@@ -3,6 +3,11 @@ import ArticleCategories from "$lib/database/ArticleCategories";
 import PodcastVideos from "$lib/database/PodcastVideos";
 import Gallery from "$lib/database/Gallery";
 import PrintMedia from "$lib/database/PrintMedia";
+import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
+import Razorpay from 'razorpay';
+
+
+
 
 async function loadArticleCategories() {
     await connect();
@@ -78,6 +83,23 @@ async function loadPrintMedia() {
     }
 }
 
+
+async function createOrder(options) {
+    
+    let order_id=""
+
+    let instance = new Razorpay({ key_id: PUBLIC_KEY_ID, key_secret: PUBLIC_KEY_SECRET })
+
+    instance.orders.create(options, function (err, order) {
+        if (err) console.error(err);
+        else order_id = order.id
+        
+        
+    });
+    return order_id;
+    
+}
+
 export async function load() {
     const articleCategoriesResponse = await loadArticleCategories();
     const podcastVideosResponse = await loadPodcastVideos();
@@ -96,13 +118,21 @@ export async function load() {
     const podcastVideos = await podcastVideosResponse.json();
     const galleryImage = await galleryImageResponse.json()
     const printMedia = await printMediaResponse.json()
-   
 
+    //createOrder 
+    let options = {
+        amount: 50000,  // amount in the smallest currency unit
+        currency: "INR",
+        receipt: "order_rcptid_11"
+    };
+    const order_id = await createOrder(options)
+    
     // Return serialized data
     return {
         articleCategories,
         podcastVideos,
         galleryImage,
-        printMedia
+        printMedia,
+        order_id
     };
 }

@@ -14,4 +14,4 @@ const PodcastVideosSchema = new mongoose.Schema({
 
 })
 
-export default mongoose.model('PodcastVideos', PodcastVideosSchema);
+export default mongoose.models.PodcastVideos || mongoose.model('PodcastVideos', PodcastVideosSchema);
