@@ -86,17 +86,22 @@ async function loadPrintMedia() {
 
 async function createOrder(options) {
     
-    let order_id=""
+    let order_id = ""
+    let amount
+    let currency=""
 
     let instance = new Razorpay({ key_id: PUBLIC_KEY_ID, key_secret: PUBLIC_KEY_SECRET })
 
     instance.orders.create(options, function (err, order) {
         if (err) console.error(err);
-        else order_id = order.id
-        
-        
+        else {
+            order_id = order.id
+            amount = order.amount
+            currency = order.currency
+        }
+        return order_id
     });
-    return order_id;
+   
     
 }
 
@@ -125,7 +130,8 @@ export async function load() {
         currency: "INR",
         receipt: "order_rcptid_11"
     };
-    const order_id = await createOrder(options)
+    const order_data = await createOrder(options)
+    console.log(order_data)
     
     // Return serialized data
     return {
@@ -133,6 +139,6 @@ export async function load() {
         podcastVideos,
         galleryImage,
         printMedia,
-        order_id
+        order_data
     };
 }
