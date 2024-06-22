@@ -147,6 +147,42 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 </div>
 </div>
 
+<!-- SECTION - 3 -->
+<section>
+  <h1 class="text-center font-bold text-[40px]">Topics Covered</h1>
+  <span class="rounded-[5px] text-left bg-red-700 font-semibold italic px-[10px] text-sm text-white m-[10px]">beginner</span>
+
+  <div class="text-center lg:grid lg:grid-cols-3 "> 
+    {#each data.articleCategories.beg_categories as topic}
+      <a href="#">
+        <h1 class="hover:bg-orange-600 hover:text-white border rounded-[4px] py-[5px] font-semibold text-sm border-red-500 m-[10px]">{topic.name}</h1>
+      </a>
+    {/each}
+  </div>
+  
+
+  <span class="rounded-[5px] text-left font-semibold italic px-[10px] text-sm bg-red-700 text-white m-[10px]">intermediate</span>
+  
+  <div class="text-center lg:grid lg:grid-cols-3"> 
+    {#each data.articleCategories.inter_categories as topic}
+    <a href="#">
+      <h1 class="hover:bg-orange-600 hover:text-white border rounded-[4px] py-[5px] font-semibold text-sm border-red-500 m-[10px]">{topic.name}</h1>
+    </a>      {/each}
+  </div>
+
+  <span class="rounded-[5px] text-left font-semibold italic px-[10px] text-sm bg-red-700 text-white m-[10px]">advanced</span>
+  
+  <div class="text-center lg:grid lg:grid-cols-3"> 
+    {#each data.articleCategories.adv_categories as topic}
+    <a href="#">
+      <h1 class="hover:bg-orange-600 hover:text-white border rounded-[4px] py-[5px] font-semibold text-sm border-red-500 m-[10px]">{topic.name}</h1>
+    </a>      {/each}
+  </div>
+</section>
+
+
+
+
 
 
 
