@@ -123,6 +123,33 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 
 
 
+  <!-- SECTION - 2 -->
+  <div class="my-10 lg:hidden relative">
+    
+    <div class="flex mx-[10px] rounded-[20px] font-semibold bg-yellow-400 flex-col items-center relative">
+      <img class="rounded-[50%] w-[55px] absolute top-[-30px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
+
+      <h2 class="mt-[25px] w-[30%] text-center text-xl font-bold" >Shrimad Bhagwat Gita Live Sessions</h2>
+      <p class="w-[60%] text-center">Acharya Prashant is teaching Bhagawad Gita, verse by verse. Do not miss.</p>
+      <button class="bg-red-600 text-sm text-white py-[4px] px-[25px] m-[15px] rounded-[7px]">Know More</button>
+    </div>
+
+ </div>
+
+ <div class="m-10 hidden lg:block">
+  <div class="flex rounded-[20px] h-[125px] font-semibold bg-yellow-400 items-center justify-around relative">
+    <img class="rounded-[50%] m-[40px] w-[145px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
+    <div >
+      <h2  class="text-[30px] font-bold">Shrimad Bhagwat Gita Live Sessions</h2>
+      <p class="text-[20px] font-semibold">Acharya Prashant is teaching Bhagawad Gita, verse by verse. Do not miss.</p>  
+    </div>
+    <button class="bg-red-600 px-[20px] text-white rounded-[10px] w-[170px] p-[10px] mx-[20px]">Know More</button>
+</div>
+</div>
+
+
+
+
 
   <main>
     <h1>Pay with Razorpay</h1>
