@@ -180,7 +180,81 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
   </div>
 </section>
 
+<!-- SECTION - 4 (OUR JOUNREY) -->
+<section class="flex-cols m-[25px]">
+  <h1>Our Journey</h1>
+  <p class=''>
+    Today, the mission of Acharya Prashant has touched the lives of tens of millions of individuals. Through his direct contact with people and through various internet internet-based channels, he continues to bring clarity to all.
+  </p>
+  <div>
 
+    <div class="lg:grid lg:grid-cols-4 lg:gap-[10px] lg:justify-between">
+      <div id="youtube" class="bg-orange-100 lg:col-span-3 rounded-[10px] my-[20px]  p-[15px]">
+        <div class="flex gap-[7px] items-center ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20" viewBox="0 0 28 20"><path fill="red" d="M14.148-.001h.081l.337.002c1.975.012 8.535.092 10.39.61a3.54 3.54 0 0 1 2.467 2.517c.537 2 .575 5.94.577 6.748v.184c-.001.444-.03 4.716-.576 6.834a3.54 3.54 0 0 1-2.468 2.518c-.843.226-2.658.365-4.573.451l-.577.024c-2.311.09-4.64.109-5.48.112L14.15 20h-.475c-1.604-.008-8.671-.07-10.63-.612a3.55 3.55 0 0 1-2.468-2.517C.06 14.89.006 10.953 0 10.146v-.292c.006-.804.06-4.726.576-6.726C.9 1.905 1.868.916 3.044.588 4.898.088 11.46.012 13.434 0l.336-.002h.081Zm-2.856 6.46a.6.6 0 0 0-.083.302v6.476a.598.598 0 0 0 .9.516l5.511-3.238a.598.598 0 0 0 0-1.031l-5.51-3.238a.6.6 0 0 0-.818.213" style="--darkreader-inline-fill: #fe2525;" data-darkreader-inline-fill=""></path></svg>
+          <span>YouTube</span>
+        </div>
+        
+        <div class="grid lg-grid-cols-3 grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Each item has group class to control nested hover -->
+          <div class='bg-white mt-[10px] rounded-[6px] group hover:bg-orange-600 p-[10px]'>
+              <h1 class="text-orange-600 group-hover:text-white font-bold text-xl">49 million+</h1>
+              <span class="text-gray-700 group-hover:text-white">Subscribers</span>
+          </div>
+          <div class='bg-white mt-[10px] rounded-[6px] group hover:bg-orange-600 p-[10px]'>
+              <h1 class="text-orange-600 group-hover:text-white font-bold text-xl">2.7 billion+</h1>
+              <span class="text-gray-700 group-hover:text-white">Views</span>
+          </div>
+          <div class='bg-white lg:col-span-1 col-span-2 mt-[10px] rounded-[6px] group hover:bg-orange-600 p-[10px]'>
+              <h1 class="text-orange-600 group-hover:text-white font-bold text-xl">81 million+</h1>
+              <span class="text-gray-700 group-hover:text-white">Watch hours</span>
+          </div>
+        </div>
+      </div>
+    
+      <div id='social media' class="bg-orange-100 rounded-[10px] lg:col-span-1 lg:flex-initial -[10px] my-[20px]  p-[15px]">
+      <div class="flex gap-[7px] items-center ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="24" viewBox="0 0 28 24"><g fill="none" fill-rule="evenodd"><path d="M0 .7h28v22.7H0z"></path><path fill="red" fill-rule="nonzero" stroke="red" stroke-width=".5" d="M23.011 5.691a11.04 11.04 0 0 0-4.815-3.864 20.5 20.5 0 0 1 2.286 6.15 11.8 11.8 0 0 0 2.53-2.286ZM18.572 9.01a18.5 18.5 0 0 0-3.317-7.938 11 11 0 0 0-2.51 0A18.5 18.5 0 0 0 9.427 9.01c1.446.615 3.002.93 4.573.928 1.622 0 3.167-.33 4.572-.928Zm-9.365 2.133c1.534.57 3.157.86 4.793.858 1.685 0 3.3-.302 4.792-.858a18.6 18.6 0 0 1-.482 5.169 18.6 18.6 0 0 1-4.31.502c-1.484 0-2.926-.175-4.309-.504a18.6 18.6 0 0 1-.484-5.167Zm-1.69-3.165A20.5 20.5 0 0 1 9.804 1.83a11.04 11.04 0 0 0-4.816 3.864c.727.877 1.58 1.648 2.53 2.282zm16.565-.38a10.97 10.97 0 0 1 .845 5.658 18.5 18.5 0 0 1-4.37 2.366c.317-1.788.397-3.609.24-5.417a13.8 13.8 0 0 0 3.285-2.607Zm-20.165 0a13.8 13.8 0 0 0 3.286 2.607 21 21 0 0 0 .24 5.418 18.5 18.5 0 0 1-4.37-2.365c-.224-1.928.068-3.88.846-5.659zM14 18.875c1.234 0 2.444-.108 3.62-.316a18.5 18.5 0 0 1-2.365 4.37c-.834.095-1.676.095-2.51 0a18.5 18.5 0 0 1-2.365-4.37q1.766.314 3.62.316Zm5.99-.884a20.5 20.5 0 0 1-1.794 4.18 11.04 11.04 0 0 0 5.973-5.974 20.4 20.4 0 0 1-4.18 1.794Zm-10.186 4.18a11.04 11.04 0 0 1-5.973-5.974c1.31.745 2.71 1.349 4.179 1.794a20.5 20.5 0 0 0 1.794 4.18Z" style="--darkreader-inline-fill: #fe2525; --darkreader-inline-stroke: #fe2525;" data-darkreader-inline-fill="" data-darkreader-inline-stroke=""></path></g></svg>
+        <span>Social Media</span>
+      </div>
+      <div class='bg-white mt-[10px] group rounded-[6px] hover:text-white p-[10px] hover:bg-orange-600'>
+        <h1 class="text-orange-600 group-hover:text-white font-bold text-xl">62 million+</h1>
+        <span>Followers</span>
+      </div>
+    </div>
+  </div>
+
+    <div id="repository" class="bg-orange-100 rounded-[10px] my-[20px]  p-[15px]">
+      <div class="flex  gap-[7px] items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="20" viewBox="0 0 27 20"><defs><linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="red" style="--darkreader-inline-stopcolor: #ce0d0d;" data-darkreader-inline-stopcolor=""></stop><stop offset="100%" stop-color="red" style="--darkreader-inline-stopcolor: #ce0d0d;" data-darkreader-inline-stopcolor=""></stop></linearGradient></defs><path fill="url(#a)" d="M3.67 20h19.66q1.834 0 2.752-.93T27 16.318V9.884q0-.575-.06-.979a2.7 2.7 0 0 0-.218-.74 3.6 3.6 0 0 0-.434-.691l-3.84-5.235q-.64-.882-1.172-1.364A3.05 3.05 0 0 0 20.1.195Q19.453 0 18.427 0H8.585Q7.571 0 6.913.196A3 3 0 0 0 5.73.875q-.525.483-1.166 1.364L.712 7.474a4 4 0 0 0-.422.691q-.158.336-.224.74Q0 9.31 0 9.884v6.434q0 1.823.93 2.752.93.93 2.74.93m9.842-6.911q-.881 0-1.51-.422a2.9 2.9 0 0 1-.971-1.083 2.95 2.95 0 0 1-.345-1.382v-.061q0-.392-.235-.71t-.718-.318H2.644q-.301 0-.362-.196-.06-.196.085-.403l4.19-5.774q.385-.539.87-.752a2.7 2.7 0 0 1 1.086-.214h9.986q.593 0 1.08.214.49.213.864.752l4.19 5.774q.145.207.079.403-.067.196-.356.196h-7.089q-.483 0-.712.318-.23.318-.23.71v.06q0 .723-.35 1.383t-.978 1.083-1.485.422m4.758-9.664H8.73a.5.5 0 0 0-.386.165.56.56 0 0 0-.157.398.55.55 0 0 0 .157.403.52.52 0 0 0 .386.16h9.54a.54.54 0 0 0 .398-.16.55.55 0 0 0 .157-.403.56.56 0 0 0-.157-.398.53.53 0 0 0-.398-.165m1.51 2.593H7.232a.54.54 0 0 0-.417.178.6.6 0 0 0-.163.422q0 .233.163.403a.55.55 0 0 0 .417.172h12.546a.54.54 0 0 0 .405-.172.57.57 0 0 0 .163-.403.6.6 0 0 0-.163-.422.53.53 0 0 0-.405-.178"></path></svg>
+  
+        <div class="lg:flex lg:justify-between w-full">
+          <h1>Repository of Wisdom Content</h1>
+          <span>(Available in Hindi and English)</span>
+        </div> 
+      </div>
+      
+      <div class="flex lg:flex-row lg:gap-[10px] flex-col" >
+        <div class='bg-white mt-[10px] lg:flex-auto hover:bg-orange-600 group hover:text-white rounded-[6px] p-[10px]'>
+          <h1 class="text-orange-600  group-hover:text-white  font-bold text-xl">140+ Books</h1>
+          <span>On life topics and scriptures</span>
+        </div>
+        <div class='bg-white lg:flex-auto  hover:bg-orange-600 group hover:text-white rounded-[6px] mt-[10px] p-[10px]'>
+          <h1 class="text-orange-600  group-hover:text-white font-bold text-xl">6000+ Articles</h1>
+          <span>Available for free</span>
+        </div>
+        <div class='bg-white mt-[10px] lg:flex-auto hover:bg-orange-600 group hover:text-white rounded-[6px] p-[10px]'>
+          <h1 class="text-orange-600  group-hover:text-white font-bold text-xl">12000+ Videos</h1>
+          <span>Available for free</span>
+        </div>
+        <div class='bg-white mt-[10px] lg:flex-auto hover:bg-orange-600 group hover:text-white rounded-[6px] p-[10px]'>
+          <h1 class="text-orange-600  group-hover:text-white font-bold text-xl">60+ Commentaries</h1>
+          <span>On scriptures</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
 
 
 
