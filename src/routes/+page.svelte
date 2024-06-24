@@ -365,24 +365,24 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
       </div>
       
     </div>
-   </section>
- -->
+   </section> -->
+
 
     <!-- SECTION-7 (INSTITUTIONAL TALKS) - HIDDEN ON MEDIUM -->
 
-    <!-- <div>
-      <div class="flex items-end">
+     <div>
+      <div class="flex w-[80%] m-[15px] flex-col sm:flex-row sm:items-end">
         <div>
           <h1 class="font-bold">Institutional Talks</h1>
           <p>Acharya Prashant loves interacting with the dynamic and vibrant youth, and has a profound faith in their ability to effectuate significant changes.<br>
             He delivers regular talks at illustrious educational institutes, including prestigious organizations such as IITs and IIMs.<br>
             With over 100+ college appearances and interactions with thousands of enthusiastic students, Acharya Prashant has left an indelible impression.</p>
         </div>
-        <button class="bg-orange-600 text-white">
+        <button class="bg-orange-600 text-white w-1/2  ">
           Invite
         </button>
       </div>
-      <div class="flex my-[60px]  gap-7">
+      <div class="hidden sm:flex my-[60px] gap-7">
         <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-144c7728-ecc9-4526-b85c-0630c8498388/30/image.jpg" alt="">
           <h2>IIT Delhi</h2>
           <p>13 April 2024</p>
@@ -425,7 +425,7 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
         </div>
       </div>
     </div>
- -->
+ 
 
 
 
