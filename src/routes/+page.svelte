@@ -345,27 +345,27 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
   </div> -->
 
   <!-- SECTION-6 (WAYS TO CONNECT) -->
-   <!-- <section class="lg:hidden">
+   <section class="lg:hidden m-5">
     <h1>Ways to connect</h1>
     <div class="grid w-full gap-[10px] grid-cols-2 font-semibold">
       <div class="flex flex-col gap-[10px]">
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">BHAGAVAD GITA</div>
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">AP BOOKS</div>
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">VIDEO SERIES</div>
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">IN MEDIA</div>
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">INTERVIEW</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">BHAGAVAD GITA</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">AP BOOKS</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">VIDEO SERIES</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">IN MEDIA</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">INTERVIEW</div>
       </div>
 
       <div class="flex flex-col gap-[10px]">
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">VEDANT: BASICS TO CLASSICS</div>
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">AP ARTICLES</div>
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">DOWNLOAD APP</div>
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">INVITE</div>
-        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">CONTACT US</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">VEDANT: BASICS TO CLASSICS</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">AP ARTICLES</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">DOWNLOAD APP</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">INVITE</div>
+        <div class="shadow-md shadow-gray-400 border-l-4 border-orange-600 rounded-r-[5px] py-2 pl-3">CONTACT US</div>
       </div>
       
     </div>
-   </section> -->
+   </section>
 
 
     <!-- SECTION-7 (INSTITUTIONAL TALKS) - HIDDEN ON MEDIUM -->
