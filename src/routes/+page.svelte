@@ -314,8 +314,8 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 
 
  <!-- SECTION-6 (PRINT MEDIA)-->
-  <!-- <div  class="flex bg-blue-950 text-white items-center">
-    <div class="flex flex-col gap-[10px] ">
+  <div  class="flex sm:flex-row flex-col bg-blue-950 text-white items-center">
+    <div class="flex flex-col m-[20px] gap-[10px] ">
       <h1>Print Media</h1>
       <p>
         The mission and teachings if Acharya Prashant are regularly and widely covered by national and international media.
@@ -323,13 +323,13 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
       <a class="text-orange-600 font-bold">VIEW ALL</a>
     </div>
 
-    <div class="grid md:grid-cols-4 lg:grid-cols-5 sm:grid-cols-2 h-[400px] gap-[10px] overflow-hidden">
+    <div class="grid md:grid-cols-4 lg:grid-cols-5 grid-rows-3 grid-cols-2 h-[400px] gap-[10px] overflow-hidden">
       {#each data.printMedia as media}
-      <img src="{media.mediaURL}">
+      <img class="object-contain w-full h-full" src="{media.mediaURL}">
       {/each}
     </div>
   </div>
- -->
+
 
   <!-- SECTION-7 (INSTITUTIONAL TALKS)
   <div class="lg:hidden flex flex-col justify-start p-20">
