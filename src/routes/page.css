@@ -1,0 +1,13 @@
+.masorny-gallery {
+    column-count: 2; /* Default column count for smaller screens */
+    column-gap: 1rem; /* Adjust column gap as needed */
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      column-count: 3; /* Medium screen column count */
+    }
+
+    @media (min-width: 1024px) {
+      column-count: 4; /* Large screen column count */
+    }
+  }

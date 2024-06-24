@@ -1,10 +1,13 @@
 <script>
     import { onMount, tick } from 'svelte';
     import { writable } from 'svelte/store';
+    import Slider from '../lib/components/Slider.svelte'
     import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
     export let data
     import "./page.css"
-   let image
+    
+
+    let interviewData = writable()
 
 
     let rzp1;
@@ -271,68 +274,41 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
     <div class="border-t border-dashed border-orange-600 "></div>
     <p>Videos from past interviews and podcasts</p>
   </div>
+
+  <Slider></Slider>
   
-  <div class="swiper-container flex gap-8">
-    <div> 
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/H5PJgAEEH-w" title="Acharya Prashant Exclusive Interview: FEMINISM &amp; WOMANHOOD | Jagran Manthan Podcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" ></iframe>
-    </div>
-    <div>
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/gXB3hlDmirU" title="जानलेवा गर्मी और चुनावी तपन : अंगार बनकर बरसे आचार्य प्रशांत" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div>
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/6pDHTJ1hK7E" title="NDTV इंटरव्यू, IIT दिल्ली || आचार्य प्रशांत (2024)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div>
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/gGE9xxtVFTc" title="चुनाव तनाव भटकाव - किधर जाएँ? || आचार्य प्रशांत, आई. आई.टी दिल्ली (2024)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div>
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/FXf7FcIFc90" title="बात तो सीधी है || Zee TV के सुभाष चंद्रा के साथ आचार्य प्रशांत, बातचीत (2023)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div>
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/cybk7gtvn9Q" title="Everything to know about Sanatan Dharma @ShriPrashant #acharyaprashant explains A Raja, Stalin Row" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <h2>With Dainik Jagran</h2>
-    </div>
-    <div>
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/blJQ9yzxFSA" title="&#39;Sanatana dharma like HIV&#39;: DMK A Raja fuels Row | Acharya Prashant Explains Who is real Sanatani" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div>
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/UsmGmVgJaVw" title="आचार्य प्रशांत ने विरोध करने वालों पर कही बड़ी बात। बताया Mukti के बारे में | @ShriPrashant Latest" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div>
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/atKEM5ObmRE" title="Does God Exist? | Hinduism, Religion and Spirituality with Acharya Prashant x Dhruv Rathee" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div>
-      <iframe width="378" height="212" src="https://www.youtube.com/embed/YHsJpyzlBn0" title="Shut Up Ya Kunal EP 28 || Acharya Prashant &amp; Prof. Dilip Mandal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-  </div>
+  
 
   <div class="self-start">
     <a>View All --</a>
   </div>
   
 
-</section>
- -->
+</section> -->
+
 
 
 
 <!-- SECTION-6 (IMAGE GALLERY) -->
-<!-- <div class="flex flex-col items-center">
+<div class="flex flex-col relative items-center">
   <h1>Gallery</h1>
-  <div class="relative masorny-gallery min-h-screen overflow-hidden">
+  <div class="relative masorny-gallery h-[100vh] w-[100vw]  overflow-hidden">
     {#each data.galleryImage as image}
-      <div class="w-[100%] h-auto mt-[10px] my-[10px]">
+      <div class="max-w-full  h-auto ">
         <img src="{image.imageURL}" alt="Gallery Image">
       </div>
+      
     {/each}
   </div>
-
-  <div class="absolute top-0 left-0 p-4">
-    <button class="bg-orange-800 text-white px-4 py-2 rounded-lg">See All</button>
+  <div class="absolute  w-[100%] flex justify-center items-center bottom-[70px] p-4">
+    <div class="relaitve z-70">
+      <button class="bg-orange-800 text-white px-4 py-2 rounded-lg">See All</button>
+    </div>
   </div>
+  
 </div>
 
- -->
+
 
 
 
