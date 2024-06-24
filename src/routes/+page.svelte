@@ -3,8 +3,8 @@
     import { writable } from 'svelte/store';
     import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
     export let data
-  
-    console.log(data.articleCategories)
+    import "./page.css"
+   let image
 
 
     let rzp1;
@@ -107,10 +107,10 @@
   He is a veganism promoter, an environmental activist, a science activist, a campaigner against superstition, and a champion of essential human freedom.
         </p>
         <span class="text-sm text-orange-600">Read Bio -</span>
-      </div>
+  </div>
 
 
-    <div class="flex lg:hidden flex-col items-center">
+  <div class="flex lg:hidden flex-col items-center">
       <h1 class="text-[70px] font-semibold">Acharya Prashant</h1>
       <h2 class="text-[45px] font-normal italic">To demolish all that is false</h2>
       <p>
@@ -147,6 +147,7 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 </div>
 </div>
 
+
 <!-- SECTION - 3 -->
 <section>
   <h1 class="text-center font-bold text-[40px]">Topics Covered</h1>
@@ -180,12 +181,15 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
   </div>
 </section>
 
-<!-- SECTION - 4 (OUR JOUNREY) -->
-<section class="flex-cols m-[25px]">
-  <h1>Our Journey</h1>
-  <p class=''>
-    Today, the mission of Acharya Prashant has touched the lives of tens of millions of individuals. Through his direct contact with people and through various internet internet-based channels, he continues to bring clarity to all.
-  </p>
+<!-- SECTION-4 (OUR JOUNREY) -->
+<section class="flex flex-col m-[25px] sm:justify-center justify-start">
+  <div class="flex flex-col self-start sm:self-center  items-center sm:justify-center  sm:text-center w-[80%]">
+    <h1 class="sm:self-center self-start">Our Journey</h1>
+    <p class=''>
+      Today, the mission of Acharya Prashant has touched the lives of tens of millions of individuals. Through his direct contact with people and through various internet internet-based channels, he continues to bring clarity to all.
+    </p>
+  </div>
+  
   <div>
 
     <div class="lg:grid lg:grid-cols-4 lg:gap-[10px] lg:justify-between">
@@ -254,10 +258,198 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
       </div>
     </div>
   </div>
-  </section>
+</section>
 
 
 
+
+<!-- SECTION-5 (VIDEO) SKIPPING -->
+<!-- <section class="bg-orange-100 px-4 flex flex-col items-center py-7 gap-5 ">
+  <div class="w-[80%] flex flex-col gap-6 md:w-[70%]">
+    <h1 class="w-1/3 lg:w-2/3">Interviews and Podcasts</h1>
+    <button class="bg-orange-600 w-1/2 lg:w-1/3 rounded-[20px] font-semibold py-[8px]">Invite</button>
+    <div class="border-t border-dashed border-orange-600 "></div>
+    <p>Videos from past interviews and podcasts</p>
+  </div>
+  
+  <div class="swiper-container flex gap-8">
+    <div> 
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/H5PJgAEEH-w" title="Acharya Prashant Exclusive Interview: FEMINISM &amp; WOMANHOOD | Jagran Manthan Podcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" ></iframe>
+    </div>
+    <div>
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/gXB3hlDmirU" title="जानलेवा गर्मी और चुनावी तपन : अंगार बनकर बरसे आचार्य प्रशांत" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/6pDHTJ1hK7E" title="NDTV इंटरव्यू, IIT दिल्ली || आचार्य प्रशांत (2024)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/gGE9xxtVFTc" title="चुनाव तनाव भटकाव - किधर जाएँ? || आचार्य प्रशांत, आई. आई.टी दिल्ली (2024)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/FXf7FcIFc90" title="बात तो सीधी है || Zee TV के सुभाष चंद्रा के साथ आचार्य प्रशांत, बातचीत (2023)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/cybk7gtvn9Q" title="Everything to know about Sanatan Dharma @ShriPrashant #acharyaprashant explains A Raja, Stalin Row" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <h2>With Dainik Jagran</h2>
+    </div>
+    <div>
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/blJQ9yzxFSA" title="&#39;Sanatana dharma like HIV&#39;: DMK A Raja fuels Row | Acharya Prashant Explains Who is real Sanatani" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/UsmGmVgJaVw" title="आचार्य प्रशांत ने विरोध करने वालों पर कही बड़ी बात। बताया Mukti के बारे में | @ShriPrashant Latest" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/atKEM5ObmRE" title="Does God Exist? | Hinduism, Religion and Spirituality with Acharya Prashant x Dhruv Rathee" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+      <iframe width="378" height="212" src="https://www.youtube.com/embed/YHsJpyzlBn0" title="Shut Up Ya Kunal EP 28 || Acharya Prashant &amp; Prof. Dilip Mandal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="self-start">
+    <a>View All --</a>
+  </div>
+  
+
+</section>
+ -->
+
+
+
+<!-- SECTION-6 (IMAGE GALLERY) -->
+<!-- <div class="flex flex-col items-center">
+  <h1>Gallery</h1>
+  <div class="relative masorny-gallery min-h-screen overflow-hidden">
+    {#each data.galleryImage as image}
+      <div class="w-[100%] h-auto mt-[10px] my-[10px]">
+        <img src="{image.imageURL}" alt="Gallery Image">
+      </div>
+    {/each}
+  </div>
+
+  <div class="absolute top-0 left-0 p-4">
+    <button class="bg-orange-800 text-white px-4 py-2 rounded-lg">See All</button>
+  </div>
+</div>
+
+ -->
+
+
+
+
+ <!-- SECTION-6 (PRINT MEDIA)-->
+  <!-- <div  class="flex bg-blue-950 text-white items-center">
+    <div class="flex flex-col gap-[10px] ">
+      <h1>Print Media</h1>
+      <p>
+        The mission and teachings if Acharya Prashant are regularly and widely covered by national and international media.
+      </p>
+      <a class="text-orange-600 font-bold">VIEW ALL</a>
+    </div>
+
+    <div class="grid md:grid-cols-4 lg:grid-cols-5 sm:grid-cols-2 h-[400px] gap-[10px] overflow-hidden">
+      {#each data.printMedia as media}
+      <img src="{media.mediaURL}">
+      {/each}
+    </div>
+  </div>
+ -->
+
+  <!-- SECTION-7 (INSTITUTIONAL TALKS)
+  <div class="lg:hidden flex flex-col justify-start p-20">
+    <h1>Institutional Talks</h1>
+    <p>
+      Acharya Prashant loves interacting with the dynamic and vibrant youth, and has a profound faith in their ability to effectuate significant changes.
+      He delivers regular talks at illustrious educational institutes, including prestigious organizations such as IITs and IIMs.
+      With over 100+ college appearances and interactions with thousands of enthusiastic students, Acharya Prashant has left an indelible impression.
+    </p>
+    <div>
+      <button class="mt-4">Invite</button> Added margin-top for spacing
+    </div>
+  </div> -->
+
+  <!-- SECTION-6 (WAYS TO CONNECT) -->
+   <!-- <section class="lg:hidden">
+    <h1>Ways to connect</h1>
+    <div class="grid w-full gap-[10px] grid-cols-2 font-semibold">
+      <div class="flex flex-col gap-[10px]">
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">BHAGAVAD GITA</div>
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">AP BOOKS</div>
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">VIDEO SERIES</div>
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">IN MEDIA</div>
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">INTERVIEW</div>
+      </div>
+
+      <div class="flex flex-col gap-[10px]">
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">VEDANT: BASICS TO CLASSICS</div>
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">AP ARTICLES</div>
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">DOWNLOAD APP</div>
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">INVITE</div>
+        <div class=" border border-red-700 rounded-r-[10px] py-1 pl-3">CONTACT US</div>
+      </div>
+      
+    </div>
+   </section>
+ -->
+
+    <!-- SECTION-7 (INSTITUTIONAL TALKS) - HIDDEN ON MEDIUM -->
+
+    <!-- <div>
+      <div class="flex items-end">
+        <div>
+          <h1 class="font-bold">Institutional Talks</h1>
+          <p>Acharya Prashant loves interacting with the dynamic and vibrant youth, and has a profound faith in their ability to effectuate significant changes.<br>
+            He delivers regular talks at illustrious educational institutes, including prestigious organizations such as IITs and IIMs.<br>
+            With over 100+ college appearances and interactions with thousands of enthusiastic students, Acharya Prashant has left an indelible impression.</p>
+        </div>
+        <button class="bg-orange-600 text-white">
+          Invite
+        </button>
+      </div>
+      <div class="flex my-[60px]  gap-7">
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-144c7728-ecc9-4526-b85c-0630c8498388/30/image.jpg" alt="">
+          <h2>IIT Delhi</h2>
+          <p>13 April 2024</p>
+        </div>
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-594816fc-7557-4f01-947f-3ae3f7b3ee5b/30/image.jpg" alt="">
+          <h2>IIT Madras</h2>
+          <p>23 September 2023</p>
+        </div>
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-234812b8-3ce9-4ad0-a61a-5e7bcd898a92/30/image.jpg" alt="">
+          <h2>SRCC</h2>
+          <p>29 April 2023</p>
+        </div>
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-7acb8a82-e919-491e-8a00-f7d3aa61e79f/30/image.jpg" alt="">
+          <h2>NIT Jamshedpur</h2>
+          <p>4 October 2023</p>
+        </div>
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-e8e15791-669e-46d2-8836-55e5420db7a5/30/image.jpg" alt="">
+          <h2>Shyamlal College</h2>
+          <p>17 March 2023</p>
+        </div>
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-9ee94ac0-9271-4e44-9058-cca0ae5f13a2/30/image.jpg" alt="">
+          <h1>IIT Kanpur</h1>
+          <p>7 June 2023</p>
+        </div>
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-8ec9bd76-5c67-45a2-bcce-579f721ad876/30/image.jpg" alt="">
+          <h1>IIT Patna</h1>
+          <p>20 March 2023</p>
+       </div>
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-a754c361-4bdf-438a-a51e-24bc9bd81d3e/30/image.jpg" alt="">
+          <h1>IRMA, Ahmedabad</h1>
+          <p>13 April 2023</p>
+        </div>
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-476f7ef6-abcb-455d-9ddc-2cdac1aa8d77/30/image.jpg" alt="">
+          <h1>DOMS, IIT Delhi</h1>
+          <p>2 April 2023</p>
+        </div>
+        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-c520ba30-033f-430a-9c27-18816eca2ae1/30/image.jpg" alt="">
+          <h1>SPA, Delhi</h1>
+          <p>2 February 2023</p>
+        </div>
+      </div>
+    </div>
+ -->
 
 
 
