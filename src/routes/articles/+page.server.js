@@ -1,6 +1,6 @@
 import Articles from "$lib/database/Articles"
 import connect from "$lib/database/connection"
-
+import Books from "$lib/database/Books"
 
 
 // category wise
@@ -13,7 +13,7 @@ async function loadTrendingArticle() {
         return new Response(JSON.stringify(trendingArticle), {
             headers:{'Content-type': 'application/json'},
         })
-    } catch (err) {
+    } catch (e) {
         return new Response(JSON.stringify({ status: 401, message: e.message }), {
             headers: { 'Content-Type': 'application/json' },
         });    }
@@ -28,7 +28,7 @@ async function loadCategories() {
             headers: { 'Content-Type': 'application/json' },
         });
     } catch (err) { 
-        return new Response(JSON.stringify({ status: 401, message: e.message }), {
+        return new Response(JSON.stringify({ status: 401, message: err.message }), {
             headers: { 'Content-Type': 'application/json' },
         });
     }
@@ -44,7 +44,7 @@ async function loadRecentArticles() {
         return new Response(JSON.stringify(RecentArticles), {
             headers: { 'Content-Type': 'application/json' },
         });
-    } catch (err) { 
+    } catch (e) { 
         return new Response(JSON.stringify({ status: 401, message: e.message }), {
             headers: { 'Content-Type': 'application/json' },
         });
