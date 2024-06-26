@@ -1,1 +1,7 @@
-<h1>Articles</h1>
+<script>
+    import Slider from '../../lib/components/Slider.svelte'
+</script>
+
+<Slider></Slider>
+
+
