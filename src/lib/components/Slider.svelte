@@ -5,17 +5,12 @@
 
   let draggable = false;
   let startX, startScrollLeft;
-  let slider_track; // Reference to slider-track DOM element
-  let card_width;
+  let slider_track;
 
   onMount(() => {
-    // Initialize card_width on mount
-    card_width = slider_track.querySelector(".card").getBoundingClientRect().width;
-
-    // Adjust card width on window resize
-    window.addEventListener('resize', () => {
-      card_width = slider_track.querySelector(".card").getBoundingClientRect().width;
-    });
+    // Ensure the card width is set based on the initial render
+    window.addEventListener('resize', updateCardWidth);
+    updateCardWidth(); // Initialize the card width
   });
 
   function startScroll(e) {
@@ -36,11 +31,15 @@
   }
 
   function leftScroll() {
-    slider_track.scrollLeft -= card_width;
+    slider_track.scrollLeft -= slider_track.clientWidth;
   }
 
   function rightScroll() {
-    slider_track.scrollLeft += card_width;
+    slider_track.scrollLeft += slider_track.clientWidth;
+  }
+
+  function updateCardWidth() {
+    // Adjust card width here if necessary
   }
 </script>
 
@@ -57,13 +56,13 @@
     on:touchmove={drag}
   >
     {#each data as category}
-    <div class="card hover:bg-gray-500 min-w-[65%] lg:min-w-[18%] md:min-w-[25%] sm:min-w-[40%] aspect-[1] p-3 rounded-[7px]">
-      <img src="{category.photoURL}" alt="unable to load" draggable="false" class="mb-3">
+    <div class="card hover:bg-gray-500 p-3 rounded-[7px]">
+      <img src="{category.photoURL}" alt="unable to load" draggable="false" class="card-image">
       <h1>{category.title}</h1>
       <p>{category.language}</p>
     </div>
     {/each}
-  </div> 
+  </div>
 
   <div class="absolute top-[46%] left-[10px] bg-green-500">
     <button class="w-[50px] h-[50px]" on:click={leftScroll}>Left</button>
@@ -74,15 +73,57 @@
 </div>
 
 <style>
+  .slider-container {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
   .slider-track {
+    display: flex;
+    gap: 1rem;
     scroll-behavior: smooth;
     cursor: grab;
   }
+
   .card {
-    user-select: none;
-    cursor: grab;
+    flex: 0 0 auto; /* Prevents flex items from stretching */
+    width: 80vw; /* Use viewport width for responsiveness */
+    height: auto; /* Automatically adjust height based on content */
+    max-width: 300px; /* Max width to prevent excessive growth on large screens */
+    min-width: 150px; /* Min width to ensure readability on small screens */
+    aspect-ratio: 1; /* Maintain a square aspect ratio */
+    box-sizing: border-box;
+  }
+
+  .card-image {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the entire card space */
+    border-radius: 5px; /* Optional: Rounded corners */
+  }
+
+  /* Responsive media queries */
+  @media (min-width: 600px) {
+    .card {
+      width: 45vw; /* Adjust width for medium screens */
+    }
+  }
+
+  @media (min-width: 900px) {
+    .card {
+      width: 30vw; /* Adjust width for large screens */
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .card {
+      width: 20vw; /* Adjust width for extra-large screens */
+    }
+  }
+
+  @media (min-width: 1500px) {
+    .card {
+      width: 15vw; /* Adjust width for ultra-large screens */
+    }
   }
 </style>
-
-
-
