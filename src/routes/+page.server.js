@@ -2,12 +2,62 @@ import connect from "$lib/database/connection";
 import ArticleCategories from "$lib/database/ArticleCategories";
 import PodcastVideos from "$lib/database/PodcastVideos";
 import Gallery from "$lib/database/Gallery";
+import LiveSessions from "$lib/database/LiveSessions";
 import PrintMedia from "$lib/database/PrintMedia";
+import Books from "$lib/database/Books";
 import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
 import Razorpay from 'razorpay';
 
 
+async function loadBooks() {
+    try {
 
+        await connect()
+        const books = await Books.find().limit(6)
+        let bookURL = []
+        
+        for (let book of books) {
+            bookURL.push(book.photoURL)
+        }
+        
+        return new Response(JSON.stringify(bookURL), {
+            headers: { 'Content-Type': 'application/json' },
+        });
+        
+    } catch (err)  {
+        return new Response(JSON.stringify({ status: 401, message: err.message }), {
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+}
+
+
+async function loadIncomingSession() {
+    try {
+        await connect()
+        let gitaIncoming = await LiveSessions.find({name:"Gita Samagam"}).sort({ date: -1 }).limit(1)
+        let vedantIncoming = await LiveSessions.find({ name: "vedant samhita" }).sort({ date: -1 }).limit(1)
+        const today = new Date()
+        if (gitaIncoming[0].date > today) {
+            gitaIncoming[0]['noDate'] = "Date will be announced soon"
+        } 
+
+        if (vedantIncoming[0].date < today) {
+            vedantIncoming[0]['noDate'] = "Date will be announced soon"
+        } 
+
+     
+        return new Response(JSON.stringify({gitaIncoming, vedantIncoming}), {
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+
+    } catch (err)  {
+        return new Response(JSON.stringify({ status: 401, message: err.message }), {
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+}
 
 async function loadArticleCategories() {
     await connect();
@@ -51,7 +101,7 @@ async function loadGallery() {
     await connect()
 
     try {
-        const gallery_image_reponse = await Gallery.find().limit(10)
+        const gallery_image_reponse = await Gallery.find().limit(20)
         const gallery_image = JSON.stringify(gallery_image_reponse)
 
         return new Response(gallery_image, {
@@ -110,19 +160,24 @@ export async function load() {
     const podcastVideosResponse = await loadPodcastVideos();
     const galleryImageResponse = await loadGallery();
     const printMediaResponse = await loadPrintMedia();
+    const incomingSessionResponse = await loadIncomingSession();
+    const bookURLResponse = await loadBooks()
 
     // Check if responses are OK
     if (!podcastVideosResponse.ok) return "Error with podcast videos";
     if (!articleCategoriesResponse.ok) return "Error with articles categories";
     if (!galleryImageResponse.ok) return "Error with articles categories";
     if (!printMediaResponse.ok) return "Error with print media categories";
-
+    if (!incomingSessionResponse.ok) return "Error with live sessions fetching";
+    if (!bookURLResponse.ok) return "Error with loading book image urls"
     
     // Parse JSON response data
     const articleCategories = await articleCategoriesResponse.json();
     const podcastVideos = await podcastVideosResponse.json();
     const galleryImage = await galleryImageResponse.json()
     const printMedia = await printMediaResponse.json()
+    const incomingSessions = await incomingSessionResponse.json()
+    const bookURL = await bookURLResponse.json()
 
     //createOrder 
     let options = {
@@ -139,6 +194,8 @@ export async function load() {
         podcastVideos,
         galleryImage,
         printMedia,
-        order_data
+        order_data,
+        incomingSessions,
+        bookURL
     };
 }
