@@ -1,39 +1,105 @@
-import Books from "$lib/database/Books";
-import connect from "$lib/database/connection";
+import Books from "$lib/database/Books"
+import connect from "$lib/database/connection"
+import EBooks from "$lib/database/EBooks"
+
 async function loadBestSellers() {
     try {
-        await connect();
-        const BSResponse = await Books.find().sort({ number_of_orders: -1 }).limit(5);
-        return BSResponse; // Return the plain object
-    } catch (err) {
-        console.error('Failed to load best sellers:', err);
-        return { status: 401, message: err.message }; // Return error object directly
-    }
+        await connect()
+        // array of object (eBook)
+        const EBKresponse = await EBooks.find().sort({ number_of_orders: -1 }).limit(5)
+        
+
+        // find the corresponding paperback price, use name to refer to another collection
+        let bookPrice = []
+        for (let ebook of EBKresponse) {
+            // take its name, and search the corresponding price in BOOK table.
+            // Add paperPrice to bookPrice for that name
+            const book = await Books.findOne({ name: ebook.name }, { price: 1, _id: 0 })
+            
+            if (book) {
+                let bookForPrice = {}
+                bookForPrice["name"] = ebook.name
+                bookForPrice["price"] = ebook.price
+
+                bookPrice.push(bookForPrice)
+            } 
+            
+        }
+        
+        return new Response(JSON.stringify({EBKresponse, bookPrice}), {
+            headers:{'Content-type': 'application/json'},
+        })
+    } catch (e) {
+        console.log(e)
+        return new Response(JSON.stringify({ status: 401, message: e.message }), {
+            headers: { 'Content-Type': 'application/json' },
+        });    }
 }
 
 async function loadCategories(categories) {
     try {
-        await connect();
-        let loadCategories = {};
-        for (let cat of categories) {
-            let loadCategoryResponse = await Books.find({ tags: cat });
-            loadCategories[cat] = loadCategoryResponse;
+        await connect()
+        const loadCategoryResponse = await EBooks.find({ tags: "clarity" })
+
+        
+        // find the corresponding paperback price, use name to refer to another collection
+        let bookPrice = []
+        for (let ebook of loadCategoryResponse) {
+            // take its name, and search the corresponding price in BOOK table.
+            // Add paperPrice to bookPrice for that name
+            const book = await Books.findOne({ name: ebook.name }, { price: 1, _id: 0 })
+            
+            if (book) {
+                let bookForPrice = {}
+                bookForPrice["name"] = ebook.name
+                bookForPrice["price"] = ebook.price
+
+                bookPrice.push(bookForPrice)
+            } 
+            
         }
-        return loadCategories; // Return the plain object
-    } catch (err) {
-        console.error('Failed to load categories:', err);
-        return { status: 401, message: err.message }; // Return error object directly
+
+        return new Response(JSON.stringify({loadCategoryResponse, bookPrice}), {
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (e) { 
+        return new Response(JSON.stringify({ status: 401, message: e.message }), {
+            headers: { 'Content-Type': 'application/json' },
+        });
     }
 }
 
 async function loadNewRelease() {
     try {
-        await connect();
-        const newRelease = await Books.find().sort({ created_at: -1 }).limit(5);
-        return newRelease; // Return the plain object
-    } catch (err) {
-        console.error('Failed to load new releases:', err);
-        return { status: 401, message: err.message }; // Return error object directly
+        await connect()
+        const newRelease = await EBooks.find().sort({ created_at: -1 }).limit(5)
+
+         
+        // find the corresponding paperback price, use name to refer to another collection
+        let bookPrice = []
+        for (let ebook of newRelease) {
+            // take its name, and search the corresponding price in BOOK table.
+            // Add paperPrice to bookPrice for that name
+            const book = await Books.findOne({ name: ebook.name }, { price: 1, _id: 0 })
+            
+            if (book) {
+                let bookForPrice = {}
+                bookForPrice["name"] = ebook.name
+                bookForPrice["price"] = ebook.price
+
+                bookPrice.push(bookForPrice)
+            } 
+            
+        }
+
+       
+        return new Response(JSON.stringify({newRelease, bookPrice}), {
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (err) { 
+        return new Response(JSON.stringify({ status: 401, message: e.message }), {
+            headers: { 'Content-Type': 'application/json' },
+        });
     }
 }
 
