@@ -1,12 +1,6 @@
 import mongoose from "mongoose";
 
 const LiveSessionsSchema = new mongoose.Schema({
-
-    session_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Books',
-        required: true
-    },
     date: {
         type: Date,
         default: Date.now,
@@ -16,7 +10,12 @@ const LiveSessionsSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim:true
+    },
+    language: {
+        type: String,
+        required: true,
+        enum:['hindi', 'english']
     }
 })
 
-export default mongoose.model('LiveSessions', LiveSessionsSchema)
+export default mongoose.models.LiveSessions || mongoose.model('LiveSessions', LiveSessionsSchema)
