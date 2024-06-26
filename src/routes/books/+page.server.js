@@ -1,66 +1,61 @@
-import Books from "$lib/database/Books"
-import connect from "$lib/database/connection"
-
+import Books from "$lib/database/Books";
+import connect from "$lib/database/connection";
 async function loadBestSellers() {
     try {
-        await connect()
-        const BSResponse = await Books.find().sort({ number_of_orders: -1 }).limit(5)
-        
-        return new Response(JSON.stringify(BSResponse), {
-            headers:{'Content-type': 'application/json'},
-        })
+        await connect();
+        const BSResponse = await Books.find().sort({ number_of_orders: -1 }).limit(5);
+        return BSResponse; // Return the plain object
     } catch (err) {
-        return new Response(JSON.stringify({ status: 401, message: e.message }), {
-            headers: { 'Content-Type': 'application/json' },
-        });    }
-}
-
-async function loadCategories() {
-    try {
-        await connect()
-        const loadCategoryResponse = await Books.find({ tags: "clarity" })
-       
-        return new Response(JSON.stringify(loadCategoryResponse), {
-            headers: { 'Content-Type': 'application/json' },
-        });
-    } catch (err) { 
-        return new Response(JSON.stringify({ status: 401, message: e.message }), {
-            headers: { 'Content-Type': 'application/json' },
-        });
+        console.error('Failed to load best sellers:', err);
+        return { status: 401, message: err.message }; // Return error object directly
     }
 }
 
+async function loadCategories(categories) {
+    try {
+        await connect();
+        let loadCategories = {};
+        for (let cat of categories) {
+            let loadCategoryResponse = await Books.find({ tags: cat });
+            loadCategories[cat] = loadCategoryResponse;
+        }
+        return loadCategories; // Return the plain object
+    } catch (err) {
+        console.error('Failed to load categories:', err);
+        return { status: 401, message: err.message }; // Return error object directly
+    }
+}
 
 async function loadNewRelease() {
-
     try {
-        await connect()
-        const newRelease = await Books.find().sort({ created_at: -1 }).limit(5)
-       
-        return new Response(JSON.stringify(newRelease), {
-            headers: { 'Content-Type': 'application/json' },
-        });
-    } catch (err) { 
-        return new Response(JSON.stringify({ status: 401, message: e.message }), {
-            headers: { 'Content-Type': 'application/json' },
-        });
+        await connect();
+        const newRelease = await Books.find().sort({ created_at: -1 }).limit(5);
+        return newRelease; // Return the plain object
+    } catch (err) {
+        console.error('Failed to load new releases:', err);
+        return { status: 401, message: err.message }; // Return error object directly
     }
-    
 }
 
 
 
 export async function load() {
-    const newReleaseRespose = await loadNewRelease()
-    const loadCategoriesResponse = await loadCategories()
-    const loadBestSellersResponse = await loadBestSellers()
-    const loadBestSeller = await loadBestSellersResponse.json()
-    const newRelease = await newReleaseRespose.json()
-    const newCategories = await loadCategoriesResponse.json()
- 
-    return {
-        newRelease,
-        newCategories,
-        loadBestSeller
+    try {
+        const newReleaseResponse = await loadNewRelease();
+        const categories = ['bhagwat gita', 'ego', 'clarity'];
+        const loadCategoriesResponse = await loadCategories(categories);
+        const loadBestSellersResponse = await loadBestSellers();
+
+        return {
+                newRelease: JSON.stringify(newReleaseResponse), // Serialize to JSON
+                newCategories: JSON.stringify(loadCategoriesResponse), // Serialize to JSON
+                loadBestSeller: JSON.stringify(loadBestSellersResponse) // Serialize to JSON
+        };
+    } catch (e) {
+        console.error('Failed to load data:', e);
+        return {
+            status: 401,
+            message: e.message
+        };
     }
 }
