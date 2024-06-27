@@ -1,7 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-
-  export let data; // Data for the cards
+ 
 
   let draggable = false;
   let startX, startScrollLeft;
@@ -45,7 +44,7 @@
 
 <div class="slider-container relative">
   <div
-    class="slider-track flex gap-2 overflow-hidden"
+    class="slider-track flex overflow-hidden"
     bind:this={slider_track}
     on:mousemove={drag}
     on:mousedown={startScroll}
@@ -55,13 +54,7 @@
     on:touchend={stopScroll}
     on:touchmove={drag}
   >
-    {#each data as category}
-    <div class="card hover:bg-gray-500 p-3 rounded-[7px]">
-      <img src="{category.photoURL}" alt="unable to load" draggable="false" class="card-image">
-      <h1>{category.title}</h1>
-      <p>{category.language}</p>
-    </div>
-    {/each}
+    <slot></slot>
   </div>
 
   <div class="absolute top-[46%] left-[10px] bg-green-500">
@@ -80,50 +73,10 @@
 
   .slider-track {
     display: flex;
-    gap: 1rem;
+  
     scroll-behavior: smooth;
     cursor: grab;
   }
 
-  .card {
-    flex: 0 0 auto; /* Prevents flex items from stretching */
-    width: 80vw; /* Use viewport width for responsiveness */
-    height: auto; /* Automatically adjust height based on content */
-    max-width: 300px; /* Max width to prevent excessive growth on large screens */
-    min-width: 150px; /* Min width to ensure readability on small screens */
-    aspect-ratio: 1; /* Maintain a square aspect ratio */
-    box-sizing: border-box;
-  }
 
-  .card-image {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Cover the entire card space */
-    border-radius: 5px; /* Optional: Rounded corners */
-  }
-
-  /* Responsive media queries */
-  @media (min-width: 600px) {
-    .card {
-      width: 45vw; /* Adjust width for medium screens */
-    }
-  }
-
-  @media (min-width: 900px) {
-    .card {
-      width: 30vw; /* Adjust width for large screens */
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .card {
-      width: 20vw; /* Adjust width for extra-large screens */
-    }
-  }
-
-  @media (min-width: 1500px) {
-    .card {
-      width: 15vw; /* Adjust width for ultra-large screens */
-    }
-  }
 </style>

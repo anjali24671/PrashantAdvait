@@ -19,12 +19,13 @@ async function loadBestSellers() {
             if (book) {
                 let bookForPrice = {}
                 bookForPrice["name"] = ebook.name
-                bookForPrice["price"] = ebook.price
+                bookForPrice["price"] = book.price
 
                 bookPrice.push(bookForPrice)
             } 
             
         }
+        
         
         return new Response(JSON.stringify({EBKresponse, bookPrice}), {
             headers:{'Content-type': 'application/json'},
@@ -37,14 +38,20 @@ async function loadBestSellers() {
 }
 
 async function loadCategories(categories) {
+    const lifeProblemTags = ['depression and anxiety', 'money', 'fear', 'suffering', 'lonliness', 'personality', 'success', 'desire', 'emotions', 'anger', 'goal', 'attachment', 'concentration']
+    const spiritualWisomTags = ['ramayan', 'advait', 'shri ramchandra manas', 'renunciation', 'saint kabir', 'meditation', 'ashtavakra gita', 'chhandogya upanishad', 'karma', 'bhagawat gita', 'purana']
+    const veganismTags = ['animal cruelity', 'population', 'climate change', 'liberation', "ego"]
     try {
         await connect()
-        const loadCategoryResponse = await EBooks.find({ tags: "clarity" })
-
         
+        const lifeProblemCategoryResponse = await EBooks.find({ tag: { $in: lifeProblemTags } })
+        const spiritualWisdomResponse = await EBooks.find({ tag: { $in: spiritualWisomTags } })
+        const veganismResponse = await EBooks.find({tag:{ $in: veganismTags}})
+
+        let loadCategories = {}
         // find the corresponding paperback price, use name to refer to another collection
         let bookPrice = []
-        for (let ebook of loadCategoryResponse) {
+        for (let ebook of lifeProblemCategoryResponse) {
             // take its name, and search the corresponding price in BOOK table.
             // Add paperPrice to bookPrice for that name
             const book = await Books.findOne({ name: ebook.name }, { price: 1, _id: 0 })
@@ -52,7 +59,36 @@ async function loadCategories(categories) {
             if (book) {
                 let bookForPrice = {}
                 bookForPrice["name"] = ebook.name
-                bookForPrice["price"] = ebook.price
+                bookForPrice["price"] = book.price
+
+                bookPrice.push(bookForPrice)
+            } 
+            
+        }
+       
+        for (let ebook of spiritualWisdomResponse) {
+            // take its name, and search the corresponding price in BOOK table.
+            // Add paperPrice to bookPrice for that name
+            const book = await Books.findOne({ name: ebook.name }, { price: 1, _id: 0 })
+            
+            if (book) {
+                let bookForPrice = {}
+                bookForPrice["name"] = ebook.name
+                bookForPrice["price"] = book.price
+
+                bookPrice.push(bookForPrice)
+            } 
+            
+        }
+        for (let ebook of veganismResponse) {
+            // take its name, and search the corresponding price in BOOK table.
+            // Add paperPrice to bookPrice for that name
+            const book = await Books.findOne({ name: ebook.name }, { price: 1, _id: 0 })
+            
+            if (book) {
+                let bookForPrice = {}
+                bookForPrice["name"] = ebook.name
+                bookForPrice["price"] = book.price
 
                 bookPrice.push(bookForPrice)
             } 
@@ -85,7 +121,7 @@ async function loadNewRelease() {
             if (book) {
                 let bookForPrice = {}
                 bookForPrice["name"] = ebook.name
-                bookForPrice["price"] = ebook.price
+                bookForPrice["price"] = book.price
 
                 bookPrice.push(bookForPrice)
             } 
@@ -112,10 +148,16 @@ export async function load() {
         const loadCategoriesResponse = await loadCategories(categories);
         const loadBestSellersResponse = await loadBestSellers();
 
+        const newRelease = await newReleaseResponse.json()
+        const newCategories = await loadCategoriesResponse.json()
+        const loadBestSeller = await loadBestSellersResponse.json()
+       
+     
+
         return {
-                newRelease: JSON.stringify(newReleaseResponse), // Serialize to JSON
-                newCategories: JSON.stringify(loadCategoriesResponse), // Serialize to JSON
-                loadBestSeller: JSON.stringify(loadBestSellersResponse) // Serialize to JSON
+            newRelease,
+            newCategories, 
+            loadBestSeller
         };
     } catch (e) {
         console.error('Failed to load data:', e);
