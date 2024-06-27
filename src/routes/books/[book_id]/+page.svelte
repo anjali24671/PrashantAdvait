@@ -1,0 +1,48 @@
+<script>
+   
+</script>
+
+<main>
+
+   <div class="flex m-5 justify-between gap-5">
+      <div class="min-w-44 hidden flex lg:block lg:min-w-52 rounded-[5px] h-[300px] bg-orange-500"> 
+         <img class="lg:w-full self-center w-44" src="#">
+      </div>
+      <div class="flex  flex-col gap-5">
+         <h1>title</h1>
+         <div class="min-w-44 lg:hidden lg:min-w-52 rounded-[5px] h-[300px] bg-orange-500"> 
+            <img src="#">
+         </div>
+         <div class="bg-orange-100 w-full lg:w-44">ebook section</div>
+         <div class="flex  items-center">
+            <svg  xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" class="h-3 w-3 flex-shrink-0 fill-current lg:h-4 lg:w-4"><path fill="current-color" d="M9.636 18.763q1.87 0 3.525-.719a9.36 9.36 0 0 0 4.888-4.888q.714-1.65.714-3.53 0-1.87-.719-3.524a9.4 9.4 0 0 0-1.979-2.918 9.2 9.2 0 0 0-2.913-1.974A8.85 8.85 0 0 0 9.627.5q-1.87 0-3.52.71a9.3 9.3 0 0 0-2.914 1.974 9.3 9.3 0 0 0-1.979 2.918A8.8 8.8 0 0 0 .5 9.627q0 1.88.72 3.53a9.4 9.4 0 0 0 1.978 2.908q1.26 1.26 2.909 1.979 1.65.72 3.53.72m-1.617-4.09q-.301 0-.508-.197a.66.66 0 0 1-.207-.498q0-.283.207-.484a.7.7 0 0 1 .508-.202h1.109V9.288h-.95q-.3 0-.507-.192a.66.66 0 0 1-.207-.503q0-.273.207-.475a.7.7 0 0 1 .507-.202h1.74q.376 0 .568.24.193.24.193.644v4.493h1.08q.302 0 .503.202a.66.66 0 0 1 .202.484q0 .3-.202.498a.7.7 0 0 1-.503.197zM9.57 6.44q-.516 0-.878-.361a1.2 1.2 0 0 1-.362-.87q0-.526.362-.888.361-.362.878-.362.508 0 .87.362.362.361.362.888 0 .507-.362.87a1.2 1.2 0 0 1-.87.361"></path></svg>
+            <p>Now you can read eBook on our mobile app for the best reading experience</p>
+            <a>View App</a>
+         </div>
+
+         <div class="min-w-80 lg:hidden h-[400px] rounded-[5px] bg-orange-600">checkout</div>
+
+
+         <div>
+            <h2>Book Details</h2>
+            <p>Language</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"><path d="M11.436 19.486q.464 0 1.144-.526.678-.527 1.42-1.382.743-.855 1.393-1.822a13 13 0 0 0 1.059-1.857q.407-.89.407-1.49 0-.453-.39-1.013a6 6 0 0 0-.99-1.087 6.4 6.4 0 0 0-1.246-.866q-.646-.34-1.144-.34-.317 0-.685.187a21 21 0 0 0-.713.38q-.345.192-.617.192-.17 0-.487-.181a5 5 0 0 1-.64-.442 4.3 4.3 0 0 1-.544-.515q-.22-.255-.22-.402 0-.102.141-.22a.45.45 0 0 1 .289-.12q.147 0 .515.25.368.249.787.498t.725.249q.69 0 1.092-.419.402-.42.402-1.121 0-.441-.385-1.019.442-.227 1.02-.555.576-.329 1.16-.741a8 8 0 0 0 1.064-.9q.48-.487.72-1.042l-.997-.51q-.204.499-.702.951a8 8 0 0 1-1.127.85q-.629.396-1.25.724-.624.329-1.088.566a.5.5 0 0 0-.255.295q-.062.192.097.43.339.453.487.685t.147.402a.27.27 0 0 1-.085.198.27.27 0 0 1-.198.085q-.182 0-.572-.25-.39-.248-.821-.497-.43-.25-.736-.25-.375 0-.73.221a2 2 0 0 0-.595.56q-.237.34-.238.68 0 .375.323.827.322.453.81.872.486.418 1.002.685.515.266.889.266.305 0 .713-.187.407-.187.77-.38.362-.192.532-.192.249 0 .69.255.442.255.895.634.453.38.759.742t.306.566q0 .373-.357 1.087-.357.712-.906 1.545a23 23 0 0 1-1.155 1.597q-.606.765-1.12 1.25-.516.488-.799.488a.6.6 0 0 1-.351-.136q-.18-.135-.181-.272 0-.09.028-.192.029-.102.119-.385.08-.25.175-.595.097-.345.085-.73-.01-.532-.458-.985-.447-.453-1.365-1.098l-.356-.25a8 8 0 0 1-.346-.26q-.475-.351-.475-.725 0-.18.147-.611.159-.555.159-.804 0-.363-.187-.645-.187-.284-.595-.612a1 1 0 0 1-.09-.08.5.5 0 0 0-.102-.078L5.91 8.39q-1.052-.94-1.438-1.664Q4.088 6 4.19 5.344t.544-1.37l-1.098-.226a3.9 3.9 0 0 0-.567 1.59q-.101.845.368 1.818.471.975 1.727 2.083l1.699 1.495q.294.249.441.385t.147.249q0 .17-.147.532a2.3 2.3 0 0 0-.147.85q0 .94.917 1.63.93.69 1.506 1.104.577.412.577.606 0 .475-.203.917a2.4 2.4 0 0 0-.204 1.007q0 .363.255.702.255.34.645.555t.787.215M11.006 22q2.253 0 4.246-.866a11.27 11.27 0 0 0 5.887-5.888Q22 13.259 22 10.994q0-2.253-.866-4.246a11.3 11.3 0 0 0-2.384-3.515A11.1 11.1 0 0 0 15.24.855 10.7 10.7 0 0 0 10.994 0q-2.253 0-4.24.855a11.2 11.2 0 0 0-3.51 2.378A11.2 11.2 0 0 0 .861 6.748 10.6 10.6 0 0 0 0 10.994q0 2.265.866 4.252A11.3 11.3 0 0 0 3.25 18.75a11.3 11.3 0 0 0 3.504 2.384Q8.741 22 11.006 22m0-1.608a9.1 9.1 0 0 1-3.63-.736 9.6 9.6 0 0 1-3.005-2.032 9.5 9.5 0 0 1-2.039-3 9.1 9.1 0 0 1-.735-3.63q0-1.925.735-3.629a9.5 9.5 0 0 1 2.039-3 9.7 9.7 0 0 1 3-2.033 9 9 0 0 1 3.623-.735q1.937 0 3.635.735a9.7 9.7 0 0 1 3 2.033 9.5 9.5 0 0 1 2.039 3 9.1 9.1 0 0 1 .735 3.63 9.1 9.1 0 0 1-.735 3.628 9.5 9.5 0 0 1-2.039 3 9.7 9.7 0 0 1-3 2.033 9 9 0 0 1-3.623.736"></path></svg>
+            <p>hindi</p>
+         </div>
+
+         <hr>
+
+         <div>
+            <h2>Description</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt assumenda ipsam nemo voluptate totam, doloremque fugit saepe accusantium excepturi in exercitationem, fuga dolore dolorum, minus debitis quibusdam molestias inventore a?
+            Esse quaerat assumenda quidem qui veniam beatae, pariatur, aut omnis fugiat provident ex. Distinctio ad, totam deleniti rem explicabo recusandae impedit perspiciatis, quasi, suscipit quia dolorem debitis sunt ratione repellat!
+            Voluptatibus molestiae nisi, quisquam reiciendis accusamus repudiandae vel, nesciunt distinctio, voluptatem nihil eaque placeat! Officia at saepe est ducimus ipsa illum autem dolores vero quas, id reiciendis recusandae, eos repellat.
+            Quidem, exercitationem, modi numquam at necessitatibus blanditiis ad ut veritatis rem magnam esse. Ipsum sapiente asperiores porro molestiae ad recusandae doloremque fuga illo, enim aperiam, voluptate eos maiores nam expedita?
+            Possimus impedit fugit aliquam voluptates inventore similique, facilis repudiandae tempora quam porro praesentium, molestias adipisci cupiditate libero vero officia laboriosam atque fugiat tenetur voluptatibus ab. Sunt ullam cupiditate exercitationem suscipit.
+            Ipsam quibusdam deleniti sapiente iusto libero nesciunt totam, similique esse necessitatibus quod mollitia voluptatum in incidunt temporibus. Tempora voluptatibus molestiae ex culpa iure, sapiente dolore. Nobis quam corporis quidem eos!</p>
+         </div>
+      </div>
+      <div class="min-w-80 hidden lg:flex h-[400px] rounded-[5px] bg-orange-600">checkout</div>
+   </div>
+   
+</main>
