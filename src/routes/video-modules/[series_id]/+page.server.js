@@ -8,7 +8,7 @@ export async function load({ params }) {
 
         const series_id = params.series_id
         // find the video series for the given (params) videoCategory
-        const videoSeriesResponse = await VideoSeries.find({ category_id: series_id }) 
+        const videoSeriesResponse = await VideoSeries.find({_id: series_id }) 
         let videoSeries = {}
         videoSeries["videoSeries"] = videoSeriesResponse
 
