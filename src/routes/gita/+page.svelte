@@ -33,7 +33,7 @@
 </script>
 
 
-
+<!-- MAIN SECTION -->
 <section class="flex gap-7 flex-col justify-center items-center">
     <div><h1>LIVE BHAGAWAD GITA</h1></div>
     <div class="self-center">Acharya Prashant is teaching Bhagawad Gita, verse by verse.
@@ -48,20 +48,20 @@
     </div>
 
 
-    <div class="flex gap-5  items-start">
-        <div class="bg-green-100 w-[150px] text-center ">
+    <div class="flex gap-5 md:flex-row flex-col items-center md:items-start">
+        <div class="bg-green-100 md:w-[150px] text-center ">
             <h1>30000+</h1>
             <p>Participants attend live classes together from across the globe</p>
         </div>
-        <div class="bg-green-100 w-[150px] text-center">
+        <div class="bg-green-100 md:w-[150px] text-center">
             <h1>1,30,000+</h1>
             <p>Active users on Gita Community</p>
         </div>
-        <div class="bg-green-100 w-[150px] text-center">
+        <div class="bg-green-100 md:w-[150px] text-center">
             <h1>3000+</h1>
             <p>Questions answered. Opportunity to ask questions from Acharya Prashant.</p>
         </div>
-        <div class="bg-green-100 w-[150px] text-center">
+        <div class="bg-green-100 md:w-[150px] text-center">
             <h1>300+</h1>
             <p>Sessions conducted. 30 live sessions every month. Get access to all past sessions.</p>
         </div>
@@ -77,7 +77,7 @@
                 <img src="{highlight.image}" alt="unable to load" draggable="false" class="card-image">
                 <h1>{highlight.title}</h1>
                 <p class="truncate">{highlight.description}</p>
-            </div>
+            </div>365
         {/each}
     </Slider>
 
