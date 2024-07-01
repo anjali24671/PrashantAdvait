@@ -5,8 +5,6 @@ import Gallery from "$lib/database/Gallery";
 import LiveSessions from "$lib/database/LiveSessions";
 import PrintMedia from "$lib/database/PrintMedia";
 import Books from "$lib/database/Books";
-import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
-import Razorpay from 'razorpay';
 
 
 async function loadBooks() {
@@ -134,27 +132,6 @@ async function loadPrintMedia() {
 }
 
 
-async function createOrder(options) {
-    
-    let order_id = ""
-    let amount
-    let currency=""
-
-    let instance = new Razorpay({ key_id: PUBLIC_KEY_ID, key_secret: PUBLIC_KEY_SECRET })
-
-    instance.orders.create(options, function (err, order) {
-        if (err) console.error(err);
-        else {
-            order_id = order.id
-            amount = order.amount
-            currency = order.currency
-        }
-        return order_id
-    });
-   
-    
-}
-
 export async function load() {
     const articleCategoriesResponse = await loadArticleCategories();
     const podcastVideosResponse = await loadPodcastVideos();
@@ -179,14 +156,6 @@ export async function load() {
     const incomingSessions = await incomingSessionResponse.json()
     const bookURL = await bookURLResponse.json()
 
-    //createOrder 
-    let options = {
-        amount: 50000,  // amount in the smallest currency unit
-        currency: "INR",
-        receipt: "order_rcptid_11"
-    };
-    const order_data = await createOrder(options)
-    console.log(order_data)
     
     // Return serialized data
     return {
@@ -194,7 +163,7 @@ export async function load() {
         podcastVideos,
         galleryImage,
         printMedia,
-        order_data,
+     
         incomingSessions,
         bookURL
     };
