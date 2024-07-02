@@ -1,16 +1,27 @@
 <script>
     import Slider from "../../lib/components/Slider.svelte";
+    import {onMount} from 'svelte';
+    import searchQuery from "../stores/searchQuery";
+    import search from '../utils/search';
+
     export let data
 
-</script>
+    onMount(()=>{
+      searchQuery.subscribe((value)=>{
+        console.log(value)
 
+        search(value, "book")
+      })
+    })
+
+</script>
 
 
 
     <h1>NEW RELEASE</h1>
    
     
-    <Slider height="22vh">
+    <Slider>
             {#each data.newRelease.newRelease as book}
                 <div style="height:22vh;" class="cardH border m-3 border-gray-600 flex hover:bg-gray-500 rounded-[7px]">
                     <img src="{book.photoURL}" alt="book.name" >
@@ -20,7 +31,7 @@
                         <p class="text-xs">Suggested contribution</p>
                         <p class="text-sm">Paperback:</p>
                         <div class="mt-4 flex items-center font-semibold text-sm justify-center">
-                            <a href='#'>Add to Cart</a>
+                            <a href='/books/{book._id}'>Add to Cart</a>
                         </div>   
                     </div>
                 </div>
@@ -30,7 +41,7 @@
 
     <h1>BESTSELLERS</h1>
    
-    <Slider height="22vh">
+    <Slider>
             {#each data.loadBestSeller.EBKresponse as book}
                 <div  class="cardV p-4 border-2 md:m-3 m-1 hover:border-orange-600 flex flex-col  items-center   ">
                     <img  src="{book.photoURL}" alt="book.name" >
@@ -40,7 +51,7 @@
                         <p class="text-xs">Suggested contribution</p>
                         <p class="text-sm">Paperback:</p>
                         <div class="mt-4 flex items-center font-semibold text-sm justify-center">
-                            <a href='#'>Add to Cart</a>
+                            <a href='/books/{book._id}'>Add to Cart</a>
                         </div>   
                     </div>
                 </div>
