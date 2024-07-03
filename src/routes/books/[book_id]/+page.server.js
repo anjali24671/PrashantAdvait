@@ -28,11 +28,10 @@ export async function load({ params }) {
             } 
             
         }
-        
+        const ebook =JSON.stringify(EbookResponse)
 
-        const book = await EbookResponse.json()
         return {
-            book,
+            ebook
             
         }
 

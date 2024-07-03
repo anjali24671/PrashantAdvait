@@ -31,3 +31,25 @@ export async function POST({ request }) {
     }
    
 }
+
+
+export async function GET({url }) {
+   
+    const userFront_id = url.searchParams.get("userfront_id")
+    try {
+        await connect()
+
+        const response = await Users.findOne({ userFront_id: userFront_id })
+        
+        console.log(`The userid corresponding to userfront=${userFront_id} is=> ${response}`)
+
+        return new Response(JSON.stringify(
+            { "user":response }
+        ))
+    } catch (e) {
+        return new Response(JSON.stringify(
+            {status: 401, message: e.message}
+        ))
+    }
+   
+}

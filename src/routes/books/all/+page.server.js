@@ -13,13 +13,14 @@ export async function load({fetch}) {
     for (let e of eBooks) {
         for (let b of books) {
             if (e.name === b.name) {
-                e.bookPrice = b.price 
+                e.paper_price = b.price 
+                e.book_id = b._id
                 console.log(e)
             }
         }
     }
 
-    
+
 
     return {
         eBooks
