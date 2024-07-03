@@ -54,13 +54,16 @@ export async function GET({ url }) {
         if (query) {
              eBooks = await EBooks.find({ name: { $regex: regex } })
         }
-        if (price) {
-    
-            eBooks = await EBooks.find({price:price})
-        }
         else {
-             eBooks = await EBooks.find()
+            if (price) {
+    
+                eBooks = await EBooks.find({price:price})
+            }
+            else {
+                 eBooks = await EBooks.find()
+            }
         }
+        
         
         return new Response(JSON.stringify(eBooks));
 

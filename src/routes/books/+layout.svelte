@@ -1,7 +1,15 @@
 <script>
     import searchQuery from '../stores/searchQuery'
+    import { goto } from '$app/navigation';
 
     let inputQuery = ''
+   
+    function getOffer(event){
+        let price = event.target.value
+        goto(`books/section/${price}`)
+
+    }
+
 
     function setQuery(){
         searchQuery.set(inputQuery)
@@ -25,8 +33,14 @@
             <div class="flex gap-4">
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">All</div>
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">Explore</div>
-                <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">Categories</div>
-                <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">Offers</div>
+              
+                <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">
+                    <select on:change={getOffer} >
+                        <option value=99>Books at 99</option>
+                        <option value=129>Books at 129</option>
+                        <option value=51>Books at 51</option>
+                    </select>
+                </div>
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">My Books</div>
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">My Orders</div>
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">Contact Us</div>
