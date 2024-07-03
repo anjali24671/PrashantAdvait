@@ -39,3 +39,44 @@ export async function POST({ request }) {
     }
    
 }
+
+
+export async function GET({ url }) {
+    const query = url.searchParams.get('query');
+    const price = Number(url.searchParams.get('price'))
+    console.log(price)
+    try {
+        await connect(); // Establish MongoDB connection
+        // Case-insensitive regex pattern
+        const regex = new RegExp(query, 'i'); // Case-insensitive regex pattern
+
+        let eBooks
+        if (query) {
+             eBooks = await EBooks.find({ name: { $regex: regex } })
+        }
+        if (price) {
+    
+            eBooks = await EBooks.find({price:price})
+        }
+        else {
+             eBooks = await EBooks.find()
+        }
+        
+        return new Response(JSON.stringify(eBooks));
+
+
+    } catch (error) {
+        console.error('Error fetching eBooks:', error);
+        return new Response(JSON.stringify({ status: 401, message: error.message }), {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            status: 401
+        });
+    }
+}
+
+
+
+
+
