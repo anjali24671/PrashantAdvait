@@ -6,10 +6,13 @@
    
     function getOffer(event){
         let price = event.target.value
-        goto(`books/section/${price}`)
+        goto(`/books/section/${price}`)
 
     }
 
+    function getAll(){
+        goto('/books/all')
+    }
 
     function setQuery(){
         searchQuery.set(inputQuery)
@@ -31,7 +34,9 @@
                 
             </div>
             <div class="flex gap-4">
-                <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">All</div>
+                <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">
+                    <button on:click={getAll}>All</button>
+                </div>
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">Explore</div>
               
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">

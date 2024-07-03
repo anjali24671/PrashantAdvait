@@ -62,7 +62,7 @@ export async function GET({ url }) {
             books = await Books.find({price:price})
         }
         else {
-             books = await Books.find()
+             books = await Books.find().sort({ name: 1 })
         }
         
 

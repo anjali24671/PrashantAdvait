@@ -1,12 +1,13 @@
 <script>
+    import addBookToCart from "../../routes/utils/addBookToCart"
+    import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
+    import Userfront from '@userfront/toolkit/web-components';
     export let image
     export let book_name
     export let book_id
     export let book_price
     export let paper_price = "paperback not available"
 
-
-    // add book to cart
 </script>
 
 
@@ -18,7 +19,7 @@
         <p class="text-xs">Suggested contribution</p>
         <p class="text-sm">{paper_price}</p>
         <div class="mt-4 flex items-center font-semibold text-sm justify-center">
-            <a href='/books/{book_id}'>Add to Cart</a>
+            <button on:click={()=> addBookToCart(book_id, 2)}>Add to Cart</button>
         </div>   
     </div>
 </div>
