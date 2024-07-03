@@ -8,11 +8,9 @@
 
 
 {#each data.eBooks as ebook}
-{#if ebook.name[0]===prev}
-<p>{ebook.name}</p>
+{#if ebook.bookPrice}
+<p>{ebook.bookPrice}</p>
 
-{:else}
-<h1>hello</h1>
 {/if}
 
 {/each}
