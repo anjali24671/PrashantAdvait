@@ -30,6 +30,55 @@
         {   "image":"https://cimg.acharyaprashant.org/images/img-88fabbe3-7d0d-4fed-849a-2e1aab1be5f1/20/image.jpg",
             "title":"Online Gita Community", "description":"Participants interact with each other and share learnings and reflections on Acharya Prashant App."}
     ])
+
+    let yourVoiceVideos = writable([
+        {
+            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
+            "user_name":"Sonam Panjwani",
+            "userImage":""
+        },
+        {
+            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
+            "user_name":"Vivek Shukla",
+            "userImage":""
+        },
+        {
+            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
+            "user_name":"Smriti Juneja",
+            "userImage":""
+        },
+        {
+            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
+            "user_name":"Punit Jindal",
+            "userImage":"https://cimg.acharyaprashant.org/images/img-a09d620f-e7a7-4842-b20f-f9f26187e66e/0/image.jpg"
+        },
+        {
+            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
+            "user_name":"Upesh Kumar",
+            "userImage":"https://cimg.acharyaprashant.org/images/img-b4df9d36-22bc-4bb4-af1a-071d576d3786/0/image.jpg"
+        },
+        {
+            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
+            "user_name":"Vasudeo Kumar Chaudhary",
+            "userImage":"https://cimg.acharyaprashant.org/images/img-838d56b4-1c2e-4a5e-9879-4a40785e2650/0/image.jpg"
+        },
+        {
+            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
+            "user_name":"Yogita Singh Tomar",
+            "userImage":"https://cimg.acharyaprashant.org/images/img-ad8c51c6-4e3a-48f8-b840-8bc072c17106/0/image.jpg"
+        },
+        {
+            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
+            "user_name":"Arpit gupta",
+            "userImage":"https://cimg.acharyaprashant.org/images/img-fc09821a-e616-48bf-b382-4cc02e9c88e3/0/image.jpg"
+        },
+        {
+            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
+            "user_name":"Veena Gupta",
+            "userImage":"https://cimg.acharyaprashant.org/images/img-718e1b27-e250-4ab9-abbe-bdff433fdae5/0/image.jpg"
+        },
+ 
+    ])
 </script>
 
 
@@ -81,6 +130,28 @@
         {/each}
     </Slider>
 
+</section>
+
+
+
+<!-- YOUR VOICE SECTION -->
+<section>
+    <Slider>
+        {#each $yourVoiceVideos as video}
+            <div class="card flex flex-col overflow-hidden p-3 ">
+                <video controls>
+                    <!-- Video source -->
+                    <source src="{video.video}" type="video/mp4">
+                    Your browser does not support the video tag.
+                    <img src="https://cimg.acharyaprashant.org/images/img-41aece10-0782-411a-bf78-a2a168f5a53d/0/image.jpg">
+                  </video>
+                <div>
+                    <img src="{video.userImage}">
+                    <p>{video.user_name}</p>
+                </div> 
+            </div>
+        {/each}
+    </Slider>
 </section>
 
 
