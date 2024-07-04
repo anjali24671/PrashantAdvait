@@ -11,29 +11,32 @@ export async function load({ params }) {
         const ebook_id = params.book_id
 
         const EbookResponse = await EBooks.find({ _id: ebook_id })
-        console.log(EbookResponse)
 
-        let bookPrice = []
-        for (let ebook of EbookResponse) {
+        // let bookCol = []
+        // for (let ebook of EbookResponse) {
+
+            let newBook={}
             // take its name, and search the corresponding price in BOOK table.
             // Add paperPrice to bookPrice for that name
-            const book = await Books.findOne({_id:ebook_id }, { price: 1, _id: 0 })
+            const bookres = await Books.findOne({ _id: EbookResponse[0]._id }, { price: 1, _id: 1 })
             
-            if (book) {
-                let bookForPrice = {}
-                bookForPrice["name"] = ebook.name
-                bookForPrice["price"] = book.price
-
-                bookPrice.push(bookForPrice)
-            } 
+            newBook['name'] = EbookResponse[0].name
+            newBook['price'] = EbookResponse[0].price
+            newBook['id'] = EbookResponse[0]._id
+            newBook['photoURL'] = EbookResponse[0].photoURL
+            newBook['language'] = EbookResponse[0].language
+            newBook['description'] = EbookResponse[0].description
             
-        }
         
-
-        const book = await EbookResponse.json()
+            if (bookres) {
+                newBook['paperPrice'] = bookres.price
+                newBook['paperID'] = bookres._id
+              
+        } 
+        
+        const book = await JSON.stringify(newBook)
         return {
-            book,
-            
+           book            
         }
 
     } catch (e) {

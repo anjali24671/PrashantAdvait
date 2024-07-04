@@ -47,4 +47,4 @@ const EBooksSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('EBooks', EBooksSchema)
+export default mongoose.models.EBooks || mongoose.model('EBooks', EBooksSchema)

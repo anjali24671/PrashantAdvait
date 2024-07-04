@@ -2,6 +2,7 @@
     import Slider from "../../lib/components/Slider.svelte";
     export let data
 
+    console.log(data.newRelease.newReleaseBooks)
 </script>
 
 
@@ -9,36 +10,35 @@
 
     <h1>NEW RELEASE</h1>
    
-    
-    <Slider height="22vh">
-            {#each data.newRelease.newRelease as book}
+ <Slider height="22vh">
+            {#each data.newRelease.newReleaseBooks as book}
                 <div style="height:22vh;" class="cardH border m-3 border-gray-600 flex hover:bg-gray-500 rounded-[7px]">
                     <img src="{book.photoURL}" alt="book.name" >
                     <div class="self-end p-4 flex flex-col justify-center h-full">
                         <h3>{book.name}</h3>
                         <p class="text-sm">ebook: {book.price}</p>
                         <p class="text-xs">Suggested contribution</p>
-                        <p class="text-sm">Paperback:</p>
+                        <p class="text-sm">Paperback:{book.paperPrice? book.paperPrice : "Not available"}</p>
                         <div class="mt-4 flex items-center font-semibold text-sm justify-center">
                             <a href='#'>Add to Cart</a>
                         </div>   
                     </div>
                 </div>
             {/each}  
-    </Slider>
+    </Slider> 
 
 
     <h1>BESTSELLERS</h1>
    
     <Slider height="22vh">
-            {#each data.loadBestSeller.EBKresponse as book}
-                <div  class="cardV p-4 border-2 md:m-3 m-1 hover:border-orange-600 flex flex-col  items-center   ">
+            {#each data.loadBestSeller.bestSellerBooks as book}
+                <div  class="cardV p-4 border-2 md:m-3 m-1 hover:border-orange-600 flex flex-col  items-center">
                     <img  src="{book.photoURL}" alt="book.name" >
                     <div class="self-end  w-full flex flex-col justify-center h-full">
                         <h3>{book.name}</h3>
                         <p class="text-sm">ebook: {book.price}</p>
                         <p class="text-xs">Suggested contribution</p>
-                        <p class="text-sm">Paperback:</p>
+                        <p class="text-sm">Paperback:{book.paperPrice? book.paperPrice : "Not available"}</p>
                         <div class="mt-4 flex items-center font-semibold text-sm justify-center">
                             <a href='#'>Add to Cart</a>
                         </div>   
