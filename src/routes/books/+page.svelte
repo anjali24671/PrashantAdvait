@@ -25,7 +25,7 @@
    
     
     <Slider>
-            {#each data.newRelease.newRelease as book}
+            {#each data.newRelease.newReleaseBooks as book}
                 <BookHorizontal 
                   image={book.photoURL} 
                   book_name={book.name} 
@@ -38,7 +38,7 @@
     <h1>BESTSELLERS</h1>
    
     <Slider>
-            {#each data.loadBestSeller.EBKresponse as book}
+            {#each data.loadBestSeller.bestSellerBooks as book}
                 <BookVertical image={book.photoURL} book_name={book.name} book_id={book._id} book_price={book.price} />
             {/each}  
     </Slider>

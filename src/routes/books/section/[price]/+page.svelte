@@ -1,6 +1,6 @@
 <script>
     export let data
-   
+   console.log(data.ebooks)
 </script>
 
 
