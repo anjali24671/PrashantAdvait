@@ -6,7 +6,8 @@
    
     function getOffer(event){
         let price = event.target.value
-        goto(`/books/section/${price}`)
+        window.location.href = `/books/section/${price}`
+        
 
     }
 
