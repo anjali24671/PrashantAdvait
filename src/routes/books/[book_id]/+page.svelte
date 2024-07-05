@@ -42,7 +42,6 @@
             <p>{book.description}</p>
          </div>
       </div>
-      <div class="min-w-80 hidden lg:flex h-[400px] rounded-[5px] bg-orange-600">checkout</div>
    </div>
    
 </main>

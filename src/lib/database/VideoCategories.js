@@ -13,4 +13,4 @@ const VideoCategories = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('VideoCategories', VideoCategories);
+export default mongoose.models.VideoCategories || mongoose.model('VideoCategories', VideoCategories);

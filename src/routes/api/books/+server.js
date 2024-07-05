@@ -40,3 +40,48 @@ export async function POST({ request }) {
     }
 
 }
+
+
+
+
+export async function GET({ url }) {
+    const query = url.searchParams.get('query');
+    const price = Number(url.searchParams.get('price'))
+
+    try {
+        await connect(); // Establish MongoDB connection
+        // Case-insensitive regex pattern
+        const regex = new RegExp(query, 'i'); // Case-insensitive regex pattern
+
+        let books
+        if (query) {
+             books = await Books.find({ name: { $regex: regex } })
+        }
+        if (price) {
+    
+            books = await Books.find({price:price})
+        }
+        else {
+             books = await Books.find().sort({ name: 1 })
+        }
+        
+
+        
+        return new Response(JSON.stringify(books));
+
+
+    } catch (error) {
+        console.error('Error fetching Books:', error);
+        return new Response(JSON.stringify({ status: 401, message: error.message }), {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            status: 401
+        });
+    }
+}
+
+
+
+
+

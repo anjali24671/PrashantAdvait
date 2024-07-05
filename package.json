@@ -35,6 +35,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"date-fns": "^3.6.0",
 		"jose": "^5.4.0",
 		"mongoose": "^8.4.1",
 		"razorpay": "^2.9.4"
