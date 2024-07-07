@@ -14,8 +14,11 @@ export async function POST({ request }) {
 
         document['user_id'] = data.user_id
         document['type'] = data.type
-        if (data.book_id) document['book_id'] = data.book_id
-        if (data.Ebook_id) document['EBook_id'] = data.Ebook_id
+        if (data.book_id) {
+            document['book_id'] = data.book_id
+            document['quantity'] = data.quantity || 1  // default quantity is 1 if not provided in the request
+        }
+        if (data.Ebook_id) document['Ebook_id'] = data.Ebook_id
         if (data.video_id) document['video_id'] = data.video_id
 
         await connect()
@@ -33,3 +36,5 @@ export async function POST({ request }) {
     }
    
 }
+
+

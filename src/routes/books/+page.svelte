@@ -17,6 +17,9 @@
       })
     })
 
+
+    console.log(data.newRelease.newReleaseBooks[0].id)
+
 </script>
 
 
@@ -30,7 +33,8 @@
                   image={book.photoURL} 
                   book_name={book.name} 
                   book_price={book.price} 
-                  book_id={book._id}/>
+                  book_id={book.id}
+                  paper_id={book.paperID}/>
             {/each}  
     </Slider> 
 
@@ -39,7 +43,7 @@
    
     <Slider>
             {#each data.loadBestSeller.bestSellerBooks as book}
-                <BookVertical image={book.photoURL} book_name={book.name} book_id={book._id} book_price={book.price} />
+                <BookVertical image={book.photoURL} paper_id={book.paperID} book_name={book.name} book_id={book.id} book_price={book.price} />
             {/each}  
     </Slider>
 

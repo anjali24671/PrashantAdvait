@@ -4,7 +4,7 @@ import Userfront from '@userfront/toolkit/web-components';
 Userfront.init(PUBLIC_USERFRONT_ACCOUNT_ID);
 const {user} = Userfront
 
-export default async function addBookToCart( book_id, qty=0) {
+export default async function addBookToCart(bookData) {
     try {
 
         // get the user_id from userfront_id
@@ -12,26 +12,27 @@ export default async function addBookToCart( book_id, qty=0) {
         const userObj = await res.json()
         const user_id = userObj.user._id
 
-        let cartBody = {
-            user_id: user_id, 
-            quantity: qty,
-            book_id: book_id,
-            type:"book"
+        console.log("user_id",user_id)
+
+        for(let book of bookData){
+            book['user_id'] = user_id
+
+            console.log(book)
+            const exists = await fetch('/api/carts')
+
+            
+            // // add book to the cart of the above user
+            const response = await fetch('/api/carts', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(book),
+            });
+            
+            console.log(await response.json())
         }
 
-        console.log(user_id)
-
-        // add book to the cart of the above user
-        const response = await fetch('/api/carts', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(cartBody),
-        });
-        
-        console.log(await response.json())
-        
         
     } catch (e) { 
         console.error('Error adding book to cart:', e);

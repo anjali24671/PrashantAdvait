@@ -1,14 +1,25 @@
 <script>
     import addBookToCart from "../../routes/utils/addBookToCart"
     import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
+    import BookCartAlert from "./BookCartAlert.svelte";
     import Userfront from '@userfront/toolkit/web-components';
     export let image
     export let book_name
     export let book_id
     export let book_price
     export let paper_price = "paperback not available"
+    export let paper_id
+    let showCartOption = false
+
+    function showCartOptions(){
+        console.log(book_id)
+        console.log(paper_id)
+        showCartOption = true
+    }
 
 </script>
+
+<BookCartAlert show={showCartOption} Ebook_id={book_id} {paper_id} {image}  {book_name} {paper_price}/>
 
 
 <div style="height:22vh;" class="overflow-hidden cardH border m-3 border-gray-600 flex hover:bg-gray-500 rounded-[7px]">
@@ -19,7 +30,7 @@
         <p class="text-xs">Suggested contribution</p>
         <p class="text-sm">{paper_price}</p>
         <div class="mt-4 flex items-center font-semibold text-sm justify-center">
-            <button on:click={()=> addBookToCart(book_id, 2)}>Add to Cart</button>
+            <button on:click={showCartOptions}>Add to Cart</button>
         </div>   
     </div>
 </div>
