@@ -12,8 +12,6 @@
     let showCartOption = false
 
     function showCartOptions(){
-        console.log(book_id)
-        console.log(paper_id)
         showCartOption = true
     }
 

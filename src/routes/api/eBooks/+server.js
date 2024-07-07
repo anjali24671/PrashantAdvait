@@ -44,7 +44,6 @@ export async function POST({ request }) {
 export async function GET({ url }) {
     const query = url.searchParams.get('query');
     const price = Number(url.searchParams.get('price'))
-    console.log(price)
     try {
         await connect(); // Establish MongoDB connection
         // Case-insensitive regex pattern

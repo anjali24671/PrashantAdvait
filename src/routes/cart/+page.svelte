@@ -8,7 +8,7 @@
         RZP = true
 
         if(RZP){
-            console.log(`user can access this product: ${id}\n and it is a ${type}`)
+          
             const response = fetch("/api/userAllowedResources", {
                 method: "POST",
                 headers: {

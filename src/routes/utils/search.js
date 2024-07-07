@@ -7,8 +7,8 @@ async function search(query, type) {
             // make an api request to the ebook table
             const response = await fetch(`http://localhost:5173/api/eBooks?query=${query}`)
             const book = await response.json()
-            
-            console.log(book)
+           
+            return book
             
         }catch (err) {
             console.log(err)

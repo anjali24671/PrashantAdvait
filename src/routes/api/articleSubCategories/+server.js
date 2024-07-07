@@ -2,7 +2,7 @@ import connect from '$lib/database/connection'
 import ArticleSubCategories from '$lib/database/ArticleSubCategories.js'
 
 export async function POST({ request }) {
-   console.log("hello")
+ 
     const data = await request.json()
     try {
         // ArticleSubCategories to add

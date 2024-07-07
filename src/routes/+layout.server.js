@@ -37,8 +37,7 @@ export async function load({ locals }) {
         receipt: "order_rcptid_11"
     };
     const order_data = await createOrder(options)
-    console.log(order_data)
-    
+ 
 
     if (!locals.auth) return {
         "authenticated": false,

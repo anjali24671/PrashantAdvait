@@ -22,9 +22,7 @@
       image: 'https://example.com/your_logo',
       order_id: 'order_IluGWxBm9U8zJ8', // This is a sample Order ID
       handler: function (response) {
-        console.log('Payment ID:', response.razorpay_payment_id);
-        console.log('Order ID:', response.razorpay_order_id);
-        console.log('Signature:', response.razorpay_signature);
+      
       },
       prefill: {
         name: 'Gaurav Kumar',

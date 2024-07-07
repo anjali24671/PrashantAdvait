@@ -12,12 +12,12 @@ export default async function addBookToCart(bookData) {
         const userObj = await res.json()
         const user_id = userObj.user._id
 
-        console.log("user_id",user_id)
+      
 
         for(let book of bookData){
             book['user_id'] = user_id
 
-            console.log(book)
+          
             const exists = await fetch('/api/carts')
 
             

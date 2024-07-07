@@ -4,19 +4,17 @@ const cartsSchema = new mongoose.Schema({
     user_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Users',
-        
         required: true
     },
     book_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Books',
-       
+        unique:true,
         default: null // Set default to null
     },
     Ebook_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'EBooks',
-      
         default: null // Set default to null
     },
     video_id: {

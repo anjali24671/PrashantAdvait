@@ -1,9 +1,39 @@
 <script>
     import BookHorizontal from '$lib/components/BookHorizontal.svelte';
     export let data
-    let prev = 'A'
+    import searchQuery from '../../stores/searchQuery'
+    import { goto } from '$app/navigation';
+    import {onMount, onDestroy} from 'svelte';
 
+    let prev = 'A'
+    let unsubscribe;
+    let initialUpdate = true;
     let ebooks = data.eBooks
+
+    onMount(() => {
+      // Subscribe to the searchQuery store
+      unsubscribe = searchQuery.subscribe(async (query) => {
+        if (!initialUpdate) {
+
+          try {
+            goto(`/books/search?query=${query}`)
+
+          } catch (error) {
+                console.error("Error fetching books:", error);
+            }
+        }
+      });
+
+      // Mark the end of the initial update phase
+      initialUpdate = false;
+  });
+
+  onDestroy(() => {
+    // Clean up the subscription
+    if (unsubscribe) unsubscribe();
+  });
+
+
 </script>
 
 
