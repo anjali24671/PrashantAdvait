@@ -2,19 +2,14 @@
 	
     import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
 
-	import Userfront from '@userfront/toolkit/web-components';
+	  import Userfront from '@userfront/toolkit/web-components';
     import { onMount, tick } from 'svelte';
     import { writable } from 'svelte/store';
-	Userfront.init(PUBLIC_USERFRONT_ACCOUNT_ID);
-	import "../app.css";
+    import "../app.css";
 
-	let selected="";
-
-
-    
+    let selected="";
+    Userfront.init(PUBLIC_USERFRONT_ACCOUNT_ID);
     let interviewData = writable()
-
-
     let rzp1;
     let razorpayScriptLoaded = writable(false);
   
