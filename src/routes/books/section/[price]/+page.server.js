@@ -2,6 +2,7 @@ export async function load({ params, fetch }) {
     let { price } = params
     
     // get the book with price = price
+    console.log("fethcing book for price: ", price)
     const ebooksRes = await fetch(`/api/eBooks?price=${price}`)
     const ebooks = await ebooksRes.json()
 

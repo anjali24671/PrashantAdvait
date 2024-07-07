@@ -41,7 +41,8 @@
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]"><a href="/books/">Explore</a></div>
               
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">
-                    <select on:change={getOffer} >
+                    <select on:change={getOffer}>
+                        <option value="" disabled selected hidden>Offers</option>
                         <option value=99>Books at 99</option>
                         <option value=129>Books at 129</option>
                         <option value=51>Books at 51</option>
