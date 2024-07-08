@@ -21,9 +21,15 @@
 
 
 <div style="height:22vh;" class="overflow-hidden cardH border m-3 border-gray-600 flex hover:bg-gray-500 rounded-[7px]">
-    <img src="{image}" class="card-image" alt="book.name" >
+   
+        <img src="{image}" class="card-image" alt="book.name" >
+
+  
     <div class="self-end p-4 flex flex-col justify-center h-full">
-        <h3>{book_name}</h3>
+        <a href="{book_id}">
+            <h3>{book_name}</h3>
+        </a>
+       
         <p class="text-sm">ebook: {book_price}</p>
         <p class="text-xs">Suggested contribution</p>
         <p class="text-sm">{paper_price}</p>
