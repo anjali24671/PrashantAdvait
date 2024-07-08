@@ -1,6 +1,13 @@
 <script>
     import searchQuery from '../stores/searchQuery'
     import { goto } from '$app/navigation';
+    import { PUBLIC_USERFRONT_ACCOUNT_ID } from '$env/static/public';
+    import Userfront from '@userfront/toolkit/web-components';
+
+    Userfront.init(PUBLIC_USERFRONT_ACCOUNT_ID);
+    const {user} = Userfront
+
+    console.log(user.email)
 
     let inputQuery = ''
    
@@ -48,7 +55,7 @@
                         <option value=51>Books at 51</option>
                     </select>
                 </div>
-                <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">My Books</div>
+                <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]"><a href="/books/my_books?user={user.userUuid}">My Books</a></div>
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">My Orders</div>
                 <div class="border font-semibold flex-shrink-0 border-gray-600 py-1 px-2 rounded-[8px]">Contact Us</div>
             </div>

@@ -32,24 +32,23 @@ export async function POST({ request }) {
    
 }
 
+export async function GET({ url }) {
+    const userFront_id = url.searchParams.get("userfront_id");
 
-export async function GET({url }) {
-   
-    const userFront_id = url.searchParams.get("userfront_id")
     try {
-        await connect()
+        await connect(); // Connect to MongoDB
 
-        const response = await Users.findOne({ userFront_id: userFront_id })
-        
-        console.log(`The userid corresponding to userfront=${userFront_id} is=> ${response}`)
+        const user = await Users.findOne({ userFront_id: userFront_id });
 
-        return new Response(JSON.stringify(
-            { "user":response }
-        ))
+        if (!user) {
+            return new Response(JSON.stringify({ status: 404, message: "User not found" }));
+        }
+
+        console.log(`User found: ${user}`);
+
+        return new Response(JSON.stringify({ user }));
     } catch (e) {
-        return new Response(JSON.stringify(
-            {status: 401, message: e.message}
-        ))
+        console.error("Error fetching user:", e);
+        return new Response(JSON.stringify({ status: 500, message: e.message }));
     }
-   
 }

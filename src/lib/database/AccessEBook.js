@@ -6,7 +6,7 @@ const AccessEBookSchema = new mongoose.Schema({
         ref: 'Users',
         required: true
     },
-    book_id: {
+    ebook_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'EBooks',
         required: true
