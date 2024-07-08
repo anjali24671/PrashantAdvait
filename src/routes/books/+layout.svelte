@@ -1,5 +1,4 @@
 <script>
-    import searchQuery from '../stores/searchQuery'
     import { goto } from '$app/navigation';
     import { PUBLIC_USERFRONT_ACCOUNT_ID } from '$env/static/public';
     import Userfront from '@userfront/toolkit/web-components';

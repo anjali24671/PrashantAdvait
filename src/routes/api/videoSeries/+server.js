@@ -38,3 +38,40 @@ export async function POST({ request }) {
     }
    
 }
+
+
+
+
+
+export async function GET({ url }) {
+    const query = url.searchParams.get('query');
+
+    try {
+        await connect(); 
+
+        const regex = new RegExp(query, 'i'); // Case-insensitive regex pattern
+
+        let series = []
+        if (query) {
+            let videoSeries = await VideoSeries.find({ title: { $regex: regex } })
+            series.push(videoSeries)
+        }
+        
+        return new Response(JSON.stringify(series));
+
+
+    } catch (error) {
+        console.error('Error fetching Books:', error);
+        return new Response(JSON.stringify({ status: 401, message: error.message }), {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            status: 401
+        });
+    }
+}
+
+
+
+
+

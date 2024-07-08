@@ -15,6 +15,18 @@ async function search(query, type) {
         }
        
     }
+    else if (type == 'video_series') {
+        try {
+            // make an api request to the ebook table
+            const response = await fetch(`http://localhost:5173/api/videoSeries/?query=${query}`)
+            const videoSeries = await response.json()
+           
+            return videoSeries
+            
+        }catch (err) {
+            console.log(err)
+        }
+    }
 
 }
 
