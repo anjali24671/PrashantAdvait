@@ -4,6 +4,7 @@
     // Example data structure
     export let data;
     const VideoCategoriesData = JSON.parse(data.VideoCategoriesDataJSON);
+
   </script>
   
   <div class="flex flex-col">
@@ -15,7 +16,9 @@
       <Slider>
         {#each VideoCategoriesData[key] as category}
           <div class="card hover:bg-gray-500 p-3 rounded-[7px]">
-            <img src="{category.photoURL}" alt="unable to load" draggable="false" class="card-image">
+            <a href="video-modules/{category._id}">
+              <img src="{category.photoURL}" alt="unable to load" draggable="false"  class="card-image">
+            </a>
             <h1>{category.title}</h1>
             <p>{category.language}</p>
           </div>
