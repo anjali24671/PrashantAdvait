@@ -2,6 +2,7 @@
     import { goto } from '$app/navigation';
     import { PUBLIC_USERFRONT_ACCOUNT_ID } from '$env/static/public';
     import Userfront from '@userfront/toolkit/web-components';
+    import searchQuery from "../stores/searchQuery"
 
     Userfront.init(PUBLIC_USERFRONT_ACCOUNT_ID);
     const {user} = Userfront

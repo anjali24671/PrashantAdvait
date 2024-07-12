@@ -26,7 +26,7 @@
 
   
     <div class="self-end p-4 flex flex-col justify-center h-full">
-        <a href="{book_id}">
+        <a href="/books/{book_id}">
             <h3>{book_name}</h3>
         </a>
        
