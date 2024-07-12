@@ -1,12 +1,24 @@
 
 <script>
     import searchQuery from '../stores/searchQuery'
+    import {goto} from '$app/navigation'
+    export let data
 
     let inputQuery = ''
+    let selected=''
 
     function setQuery(){
         searchQuery.set(inputQuery)
     }
+
+    function navigate(value){
+        console.log(value.target.value)
+        goto(`/video-modules/tag/${value.target.value}`)
+    }
+
+    const categories = JSON.parse(data.videoCategories)
+
+    console.log("video categories: ", categories)
 
 </script>
 
@@ -15,10 +27,14 @@
         <div><h2>Video series</h2></div>
         <div class="flex gap-4 flex-col border overflow-hidden rounded-[8px]">
             <div class="flex md:w-[660px] relative">
-                <select class="px-2 border-r w-[50px]">
+
+                <select on:change={(e)=>navigate(e)} bind:value={selected} class="px-2 border-r w-[50px]">
+                    
                     <option value="" disabled selected hidden>All</option>
-                    <option>hello</option>
-                    <option>hello2</option>
+                    {#each categories as category}
+                        <option value="{category._id}">{category.name}</option>
+                    {/each}
+
                 </select>
                 <input bind:value={inputQuery} class="w-full p-2 md:px-2 px-[40px] md:rounded-[0px] rounded-[8px]" placeholder="search for videos">
                 <button on:click={setQuery} class="md:bg-orange-200 p-2 absolute h-full md:right-0">
