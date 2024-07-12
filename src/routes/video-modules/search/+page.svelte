@@ -35,14 +35,20 @@
  
 </script>
 
-<Slider>
-    {#each data.videoSeriesData[0] as video}
-      <div class="card hover:bg-gray-500 p-3 rounded-[7px]">
-        <a href="video-modules/{video._id}">
-          <img src="{video.photoURL}" alt="unable to load" draggable="false"  class="card-image">
-        </a>
-        <h1>{video.title}</h1>
-        <p>{video.language}</p>
-      </div>
-    {/each}
-</Slider>
+{#if data.videoSeriesData[0][0]}
+
+  <Slider>
+      {#each data.videoSeriesData[0] as video}
+        <div class="card hover:bg-gray-500 p-3 rounded-[7px]">
+          <a href="video-modules/{video._id}">
+            <img src="{video.photoURL}" alt="unable to load" draggable="false"  class="card-image">
+          </a>
+          <h1>{video.title}</h1>
+          <p>{video.language}</p>
+        </div>
+      {/each}
+  </Slider>
+{:else}
+  <h1>No video modules exists</h1>
+
+{/if}
