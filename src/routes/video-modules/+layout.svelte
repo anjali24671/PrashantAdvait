@@ -1,7 +1,8 @@
 
 <script>
     import searchQuery from '../stores/searchQuery'
-    import {goto} from '$app/navigation'
+    import {goto, invalidate} from '$app/navigation'
+
     export let data
 
     let inputQuery = ''
@@ -12,13 +13,10 @@
     }
 
     function navigate(value){
-        console.log(value.target.value)
-        goto(`/video-modules/tag/${value.target.value}`)
+        window.location.href = `/video-modules/tag/${value.target.value}`
     }
 
     const categories = JSON.parse(data.videoCategories)
-
-    console.log("video categories: ", categories)
 
 </script>
 

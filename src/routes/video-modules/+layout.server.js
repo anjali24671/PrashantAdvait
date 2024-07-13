@@ -7,7 +7,6 @@ export async function load() {
         const videoCategoriesResponse = await VideoCategories.find()
 
         const videoCategories = JSON.stringify(videoCategoriesResponse);
-        console.log(videoCategories)
 
         return {
             videoCategories

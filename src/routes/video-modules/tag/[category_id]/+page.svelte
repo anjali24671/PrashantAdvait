@@ -1,6 +1,17 @@
 <script>
-    import { page } from '$app/stores';
-    console.log($page.params.category_id)
+    import VideoSeries from '$lib/components/VideoSeries.svelte';
+    export let data;
+    const series = JSON.parse(data.videoSeries)
+    console.log(series)
+  
 </script>
 
-<h1>ni sa ma </h1>
+{#if series}
+    <div class="grid lg:grid-cols-5 md:grid-cols-3  grid-cols-2 ">
+        {#each series as ser}
+            <VideoSeries id={ser._id} photoURL={ser.photoURL} title={ser.title} language={ser.language} />
+        {/each}
+    </div>
+{:else}
+    <p>No video series found.</p>
+{/if}
