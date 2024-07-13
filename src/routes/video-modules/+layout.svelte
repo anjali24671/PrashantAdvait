@@ -2,8 +2,38 @@
 <script>
     import searchQuery from '../stores/searchQuery'
     import {goto, invalidate} from '$app/navigation'
+    import {onMount, onDestroy} from 'svelte'
 
     export let data
+
+    /////
+      let unsubscribe;
+      let initialUpdate = true;
+
+      onMount(() => {
+        // Subscribe to the searchQuery store
+        unsubscribe = searchQuery.subscribe(async (query) => {
+          if (!initialUpdate) {
+
+            try {
+              console.log("trying to go ")
+              goto(`/video-modules/search?query=${query}`)
+
+            } catch (error) {
+                  console.error("Error fetching books:", error);
+              }
+          }
+        });
+
+        // Mark the end of the initial update phase
+        initialUpdate = false;
+    });
+
+    onDestroy(() => {
+      // Clean up the subscription
+      if (unsubscribe) unsubscribe();
+    });
+    /////
 
     let inputQuery = ''
     let selected=''

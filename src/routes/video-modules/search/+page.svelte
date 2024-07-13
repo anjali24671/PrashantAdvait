@@ -6,32 +6,32 @@
     import VideoSeries from "../../../lib/components/VideoSeries.svelte"
 
     export let data
-    let unsubscribe;
-    let initialUpdate = true;
+  //   let unsubscribe;
+  //   let initialUpdate = true;
 
-    onMount(() => {
-      // Subscribe to the searchQuery store
-      unsubscribe = searchQuery.subscribe(async (query) => {
-        if (!initialUpdate) {
+  //   onMount(() => {
+  //     // Subscribe to the searchQuery store
+  //     unsubscribe = searchQuery.subscribe(async (query) => {
+  //       if (!initialUpdate) {
 
-          try {
-            console.log("trying to go ")
-            goto(`/video-modules/search?query=${query}`)
+  //         try {
+  //           console.log("trying to go ")
+  //           goto(`/video-modules/search?query=${query}`)
 
-          } catch (error) {
-                console.error("Error fetching books:", error);
-            }
-        }
-      });
+  //         } catch (error) {
+  //               console.error("Error fetching books:", error);
+  //           }
+  //       }
+  //     });
 
-      // Mark the end of the initial update phase
-      initialUpdate = false;
-  });
+  //     // Mark the end of the initial update phase
+  //     initialUpdate = false;
+  // });
 
-  onDestroy(() => {
-    // Clean up the subscription
-    if (unsubscribe) unsubscribe();
-  });
+  // onDestroy(() => {
+  //   // Clean up the subscription
+  //   if (unsubscribe) unsubscribe();
+  // });
 
  
 </script>
