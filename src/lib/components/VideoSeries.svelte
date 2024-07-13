@@ -21,16 +21,15 @@
     .card {
       flex: 0 0 auto; /* Prevents flex items from stretching */
       width: 85vw; /* Use viewport width for responsiveness */
-      height: auto; /* Automatically adjust height based on content */
+     /* Automatically adjust height based on content */
       max-width: 300px; /* Max width to prevent excessive growth on large screens */
       min-width: 150px; /* Min width to ensure readability on small screens */
-      aspect-ratio: 1; /* Maintain a square aspect ratio */
+      /* Maintain a square aspect ratio */
       box-sizing: border-box;
     }
   
     .card-image {
-      width: auto; /* Make image responsive */
-      height: auto; /* Maintain aspect ratio */
+   /* Maintain aspect ratio */
       object-fit: cover; /* Cover the entire card space */
       border-radius: 5px; /* Optional: Rounded corners */
     }
