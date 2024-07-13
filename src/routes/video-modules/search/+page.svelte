@@ -3,6 +3,7 @@
     import { goto } from '$app/navigation';
     import Slider from '$lib/components/Slider.svelte';
     import {onMount, onDestroy} from 'svelte'
+    import VideoSeries from "../../../lib/components/VideoSeries.svelte"
 
     export let data
     let unsubscribe;
@@ -38,15 +39,12 @@
 {#if data.videoSeriesData[0][0]}
 
   <Slider>
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2">
       {#each data.videoSeriesData[0] as video}
-        <div class="card hover:bg-gray-500 p-3 rounded-[7px]">
-          <a href="video-modules/{video._id}">
-            <img src="{video.photoURL}" alt="unable to load" draggable="false"  class="card-image">
-          </a>
-          <h1>{video.title}</h1>
-          <p>{video.language}</p>
-        </div>
+        <VideoSeries id={video._id} photoURL={video.photoURL} title={video.title} language={video.language} />
       {/each}
+    </div>
+
   </Slider>
 {:else}
   <h1>No video modules exists</h1>
