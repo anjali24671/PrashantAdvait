@@ -10,10 +10,10 @@
 </script>
 
 <div class="m-4">
-    <div>
+    <div class="flex flex-col gap-5 my-5">
         {#each series.videoSeries as video}
-            <h1>{video.title}</h1>
-            <div class="flex md:flex-row flex-col gap-4">
+            <h1 class="font-semibold">{video.title}</h1>
+            <div class="flex md:flex-row flex-col gap-5">
                 <div class="min-w-[40%] flex flex-col gap-4 ">
                     
                     <img class="rounded-[5px]" src="https://cimg.acharyaprashant.org/images/img-8af9f8b3-39c3-4ef1-921e-01e631be2009/10/image.jpg">
@@ -36,25 +36,61 @@
         {/each}
     </div>
     
-    
-    
-    <div class="grid m-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
-        <div class="bg-orange-200 rounded-[10px] flex flex-col gap-2 p-4">
-            
-            <span class="bg-gray-200 p-2">part 1</span>
-           
-            <h1>what is brahm? and who is god?</h1>
-            <p>based on selected verses of niralamba upanishad</p>
-            <p>3 hours and 14 minutes</p>
-            <span class="bg-gray-200 p-1 w-[70px]">english</span>
-            <div class="flex gap-2">
-                <a>Add To Cart</a>
-                <a>enroll</a>
+    <div >
+        <h1 class="font-semibold text-lg mt-1">Video Series (6)</h1>
+        <hr>
+    </div>
+  
+    <div class="grid my-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+
+        <div class="hover:bg-gray-100 rounded-[10px] flex flex-col gap-1 py-4 "> 
+            <span class="bg-gray-200 py-1 px-2 w-[50px] rounded-md bg-gray-400 text-white font-semibold text-xs">part 1</span>   
+            <h1 class="font-semibold text-lg">What is brahm? and who is god?</h1>
+            <p class="text-gray-500 text-sm font-semibold">based on selected verses of niralamba upanishad</p>
+            <p class="text-xs text-gray-500 font-semibold">3 hours and 14 minutes</p>
+            <span class="bg-blue-200 py-1 px-2 my-2 w-[60px] rounded-md  text-xs">English</span>
+            <div class="flex items-center gap-3 text-orange-600 font-semibold text-xs">
+                <a>ADD TO CART</a>
+                <hr class="w-[1px] h-[20px] bg-gray-400">
+                <a>ENROLL</a>
             </div>
         </div>
-        <div class="bg-red-200 w-[400px] h-[200px]"></div>
-        <div class="bg-blue-200 w-[400px] h-[200px]"></div>
-        <div class="bg-green-200 w-[400px] h-[200px]"></div>
+        <div class="hover:bg-gray-100 rounded-[10px] flex flex-col gap-1 p-4"> 
+            <span class="bg-gray-200 py-1 px-2 w-[50px] rounded-md bg-gray-400 text-white font-semibold text-xs">part 1</span>   
+            <h1 class="font-semibold text-lg">What is brahm? and who is god?</h1>
+            <p class="text-gray-500 text-sm font-semibold">based on selected verses of niralamba upanishad</p>
+            <p class="text-xs text-gray-500 font-semibold">3 hours and 14 minutes</p>
+            <span class="bg-blue-200 py-1 px-2 my-2 w-[60px] rounded-md  text-xs">English</span>
+            <div class="flex items-center gap-3 text-orange-600 font-semibold text-xs">
+                <a>ADD TO CART</a>
+                <hr class="w-[1px] h-[20px] bg-gray-400">
+                <a>ENROLL</a>
+            </div>
+        </div>
+        <div class="hover:bg-gray-100 rounded-[10px] flex flex-col gap-1 p-4"> 
+            <span class="bg-gray-200 py-1 px-2 w-[50px] rounded-md bg-gray-400 text-white font-semibold text-xs">part 1</span>   
+            <h1 class="font-semibold text-lg">What is brahm? and who is god?</h1>
+            <p class="text-gray-500 text-sm font-semibold">based on selected verses of niralamba upanishad</p>
+            <p class="text-xs text-gray-500 font-semibold">3 hours and 14 minutes</p>
+            <span class="bg-blue-200 py-1 px-2 my-2 w-[60px] rounded-md  text-xs">English</span>
+            <div class="flex items-center gap-3 text-orange-600 font-semibold text-xs">
+                <a>ADD TO CART</a>
+                <hr class="w-[1px] h-[20px] bg-gray-400">
+                <a>ENROLL</a>
+            </div>
+        </div>
+        <div class="hover:bg-gray-100 rounded-[10px] flex flex-col gap-1 p-4"> 
+            <span class="bg-gray-200 py-1 px-2 w-[50px] rounded-md bg-gray-400 text-white font-semibold text-xs">part 1</span>   
+            <h1 class="font-semibold text-lg">What is brahm? and who is god?</h1>
+            <p class="text-gray-500 text-sm font-semibold">based on selected verses of niralamba upanishad</p>
+            <p class="text-xs text-gray-500 font-semibold">3 hours and 14 minutes</p>
+            <span class="bg-blue-200 py-1 px-2 my-2 w-[60px] rounded-md  text-xs">English</span>
+            <div class="flex items-center gap-3 text-orange-600 font-semibold text-xs">
+                <a>ADD TO CART</a>
+                <hr class="w-[1px] h-[20px] bg-gray-400">
+                <a>ENROLL</a>
+            </div>
+        </div>
         <div class="bg-yellow-200 w-[400px] h-[200px]"></div>
         <div class="bg-purple-200 w-[400px] h-[200px]"></div>
     </div>
