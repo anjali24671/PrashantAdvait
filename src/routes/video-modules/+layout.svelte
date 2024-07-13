@@ -26,7 +26,7 @@
         <div class="flex gap-4 flex-col border overflow-hidden rounded-[8px]">
             <div class="flex md:w-[660px] relative">
 
-                <select on:change={(e)=>navigate(e)} bind:value={selected} class="px-2 md:block hidden border-r w-[50px]">
+                <select on:change={(e)=>navigate(e)} bind:value={selected} class="px-2 md:block hidden border-r text-xs w-[50px]">
                     
                     <option value="" disabled selected hidden>All</option>
                     {#each categories as category}
