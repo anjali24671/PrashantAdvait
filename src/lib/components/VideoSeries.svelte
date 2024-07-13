@@ -7,7 +7,7 @@
 
 
 <div class="card hover:bg-gray-500 p-3 rounded-[7px]">
-    <a href="video-modules/{id}">
+    <a href="/video-modules/{id}">
       <img src="{photoURL}" alt="unable to load" draggable="false"  class="card-image">
     </a>
     <h1>{title}</h1>
