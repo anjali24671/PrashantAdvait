@@ -38,14 +38,13 @@
 
 {#if data.videoSeriesData[0][0]}
 
-  <Slider>
+ 
     <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2">
       {#each data.videoSeriesData[0] as video}
         <VideoSeries id={video._id} photoURL={video.photoURL} title={video.title} language={video.language} />
       {/each}
     </div>
 
-  </Slider>
 {:else}
   <h1>No video modules exists</h1>
 
