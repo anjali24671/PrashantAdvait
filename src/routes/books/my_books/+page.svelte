@@ -21,7 +21,7 @@
                 <BookHorizontal image={ebook.photoURL} book_name={ebook.name} book_id={ebook._id} book_price={ebook.price} paper_price={ebook.paper_price} />
     
             {:else}
-            <BookHorizontal image={ebook.photoURL} book_name={ebook.name} book_id={ebook._id} book_price={ebook.price} />
+                <BookHorizontal image={ebook.photoURL} book_name={ebook.name} book_id={ebook._id} book_price={ebook.price} />
             {/if}
     
         {/each}
