@@ -6,6 +6,8 @@
     export let data   
 
     let unsubscribe;
+    let eClicked=true
+    let pClicked=false
     let initialUpdate = true;
     let book = JSON.parse(data.book)
 
@@ -32,6 +34,13 @@
       if (unsubscribe) unsubscribe();
     });
 
+    function togglePaperClass(){
+        pClicked = !pClicked
+    }
+    function toggleEBookClass(){
+        eClicked = !eClicked;
+    }
+
 
 </script>
 
@@ -41,21 +50,39 @@
       <div class="min-w-44 hidden lg:flex lg:min-w-52 rounded-[5px] h-[300px] bg-orange-500">
           <img class="lg:w-full self-center w-44 mx-auto" src="{book.photoURL}" alt="book image">
       </div>
-      <div class="flex flex-col gap-5">
-          <h1>{book.name}</h1>
+      <div class="flex flex-col gap-6">
+          <h1 class="font-semibold  text-lg">{book.name}</h1>
           <!-- Book Image for smaller screens -->
           <div class="w-44 flex lg:hidden lg:min-w-52 rounded-[5px] h-[300px] bg-orange-500 mx-auto">
               <img class="w-full h-full" src="{book.photoURL}">
           </div>
-          <div class="bg-orange-100 w-full lg:w-44">ebook section</div>
-          <div class="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" class="h-3 w-3 flex-shrink-0 fill-current lg:h-4 lg:w-4">
+          <div class=" w-full flex lg:w-44">
+            <div on:click={toggleEBookClass} class={`cursor-pointer py-2 pl-4 w-[50%] border-2  rounded-l-lg ${eClicked ? "bg-orange-100 border-orange-600" : "border-gray-300"}`}>
+                <h2 class="font-semibold text-lg">eBook</h2>
+                <p class="text-xs font-semibold text-gray-700">Suggested Contribution</p>
+                <h1 class="text-orange-600 font-semibold text-xl">₹{book.price}</h1>
+            </div>
+            <div on:click={togglePaperClass} class={`cursor-pointer py-2 pl-4 w-[50%] border-2  rounded-r-lg ${pClicked ? "bg-orange-100  border-orange-600" : "border-gray-300"}`}>
+                <h2 class="font-semibold text-lg">Paperback</h2>
+               
+                {#if book.paperPrice}
+                    <p>57% Off</p>
+                    <h1 class="text-orange-600 font-semibold text-xl">₹{book.paperPrice}</h1>
+                {:else}
+                    <p class="text-xs font-semibold text-gray-700">Suggested Contribution</p>
+                    <h1 class="text-orange-600 font-semibold text-sm">Not available</h1>
+                {/if}
+            </div>
+          </div>
+          <div class="flex gap-2 items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" class="h-3 w-3 flex-shrink-0 fill-current text-blue-400 lg:h-4 lg:w-4">
                   <path fill="current-color" d="M9.636 18.763q1.87 0 3.525-.719a9.36 9.36 0 0 0 4.888-4.888q.714-1.65.714-3.53 0-1.87-.719-3.524a9.4 9.4 0 0 0-1.979-2.918 9.2 9.2 0 0 0-2.913-1.974A8.85 8.85 0 0 0 9.627.5q-1.87 0-3.52.71a9.3 9.3 0 0 0-2.914 1.974 9.3 9.3 0 0 0-1.979 2.918A8 8 0 0 0 .5 9.627q0 1.88.72 3.53a9.4 9.4 0 0 0 1.978 2.908q1.26 1.26 2.909 1.979 1.65.72 3.53.72m-1.617-4.09q-.301 0-.508-.197a.66.66 0 0 1-.207-.498q0-.283.207-.484a.7.7 0 0 1 .508-.202h1.109V9.288h-.95q-.3 0-.507-.192a.66.66 0 0 1-.207-.503q0-.273.207-.475a.7.7 0 0 1 .507-.202h1.74q.376 0 .568.24.193.24.193.644v4.493h1.08q.302 0 .503.202a.66.66 0 0 1 .202.484q0 .3-.202.498a.7.7 0 0 1-.503.197zM9.57 6.44q-.516 0-.878-.361a1.2 1.2 0 0 1-.362-.87q0-.526.362-.888.361-.362.878-.362.508 0 .87.362.362.361.362.888 0 .507-.362.87a1.2 1.2 0 0 1-.87.361"></path>
               </svg>
-              <p>Now you can read eBook on our mobile app for the best reading experience</p>
-              <a>View App</a>
+              <p class="text-xs text-gray-900">Now you can read eBook on our mobile app for the best reading experience</p>
+              <a class="text-xs text-orange-600">View App</a>
+            
           </div>
-  
+          <hr >
          <div class="min-w-80 lg:hidden h-[400px] rounded-[5px] bg-orange-600">checkout</div>
 
 
