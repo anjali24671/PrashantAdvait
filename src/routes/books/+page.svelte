@@ -9,6 +9,7 @@
     import { goto } from '$app/navigation';
 
     export let data
+    console.log(data.newCategories.veganismResponse)
     
     let books = [];
     let unsubscribe;
@@ -41,35 +42,81 @@
 </script>
 
 
+<h1>NEW RELEASE</h1>
+<div>
+  <Slider>
+    {#each data.newRelease.newReleaseBooks as book}
+      <BookHorizontal 
+        image={book.photoURL} 
+        book_name={book.name} 
+        book_price={book.price} 
+        book_id={book.id}
+        paper_id={book.paperID}/>
+    {/each}  
+  </Slider> 
 
-    <h1>NEW RELEASE</h1>
-   
-      <div>
-        <Slider>
-            {#each data.newRelease.newReleaseBooks as book}
-                <BookHorizontal 
-                  image={book.photoURL} 
-                  book_name={book.name} 
-                  book_price={book.price} 
-                  book_id={book.id}
-                  paper_id={book.paperID}/>
-            {/each}  
-        </Slider> 
+  <h1>Spiritual Wisdom</h1>
+  <Slider>
+    {#each data.newCategories.spiritualWisdomResponse as book}
+      <BookVertical 
+        image={book.photoURL}
+        paper_id={book.paperID} 
+        book_name={book.name} 
+        book_id={book.id} 
+        book_price={book.price} />
+    {/each}  
+  </Slider>
 
 
-        <h1>BESTSELLERS</h1>
+  <div class="flex m-5 gap-5">
+    <div class="w-[50%] bg-green-400 p-3">
+      
+      <h1>Veganism And Environment</h1>
+      <Slider>
+        {#each data.newCategories.veganismResponse as book}
+          <BookVertical 
+            image={book.photoURL}
+            paper_id={book.paperID} 
+            book_name={book.name} 
+            book_id={book.id} 
+            book_price={book.price} />
+        {/each}  
+      </Slider>
+    </div>
 
-        <Slider>
-            {#each data.loadBestSeller.bestSellerBooks as book}
-                <BookVertical image={book.photoURL}
-                  paper_id={book.paperID} 
-                  book_name={book.name} 
-                  book_id={book.id} 
-                  book_price={book.price} />
-            {/each}  
-        </Slider>
-      </div>
+    <div class="w-[50%] bg-green-400 p-3">
+    
+      <h1>Life Problems</h1>
+      <Slider>
+        {#each data.newCategories.lifeProblemCategoryResponse as book}
+          <BookVertical 
+            image={book.photoURL}
+            paper_id={book.paperID} 
+            book_name={book.name} 
+            book_id={book.id} 
+            book_price={book.price} />
+        {/each}  
+      </Slider>
+    </div>
+  </div>
 
+  <h1>BESTSELLERS</h1>
+  <Slider>
+    {#each data.loadBestSeller.bestSellerBooks as book}
+      <BookVertical 
+        image={book.photoURL}
+        paper_id={book.paperID} 
+        book_name={book.name} 
+        book_id={book.id} 
+        book_price={book.price} />
+    {/each}  
+  </Slider>
+
+
+
+
+ 
+</div>
    
     
 
