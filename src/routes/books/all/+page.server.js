@@ -15,7 +15,7 @@ export async function load({fetch}) {
             if (e.name === b.name) {
                 e.paper_price = b.price 
                 e.book_id = b._id
-                console.log(e)
+                
             }
         }
     }

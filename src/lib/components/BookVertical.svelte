@@ -4,6 +4,7 @@
     export let book_id
     export let book_price
     export let paper_id
+    export let paper_price
 </script>
 
 

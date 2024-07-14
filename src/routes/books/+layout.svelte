@@ -7,8 +7,6 @@
     Userfront.init(PUBLIC_USERFRONT_ACCOUNT_ID);
     const {user} = Userfront
 
-    console.log(user.email)
-
     let inputQuery = ''
    
     function getOffer(event){

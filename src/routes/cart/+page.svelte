@@ -4,7 +4,7 @@
     let RZP = false
 
     function infoPrint(id, type) {
-        console.log(id)
+       
         RZP = true
 
         if(RZP){
@@ -29,6 +29,6 @@
 
 {#each goodData as product }
     <h2>{product.quantity}</h2>
-    <h2>{product.book_id}</h2>
-    <button on:click={() => infoPrint(product.book_id, product.type)}>print me in console</button>
+    <h2>{product.product_id}</h2>
+    <button on:click={() => infoPrint(product.product_id, product.type)}>print me in console</button>
 {/each}

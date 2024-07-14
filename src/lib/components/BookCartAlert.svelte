@@ -19,7 +19,7 @@
             if(bookType == "book"){
                 bookObj.push({
                     "type":"book",
-                    "book_id":paper_id,
+                    "product_id":paper_id,
                     "book_name":book_name,
                     "quantity":1
                 })
@@ -28,7 +28,7 @@
             if(bookType == "eBook"){
                 bookObj.push({
                     "type":'eBook',
-                    "Ebook_id":Ebook_id,
+                    "product_id":Ebook_id,
                     book_name
                 })
             }
@@ -59,7 +59,7 @@
             <input type="checkbox" name="productType" bind:group={bookData} value="eBook">
             <label>ebook</label>
         </div>
-        {#if typeof(paper_price)===Number}
+        {#if paper_price}
             <div>
                 <input type="checkbox" name="productType" bind:group={bookData} value="book">
                 <label>Paperback at: {paper_price}</label> 

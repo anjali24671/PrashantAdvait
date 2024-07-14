@@ -16,7 +16,7 @@
           if (!initialUpdate) {
 
             try {
-              console.log("trying to go ")
+             
               goto(`/video-modules/search?query=${query}`)
 
             } catch (error) {

@@ -6,8 +6,6 @@ export async function load() {
         await connect()
         const cartsResponse = await Carts.find()
         const carts = await JSON.stringify(cartsResponse)
-
-        console.log(typeof(carts))
      
         return {
             carts

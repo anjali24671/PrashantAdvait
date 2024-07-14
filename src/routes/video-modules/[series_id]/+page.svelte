@@ -5,7 +5,7 @@
     let series=''
     if(data){
         series = JSON.parse(data.series)
-        console.log(series.videoSeries)
+       
     }
     
 </script>

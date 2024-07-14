@@ -2,7 +2,7 @@
     import VideoSeries from '$lib/components/VideoSeries.svelte';
     export let data;
     const series = JSON.parse(data.videoSeries)
-    console.log(series)
+    
   
 </script>
 

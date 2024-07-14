@@ -7,7 +7,7 @@
     export let book_name
     export let book_id
     export let book_price
-    export let paper_price = "paperback not available"
+    export let paper_price = 0
     export let paper_id
     let showCartOption = false
 

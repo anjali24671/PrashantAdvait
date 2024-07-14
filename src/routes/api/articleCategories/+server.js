@@ -3,7 +3,7 @@ import ArticleCategories from '$lib/database/ArticleCategories'
 
 
 export async function POST({ request }) {
-    console.log(request.body)
+
     const data = await request.json()
 
     let document = {}

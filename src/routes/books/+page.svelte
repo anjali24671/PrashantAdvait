@@ -9,7 +9,7 @@
     import { goto } from '$app/navigation';
 
     export let data
-    console.log(data.newCategories.veganismResponse[0]._id)
+  
     
     let books = [];
     let unsubscribe;
@@ -51,7 +51,8 @@
         book_name={book.name} 
         book_price={book.price} 
         book_id={book.id}
-        paper_id={book.paperID}/>
+        paper_id={book.paperID}
+        paper_price={book.paperPrice}/>
     {/each}  
   </Slider> 
 
@@ -63,7 +64,8 @@
         paper_id={book.paperID} 
         book_name={book.name} 
         book_id={book._id} 
-        book_price={book.price} />
+        book_price={book.price}
+        paper_price={book.paperPrice} />
     {/each}  
   </Slider>
 
@@ -79,7 +81,8 @@
             paper_id={book.paperID} 
             book_name={book.name} 
             book_id={book._id} 
-            book_price={book.price} />
+            book_price={book.price}
+            paper_price={book.paperPrice} />
         {/each}  
       </Slider>
     </div>
@@ -94,7 +97,8 @@
             paper_id={book.paperID} 
             book_name={book.name} 
             book_id={book._id} 
-            book_price={book.price} />
+            book_price={book.price}
+            paper_price={book.paperPrice} />
         {/each}  
       </Slider>
     </div>
@@ -108,7 +112,8 @@
         paper_id={book.paperID} 
         book_name={book.name} 
         book_id={book.id} 
-        book_price={book.price} />
+        book_price={book.price}
+        paper_price={book.paperPrice} />
     {/each}  
   </Slider>
 

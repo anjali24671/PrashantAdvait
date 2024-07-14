@@ -9,7 +9,7 @@ export async function load({ params }) {
     try {
         await connect()
       
-        const cartResponse = await Carts.create({"user_id":user_id, "book_id":productID, "type":productType})
+        const cartResponse = await Carts.create({"user_id":user_id, "product_id":productID, "type":productType})
         
         return {
             "good":"good"
