@@ -1,11 +1,23 @@
 <script>
+
+    import BookCartAlert from "./BookCartAlert.svelte";
+
     export let image
     export let book_name
     export let book_id
     export let book_price
     export let paper_id
-    export let paper_price
+    export let paper_price = 0
+
+    let showCartOption = false
+
+  function showCartOptions(){
+      showCartOption = true
+  }
+
 </script>
+
+<BookCartAlert show={showCartOption} Ebook_id={book_id} {paper_id} {image}  {book_name} {paper_price}/>
 
 
 <div  class="cardV p-4 overflow-hidden border-2 md:m-3 m-1 hover:border-orange-600 flex flex-col  items-center   ">
@@ -18,7 +30,7 @@
         <p class="text-xs">Suggested contribution</p>
         <p class="text-sm">Paperback:</p>
         <div class="mt-4 flex items-center font-semibold text-sm justify-center">
-            <a href='/books/{book_id}'>Add to Cart</a>
+          <button on:click={showCartOptions}>Add to Cart</button>
         </div>   
     </div>
 </div>
