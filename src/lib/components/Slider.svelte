@@ -55,14 +55,14 @@
     <slot></slot>
   </div>
 
-  <div class="absolute top-[46%] left-[10px] rounded-[50%] px-2 py-1 border border-orange-600 border-[2px] bg-white">
+  <div class="absolute top-[46%] left-[10px] rounded-[50%] px-2 py-1 border border-orange-600 border-[2px] bg-orange-100">
     <button on:click={leftScroll}>
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" class="h-3 w-4 fill-current text-orange-600">
         <path fill-rule="evenodd" d="M7.244 12.249a.89.89 0 0 1-1.238 0L.756 7.106a.845.845 0 0 1 0-1.212L6.006.75a.89.89 0 0 1 1.238 0 .845.845 0 0 1 0 1.212l-3.757 3.68h10.138c.483 0 .875.384.875.857a.866.866 0 0 1-.875.857H3.487l3.757 3.68a.845.845 0 0 1 0 1.212"></path>
       </svg>
     </button>
   </div>
-  <div class="absolute top-[46%] right-[10px] rounded-[50%] px-2 py-1 border border-orange-600 border-[2px] bg-white">
+  <div class="absolute top-[46%] right-[10px] rounded-[50%] px-2 py-1 border border-orange-600 border-[2px] bg-orange-100">
     <button on:click={rightScroll}>
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" class="fill-current text-orange-600">
         <path fill-rule="evenodd" d="M7.756.751a.89.89 0 0 1 1.238 0l5.25 5.143a.845.845 0 0 1 0 1.212l-5.25 5.143a.89.89 0 0 1-1.238 0 .845.845 0 0 1 0-1.212l3.757-3.68H1.375A.866.866 0 0 1 .5 6.5c0-.473.392-.857.875-.857h10.138l-3.757-3.68a.845.845 0 0 1 0-1.212"></path>
