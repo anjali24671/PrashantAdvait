@@ -1,11 +1,12 @@
 import { get } from 'svelte/store'; // Assuming you use stores to manage state
 
 export async function load({ fetch, url}) {
-    const userfront_id = url.searchParams.get("user"); // Assuming userfront_id is part of the route params
+    const userfront_id = url.searchParams.get('user'); // Assuming userfront_id is part of the route params
+    console.log("userfront is=====>",userfront_id)
 
     try {
         // Make GET request to external API
-        const response = await fetch(`/api/users?userfront_id=a7dd8a3c-f263-49eb-8c41-b8d30158ff05`);
+        const response = await fetch(`/api/users?userfront_id=${userfront_id}`);
 
         if (!response.ok) {
             // Handle non-OK response status (e.g., 404 Not Found)
