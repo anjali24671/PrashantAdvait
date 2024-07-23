@@ -33,51 +33,44 @@
 
     let yourVoiceVideos = writable([
         {
-            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
-            "user_name":"Sonam Panjwani",
-            "userImage":""
+            "video":"https://www.youtube.com/watch?v=J7EaRL8l5Ww&t=6s",
+            "poster":"https://img.youtube.com/vi/J7EaRL8l5Ww/hq720.jpg",
+
+            "user_name":"Divya"
         },
         {
-            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
-            "user_name":"Vivek Shukla",
-            "userImage":""
+            "video":"https://www.youtube.com/59120add-fe6a-4534-b328-0d88cc4c9655",
+            "poster":"https://img.youtube.com/vi/SuyQzLGmlO8/hq720.jpg",
+            "user_name":"Daralus Dubash"
+        },
+
+        {
+            "video":"https://www.youtube.com/91d23677-54f6-4810-a932-447d27d4c039",
+            "poster":"https://img.youtube.com/vi/JOy0camm0Es/hq720.jpg",
+            "user_name":"Saloni"
         },
         {
-            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
-            "user_name":"Smriti Juneja",
-            "userImage":""
+            "video":"blob:https://www.youtube.com/93532911-859c-4aee-8289-87dff9cf1ff1",
+            "poster":"https://img.youtube.com/vi/wZBacn6icAU/hq720.jpg",
+            "user_name":"Sarvesh"
         },
         {
-            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
-            "user_name":"Punit Jindal",
-            "userImage":"https://cimg.acharyaprashant.org/images/img-a09d620f-e7a7-4842-b20f-f9f26187e66e/0/image.jpg"
+            "video":"https://www.youtube.com/289a499e-294a-4151-994e-906a9d82a5d5",
+            "poster":"https://img.youtube.com/vi/j6jvQdkt-Jo/hq720.jpg",
+            "user_name":"Manpreet"
+                },
+        {
+            "video":"https://www.youtube.com/e20c4941-114a-4abd-a115-e9326fbaf694",
+            "poster":"https://img.youtube.com/vi/__OcGkft_04/hq720.jpg",
+            "user_name":"Umang and Tanvi"
+            
         },
         {
-            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
-            "user_name":"Upesh Kumar",
-            "userImage":"https://cimg.acharyaprashant.org/images/img-b4df9d36-22bc-4bb4-af1a-071d576d3786/0/image.jpg"
-        },
-        {
-            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
-            "user_name":"Vasudeo Kumar Chaudhary",
-            "userImage":"https://cimg.acharyaprashant.org/images/img-838d56b4-1c2e-4a5e-9879-4a40785e2650/0/image.jpg"
-        },
-        {
-            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
-            "user_name":"Yogita Singh Tomar",
-            "userImage":"https://cimg.acharyaprashant.org/images/img-ad8c51c6-4e3a-48f8-b840-8bc072c17106/0/image.jpg"
-        },
-        {
-            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
-            "user_name":"Arpit gupta",
-            "userImage":"https://cimg.acharyaprashant.org/images/img-fc09821a-e616-48bf-b382-4cc02e9c88e3/0/image.jpg"
-        },
-        {
-            "video":"https://video2.acharyaprashant.org/website/v1/3_sonam_panjwani.mp4",
-            "user_name":"Veena Gupta",
-            "userImage":"https://cimg.acharyaprashant.org/images/img-718e1b27-e250-4ab9-abbe-bdff433fdae5/0/image.jpg"
-        },
- 
+            "video":"https://www.youtube.com/f3140575-86c9-420b-939f-62572f90253b",
+            "poster":"https://img.youtube.com/vi/q_WV1YNliro/hq720.jpg",
+            "user_name":"Prabhoj"
+
+        }
     ])
 </script>
 
@@ -147,6 +140,7 @@
             </div>
         </div>
 
+    
         <div class="flex lg:w-auto w-full lg:items-start items-center justify-center">
             <div class="w-[500px] h-[400px] bg-green-300"></div>
         </div>
@@ -183,18 +177,24 @@
 
 
     <!-- YOUR VOICE SECTION -->
-    <section>
+    <section class="flex gap-7 my-[40px] flex-col items-center">
+        <h1 class="text-[40px] font-bold">Your Voice</h1>
         <Slider>
             {#each $yourVoiceVideos as video}
-                <div class="card flex flex-col overflow-hidden p-3 ">
-                    <video controls>
-                        <!-- Video source -->
-                        <source src="{video.video}" type="video/mp4">
+                <div class="card flex flex-col gap-4 overflow-hidden p-3 ">
+                    <!-- <video poster="https://cimg.acharyaprashant.org/images/img-41aece10-0782-411a-bf78-a2a168f5a53d/0/image.jpg" controls>
+                       
+                        <source src="blob:https://www.youtube.com/e60228fc-d84e-471c-a001-7c100dca821e" type="video/mp4">
                         Your browser does not support the video tag.
-                        <img src="https://cimg.acharyaprashant.org/images/img-41aece10-0782-411a-bf78-a2a168f5a53d/0/image.jpg">
-                    </video>
-                    <div>
-                        <img src="{video.userImage}">
+                        
+                    </video> -->
+                    <iframe src="https://www.youtube.com/embed/J7EaRL8l5Ww?si=w_KzqS0b3W00HxsW" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    
+                 
+                    <div class="flex gap-4 items-center">
+                        <div class="overflow-hidden rounded-[50%] w-[35px]">
+                            <img src="{video.userImage}">
+                        </div>
                         <p>{video.user_name}</p>
                     </div> 
                 </div>
