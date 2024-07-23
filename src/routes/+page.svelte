@@ -2,6 +2,7 @@
   
     export let data
     import "./page.css"
+    import Slider from "../lib/components/Slider.svelte"
 
   </script>
 
@@ -13,7 +14,7 @@
     <button class="bg-transparent px-2 h-6 rounded-[3px] border border-white">Extend your hand</button>
   </div>
 
-
+<div class="flex flex-col gap-9 items-center">
   <!-- SECTION 1 -->
   <div  class="relative">
     <!-- <img src="https://cimg.acharyaprashant.org/images/img-67be009c-628a-4d15-a2bb-ba5bfc615a97/30/image.jpg"> -->
@@ -73,44 +74,46 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 </div>
 
 
-<!-- SECTION - 3 -->
-<section>
+<!-- SECTION - 3  (topics covered) -->
+<section class="w-[70vw]">
   <h1 class="text-center font-bold text-[40px]">Topics Covered</h1>
-  <span class="rounded-[5px] text-left bg-red-700 font-semibold italic px-[10px] text-sm text-white m-[10px]">beginner</span>
+  <span class="rounded-[5px] text-left bg-red-700 font-semibold italic px-[10px] text-lg text-white m-[10px] px-[35px] py-[3px]">beginner</span>
 
-  <div class="text-center lg:grid lg:grid-cols-3 "> 
+  <div class="text-center mb-[20px]  lg:grid lg:grid-cols-3 "> 
     {#each data.articleCategories.beg_categories as topic}
       <a href="#">
-        <h1 class="hover:bg-orange-600 hover:text-white border rounded-[4px] py-[5px] font-semibold text-sm border-red-500 m-[10px]">{topic.name}</h1>
+        <h1 class="hover:bg-orange-600 hover:text-white border rounded-[4px] py-[5px] font-semibold  border text-xl m-[10px]">{topic.name}</h1>
       </a>
     {/each}
   </div>
   
 
-  <span class="rounded-[5px] text-left font-semibold italic px-[10px] text-sm bg-red-700 text-white m-[10px]">intermediate</span>
+  <span class="rounded-[5px] text-left font-semibold italic px-[10px] text-lg bg-red-700 text-white m-[10px] px-[35px] py-[3px]">intermediate</span>
   
-  <div class="text-center lg:grid lg:grid-cols-3"> 
+  <div class="text-center mb-[20px] t-center  lg:grid lg:grid-cols-3"> 
     {#each data.articleCategories.inter_categories as topic}
     <a href="#">
-      <h1 class="hover:bg-orange-600 hover:text-white border rounded-[4px] py-[5px] font-semibold text-sm border-red-500 m-[10px]">{topic.name}</h1>
-    </a>      {/each}
+      <h1 class="hover:bg-orange-600 hover:text-white border rounded-[4px] py-[5px] font-semibold  border text-xl m-[10px]">{topic.name}</h1>
+    </a>     
+     {/each}
   </div>
 
-  <span class="rounded-[5px] text-left font-semibold italic px-[10px] text-sm bg-red-700 text-white m-[10px]">advanced</span>
+  <span class="rounded-[5px] text-left font-semibold italic px-[10px] text-lg bg-red-700 text-white m-[10px] px-[35px] py-[3px]">advanced</span>
   
-  <div class="text-center lg:grid lg:grid-cols-3"> 
+  <div class="text-center   mb-[20px] lg:grid lg:grid-cols-3"> 
     {#each data.articleCategories.adv_categories as topic}
     <a href="#">
-      <h1 class="hover:bg-orange-600 hover:text-white border rounded-[4px] py-[5px] font-semibold text-sm border-red-500 m-[10px]">{topic.name}</h1>
-    </a>      {/each}
+      <h1 class="hover:bg-orange-600 hover:text-white border rounded-[4px] py-[5px] font-semibold  border text-xl m-[10px]">{topic.name}</h1>
+    </a>      
+    {/each}
   </div>
 </section>
 
 <!-- SECTION-4 (OUR JOUNREY) -->
 <section class="flex flex-col m-[25px] sm:justify-center justify-start">
   <div class="flex flex-col self-start sm:self-center  items-center sm:justify-center  sm:text-center w-[80%]">
-    <h1 class="sm:self-center self-start">Our Journey</h1>
-    <p class=''>
+    <h1 class="sm:self-center mb-5 text-[45px] font-bold self-start">Our Journey</h1>
+    <p class='text-xl'>
       Today, the mission of Acharya Prashant has touched the lives of tens of millions of individuals. Through his direct contact with people and through various internet internet-based channels, he continues to bring clarity to all.
     </p>
   </div>
@@ -212,23 +215,23 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 
 
 <!-- SECTION-6 (IMAGE GALLERY) -->
-<div class="flex flex-col relative items-center">
-  <h1>Gallery</h1>
-  <div class="relative masorny-gallery h-[100vh] w-[100vw]  overflow-hidden">
-    {#each data.galleryImage as image}
-      <div class="max-w-full  h-auto ">
-        <img src="{image.imageURL}" alt="Gallery Image">
+
+  <div class="flex flex-col relative mb-[100px] items-center">
+    <h1 class="text-[45px] font-bold mb-7">Gallery</h1>
+    <hr>
+    <div class="h-[70vh] overflow-hidden">
+      <div class="relative masorny-gallery h-[80vh] mx-[40px]  overflow-hidden">
+        {#each data.galleryImage as image}
+          <div class="max-w-full mb-[20px] h-auto ">
+            <img src="{image.imageURL}" alt="Gallery Image">
+          </div>
+          
+        {/each}
       </div>
-      
-    {/each}
-  </div>
-  <div class="absolute  w-[100%] flex justify-center items-center bottom-[70px] p-4">
-    <div class="relaitve z-70">
-      <button class="bg-orange-800 text-white px-4 py-2 rounded-lg">See All</button>
     </div>
   </div>
-  
-</div>
+
+
 
 
 
@@ -236,18 +239,18 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 
 
  <!-- SECTION-6 (PRINT MEDIA)-->
-  <div  class="flex sm:flex-row flex-col bg-blue-950 text-white items-center">
+  <div  class="flex sm:flex-row flex-col bg-blue-950 p-2 text-white items-center overflow-hidden">
     <div class="flex flex-col m-[20px] gap-[10px] ">
-      <h1>Print Media</h1>
-      <p>
+      <h1 class="text-[45px] font-bold">Print Media</h1>
+      <p class="text-xl mb-2">
         The mission and teachings if Acharya Prashant are regularly and widely covered by national and international media.
       </p>
-      <a class="text-orange-600 font-bold">VIEW ALL</a>
+      <a class="text-orange-600 text-lg font-bold">VIEW ALL</a>
     </div>
 
-    <div class="grid md:grid-cols-4 lg:grid-cols-5 grid-rows-3 grid-cols-2 h-[400px] gap-[10px] overflow-hidden">
+    <div class="grid flex-shrink-0  lg:grid-cols-4 md:grid-cols-2 grid-cols-2 h-[420px] gap-[10px] overflow-hidden">
       {#each data.printMedia as media}
-      <img class="object-contain w-full h-full" src="{media.mediaURL}">
+      <img class=" w-[200px] h-[200px]" src="{media.mediaURL}">
       {/each}
     </div>
   </div>
@@ -305,51 +308,66 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
         </button>
       </div>
       <div class="hidden sm:flex my-[60px] gap-7">
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-144c7728-ecc9-4526-b85c-0630c8498388/30/image.jpg" alt="">
-          <h2>IIT Delhi</h2>
-          <p>13 April 2024</p>
+
+        <Slider>
+
+          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-144c7728-ecc9-4526-b85c-0630c8498388/30/image.jpg" alt="">
+            <h2>IIT Delhi</h2>
+            <p>13 April 2024</p>
+          </div>
+          <div class="flex-shrink-0 mx-[10px]  w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-594816fc-7557-4f01-947f-3ae3f7b3ee5b/30/image.jpg" alt="">
+            <h2>IIT Madras</h2>
+            <p>23 September 2023</p>
+          </div>
+          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-234812b8-3ce9-4ad0-a61a-5e7bcd898a92/30/image.jpg" alt="">
+            <h2>SRCC</h2>
+            <p>29 April 2023</p>
+          </div>
+          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-7acb8a82-e919-491e-8a00-f7d3aa61e79f/30/image.jpg" alt="">
+            <h2>NIT Jamshedpur</h2>
+            <p>4 October 2023</p>
+          </div>
+          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-e8e15791-669e-46d2-8836-55e5420db7a5/30/image.jpg" alt="">
+            <h2>Shyamlal College</h2>
+            <p>17 March 2023</p>
+          </div>
+          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-9ee94ac0-9271-4e44-9058-cca0ae5f13a2/30/image.jpg" alt="">
+            <h1>IIT Kanpur</h1>
+            <p>7 June 2023</p>
+          </div>
+          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-8ec9bd76-5c67-45a2-bcce-579f721ad876/30/image.jpg" alt="">
+            <h1>IIT Patna</h1>
+            <p>20 March 2023</p>
         </div>
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-594816fc-7557-4f01-947f-3ae3f7b3ee5b/30/image.jpg" alt="">
-          <h2>IIT Madras</h2>
-          <p>23 September 2023</p>
-        </div>
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-234812b8-3ce9-4ad0-a61a-5e7bcd898a92/30/image.jpg" alt="">
-          <h2>SRCC</h2>
-          <p>29 April 2023</p>
-        </div>
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-7acb8a82-e919-491e-8a00-f7d3aa61e79f/30/image.jpg" alt="">
-          <h2>NIT Jamshedpur</h2>
-          <p>4 October 2023</p>
-        </div>
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-e8e15791-669e-46d2-8836-55e5420db7a5/30/image.jpg" alt="">
-          <h2>Shyamlal College</h2>
-          <p>17 March 2023</p>
-        </div>
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-9ee94ac0-9271-4e44-9058-cca0ae5f13a2/30/image.jpg" alt="">
-          <h1>IIT Kanpur</h1>
-          <p>7 June 2023</p>
-        </div>
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-8ec9bd76-5c67-45a2-bcce-579f721ad876/30/image.jpg" alt="">
-          <h1>IIT Patna</h1>
-          <p>20 March 2023</p>
-       </div>
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-a754c361-4bdf-438a-a51e-24bc9bd81d3e/30/image.jpg" alt="">
-          <h1>IRMA, Ahmedabad</h1>
-          <p>13 April 2023</p>
-        </div>
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-476f7ef6-abcb-455d-9ddc-2cdac1aa8d77/30/image.jpg" alt="">
-          <h1>DOMS, IIT Delhi</h1>
-          <p>2 April 2023</p>
-        </div>
-        <div class="flex-shrink-0 w-[160px] rounded-[10px] overflow-hidden"><img src="https://cimg.acharyaprashant.org/images/img-c520ba30-033f-430a-9c27-18816eca2ae1/30/image.jpg" alt="">
-          <h1>SPA, Delhi</h1>
-          <p>2 February 2023</p>
-        </div>
+          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-a754c361-4bdf-438a-a51e-24bc9bd81d3e/30/image.jpg" alt="">
+            <h1>IRMA, Ahmedabad</h1>
+            <p>13 April 2023</p>
+          </div>
+          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-476f7ef6-abcb-455d-9ddc-2cdac1aa8d77/30/image.jpg" alt="">
+            <h1>DOMS, IIT Delhi</h1>
+            <p>2 April 2023</p>
+          </div>
+          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
+            <img src="https://cimg.acharyaprashant.org/images/img-c520ba30-033f-430a-9c27-18816eca2ae1/30/image.jpg" alt="">
+            <h1>SPA, Delhi</h1>
+            <p>2 February 2023</p>
+          </div>
+
+      </Slider>
       </div>
     </div>
  
 
-
+</div>
 
   
  
