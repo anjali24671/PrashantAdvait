@@ -5,6 +5,7 @@ import Gallery from "$lib/database/Gallery";
 import LiveSessions from "$lib/database/LiveSessions";
 import PrintMedia from "$lib/database/PrintMedia";
 import Books from "$lib/database/Books";
+import VideoSeries from "$lib/database/VideoSeries";
 
 
 async function loadBooks() {
@@ -54,6 +55,20 @@ async function loadIncomingSession() {
         return new Response(JSON.stringify({ status: 401, message: err.message }), {
             headers: { 'Content-Type': 'application/json' },
         });
+    }
+}
+
+async function loadVideoSeries() {
+    await connect()
+    try {
+        const series = await VideoSeries.find().select(['_id', 'photoURL', 'title']).limit(6)
+        return new Response(JSON.stringify({ series }), {
+            headers: {'Content-Type':'application/json'},
+        })
+    } catch (e) {
+        return new Response(JSON.stringify({ status: 401, message: e.message }), {
+            headers: {'Content-type': 'application/json'},
+        })
     }
 }
 
@@ -139,6 +154,7 @@ export async function load() {
     const printMediaResponse = await loadPrintMedia();
     const incomingSessionResponse = await loadIncomingSession();
     const bookURLResponse = await loadBooks()
+    const seriesResponse = await loadVideoSeries()
 
     // Check if responses are OK
     if (!podcastVideosResponse.ok) return "Error with podcast videos";
@@ -147,6 +163,7 @@ export async function load() {
     if (!printMediaResponse.ok) return "Error with print media categories";
     if (!incomingSessionResponse.ok) return "Error with live sessions fetching";
     if (!bookURLResponse.ok) return "Error with loading book image urls"
+    if (!seriesResponse.ok) return "Error with loading book image urls"
     
     // Parse JSON response data
     const articleCategories = await articleCategoriesResponse.json();
@@ -155,6 +172,7 @@ export async function load() {
     const printMedia = await printMediaResponse.json()
     const incomingSessions = await incomingSessionResponse.json()
     const bookURL = await bookURLResponse.json()
+    const series = await seriesResponse.json()
 
     
     // Return serialized data
@@ -163,7 +181,7 @@ export async function load() {
         podcastVideos,
         galleryImage,
         printMedia,
-     
+        series,
         incomingSessions,
         bookURL
     };

@@ -5,6 +5,7 @@
     import Slider from "../lib/components/Slider.svelte"
     import SliderAuto from '../lib/components/SliderAuto.svelte'
 
+    
   </script>
 
   <div class="flex bg-gray-800 text-white justify-between items-center lg:text-m sm:text-sm">
@@ -414,6 +415,8 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
       </div>
 
       <div class="flex flex-col items-center gap-6 bg-yellow-100 p-7 px-[60px]">
+        
+        <SliderAuto data={data.series.series}/>
         
 
         <div class="flex flex-col">

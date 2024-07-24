@@ -1,29 +1,28 @@
 <script>
+    import {goto} from '$app/navigation'
+    export let data;
 
+    function gotoVideoDescription(id){
+        goto(`/video-modules/${id}`)
+    }
 </script>
 
 
 <div class="slider">
     <div class="slides" >
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
+        {#each data as video}
+            <button on:click={()=>gotoVideoDescription(video._id)}>
+                <img src="{video.photoURL}">
+            </button>
 
-        <!---->
-        <!-- <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg">
-        <img class="w-[200px]" src="https://cimg.acharyaprashant.org/images/img-7e345bb0-643c-4370-95d4-475411c48331/0/image.jpg"> -->
+        {/each}
 
+        {#each data as video}
+            <img class="" src="{video.photoURL}">
+
+        {/each}
+       
+       
 
     </div>
 </div>
@@ -32,15 +31,16 @@
 <style>
 .slider {
     width: 100%;
-    height: 100vh;
+    
     overflow: hidden;
     position: relative;
 }
 
 .slides {
     display: flex;
-    width: calc(100% * 8);
-    animation: slide 20s linear infinite;
+    width: calc(100% * 4);
+    animation: slide 45s linear infinite;
+    background-color: gray;
     
 }
 
@@ -50,7 +50,9 @@
 }
 
 .slides img {
-    width: 12.5%; /* 100% / 8 images */
+    width: 150px;
+    margin: 10px;
+    margin-right:0px;
 }
 
 @keyframes slide {
