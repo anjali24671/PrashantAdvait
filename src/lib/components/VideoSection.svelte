@@ -3,7 +3,7 @@
     export let reference;
     export let duration
     export let language
-    export let video_id
+   
 </script>
 
 
@@ -14,8 +14,8 @@
     <p class="text-xs text-gray-500 font-semibold">{duration}</p>
     <span class="bg-blue-200 py-1 px-2 my-2 w-[60px] rounded-md  text-xs">{language}</span>
     <div class="flex items-center gap-3 text-orange-600 font-semibold text-xs">
-        <a>ADD TO CART</a>
+        <a href="#">ADD TO CART</a>
         <hr class="w-[1px] h-[20px] bg-gray-400">
-        <a>ENROLL</a>
+        <a href="#">ENROLL</a>
     </div>
 </div>

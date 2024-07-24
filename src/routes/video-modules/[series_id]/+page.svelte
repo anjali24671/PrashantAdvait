@@ -17,7 +17,7 @@
             <div class="flex md:flex-row flex-col gap-5">
                 <div class="min-w-[40%] flex flex-col gap-4 ">
                     
-                    <img class="rounded-[5px]" src="{video.photoURL}">
+                    <img alt="video photo" class="rounded-[5px]" src="{video.photoURL}">
                     <div class="w-[200px] md:block hidden flex flex-col gap-4">
                         <p class="font-semibold text-sm">Share this Series</p>
                         <div class="flex my-3 justify-between">

@@ -193,7 +193,7 @@
                  
                     <div class="flex gap-4 items-center">
                         <div class="overflow-hidden rounded-[50%] w-[35px]">
-                            <img src="{video.userImage}">
+                            <img alt="user" src="{video.userImage}">
                         </div>
                         <p>{video.user_name}</p>
                     </div> 

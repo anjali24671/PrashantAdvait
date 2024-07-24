@@ -10,7 +10,7 @@
     
     const sessions = [
       { date: '2024-07-01', type: 'IM', name:'' },
-      { date: '2024-07-04', type: 'BP', name='' },
+      { date: '2024-07-04', type: 'BP', name:'' },
       // Add more session data here
     ];
   

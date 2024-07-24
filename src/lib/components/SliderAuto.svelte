@@ -12,7 +12,7 @@
     <div class="slides" >
         {#each data as video}
             <button on:click={()=>gotoVideoDescription(video._id)}>
-                <img src="{video.photoURL}">
+                <img alt="{video.title}" src="{video.photoURL}">
             </button>
 
         {/each}

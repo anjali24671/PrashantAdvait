@@ -41,8 +41,7 @@
 </script>
 
 <div class="slider-container relative">
-  <div
-    class="slider-track flex overflow-hidden"
+  <div class="slider-track flex overflow-hidden"
     bind:this={slider_track}
     on:mousemove={drag}
     on:mousedown={startScroll}
