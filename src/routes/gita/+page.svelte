@@ -1,6 +1,9 @@
 <script>
     import {writable} from 'svelte/store'
     import Slider from "../../lib/components/Slider.svelte"
+	import Calendar from '$lib/components/Calendar.svelte';
+
+    export let data;
 
     let highlightData = writable([
         {   "image":"https://cimg.acharyaprashant.org/images/img-0fa73d10-60d6-4dbd-bcb2-13543d8dfa6f/20/image.jpg"
@@ -142,7 +145,7 @@
 
     
         <div class="flex lg:w-auto w-full lg:items-start items-center justify-center">
-            <div class="w-[500px] h-[400px] bg-green-300"></div>
+            <Calendar {data}/>
         </div>
 
         <div class="flex items-start gap-4">

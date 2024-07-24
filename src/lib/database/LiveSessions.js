@@ -15,7 +15,13 @@ const LiveSessionsSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum:['hindi', 'english']
+    },
+    type: {
+        type: String,
+        required: true,
+        enum: ['IM', 'EX', 'BG', 'VS', 'SS']
     }
+ 
 })
 
-export default mongoose.models.LiveSessions || mongoose.model('LiveSessions', LiveSessionsSchema)
+export default  mongoose.model('LiveSessions', LiveSessionsSchema)

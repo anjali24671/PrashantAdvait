@@ -8,18 +8,15 @@ export async function POST({ request }) {
         // LiveSessions to add
         let document = {}
 
-        if (!data.name || !data.language || !data.date ) {
+        if (!data.name || !data.language || !data.date || !data.type ) {
             throw new Error("please fill all details")           
         }
 
         document['name'] = data.name
         document['language'] = data.language
         document['date'] = data.date
+        document['type'] = data.type
         
-        if (data['status']) document['status'] = data['status']
-        if (data['created_at']) document['created_at'] = data['created_at']
-        if (data['tags']) document['tags'] = data['tags']
-
         await connect()
 
         // add the LiveSessions to collection
@@ -35,4 +32,37 @@ export async function POST({ request }) {
     }
    
 }
+
+
+
+
+export async function GET({ url }) {
+    const month = await url.searchParams.get('month')
+
+    try {
+        await connect()
+
+        const sessions = await LiveSessions.find({
+            $expr: { $eq: [{ $month: "$date" }, month] }
+        });
+                
+        return new Response(JSON.stringify(sessions));
+
+
+    } catch (error) {
+        console.error('Error fetching sessions:', error);
+        return new Response(JSON.stringify({ status: 401, message: error.message }), {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            status: 401
+        });
+    }
+}
+
+
+
+
+
+
 
