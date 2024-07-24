@@ -13,13 +13,18 @@ async function loadBooks() {
 
         await connect()
         const books = await Books.find().limit(6)
-        let bookURL = []
+        let Book = []
         
         for (let book of books) {
-            bookURL.push(book.photoURL)
+            let bookData = {}
+            bookData.photoURL = book.photoURL
+            bookData._id = book._id
+            Book.push(bookData)
         }
+
+        console.log(Book)
         
-        return new Response(JSON.stringify(bookURL), {
+        return new Response(JSON.stringify(Book), {
             headers: { 'Content-Type': 'application/json' },
         });
         

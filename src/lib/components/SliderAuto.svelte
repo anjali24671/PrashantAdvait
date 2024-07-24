@@ -18,8 +18,16 @@
         {/each}
 
         {#each data as video}
-            <img class="" src="{video.photoURL}">
+            <button on:click={()=>gotoVideoDescription(video._id)}>
+                <img alt="{video.title}" src="{video.photoURL}">
+            </button>
+        {/each}
 
+        
+        {#each data as video}
+            <button on:click={()=>gotoVideoDescription(video._id)}>
+                <img alt="{video.title}" src="{video.photoURL}">
+            </button>
         {/each}
        
        
@@ -30,17 +38,18 @@
 
 <style>
 .slider {
-    width: 100%;
-    
+    width: 113%;
+    margin:30px 0;
     overflow: hidden;
     position: relative;
 }
 
 .slides {
     display: flex;
-    width: calc(100% * 4);
+    width: calc(100% * 3);
+
     animation: slide 45s linear infinite;
-    background-color: gray;
+    background-color:white;
     
 }
 
@@ -57,6 +66,6 @@
 
 @keyframes slide {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-20%); }
 }
 </style>
