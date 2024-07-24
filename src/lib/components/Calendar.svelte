@@ -74,11 +74,11 @@
     /* Add styles for other types */
   </style>
   
-  <section class="flex bg-orange-500 flex-col w-[560px] p-[10px] rounded-xl">
-    <div class="font-semibold text-xl">{format(date, 'MMMM')} {format(date, 'yyyy')}</div>
-    <hr class='my-4 shadow-1 mx-[-10px]'>
+  <section class="flex bg-white flex-col w-[560px] p-[10px] rounded-xl">
+    <div class="font-semibold px-5 text-xl">{format(date, 'MMMM')} {format(date, 'yyyy')}</div>
+    <hr class='my-4 bg-[#fff4ee] h-1 shadow-1 mx-[-10px]'>
   
-    <div class='grid grid-cols-7 place-items-center text-gray-700 font-semibold mx-[-10px] mb-[20px]'>
+    <div class='grid grid-cols-7 place-items-center text-gray-700 font-semibold text-xl mx-[-10px] mb-[20px]'>
       <div>M</div>
       <div>T</div>
       <div>W</div>
@@ -87,9 +87,9 @@
       <div>S</div>
       <div>S</div>
     </div>
-    <div class="grid mx-[-10px] grid-cols-7 gap-[5px] place-items-top font-semibold">
+    <div class="grid mx-[-10px] grid-cols-7 gap-[2px] place-items-top font-semibold">
       {#each days as { date, sessions }}
-        <div class="flex border cursor-pointer flex-col items-center p-[5px] text-center font-semibold">
+        <div class="flex  cursor-pointer flex-col items-center p-[5px] text-center text-lg font-semibold">
           <span on:click={sessionClick} >{format(date, 'd')}</span>
           
           {#each sessions as session}

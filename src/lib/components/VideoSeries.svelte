@@ -1,17 +1,24 @@
 <script>
-    export let id
+    export let id = ''
     export let photoURL
     export let title
-    export let language
+    export let language = ''
+    export let description=''
 </script>
 
 
-<div class="card hover:bg-gray-500 p-3 rounded-[7px]">
+<div class="card relative hover:bg-gray-500 text-lg p-3 rounded-[7px]">
     <a href="/video-modules/{id}">
-      <img src="{photoURL}" alt="unable to load" draggable="false"  class="card-image">
+      <img src="{photoURL}" alt="unable to load" draggable="false"  class="card-image mb-3 ">
     </a>
-    <h1>{title}</h1>
-    <p>{language}</p>
+    <h1 class="font-bold ">{title}</h1>
+    {#if language}
+      <p>{language}</p>
+    {/if}
+
+    {#if description}
+      <p class="truncate ">{description}</p>
+    {/if}
 </div>
 
 
@@ -31,7 +38,7 @@
     .card-image {
    /* Maintain aspect ratio */
       object-fit: cover; /* Cover the entire card space */
-      border-radius: 5px; /* Optional: Rounded corners */
+      border-radius: 10px; /* Optional: Rounded corners */
     }
   
     /* Responsive media queries */

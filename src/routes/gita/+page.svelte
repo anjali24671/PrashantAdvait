@@ -2,6 +2,7 @@
     import {writable} from 'svelte/store'
     import Slider from "../../lib/components/Slider.svelte"
 	import Calendar from '$lib/components/Calendar.svelte';
+    import VideoSeries from '../../lib/components/VideoSeries.svelte'
 
     export let data;
 
@@ -79,51 +80,55 @@
 
 <div class="mx-[10px]">
     <!-- MAIN SECTION -->
-    <section class="flex gap-7 mx-[70px] flex-col justify-center items-center">
-        <div><h1 class=" font-bold text-[38px]">LIVE Bhagwad Gita</h1></div>
-        <div class="self-center text-lg text-center font-semibold">Acharya Prashant is teaching Bhagawad Gita, verse by verse.
-        Do not miss</div>
+    <section class="flex gap-7 mx-[-10px] px-[70px] py-9 flex-col justify-center bg-[#fff4ee] w-[100vw] items-center">
+        <div class="flex p-8 flex-col gap-5 justify-center items-center w-[100vw] ">
 
+            <div class="flex md:flex-row flex-col items-center justify-center md:gap-4 font-bold md:text-[65px] text-[40px]"><span class="text-[#d24115] md:font-bold font-semibold md:mb-0 mb-[-13px] ">LIVE </span><span>Bhagwad Gita</span></div>
+            <div class="self-center md:text-[23px] text-xl text-center font-semibold">Acharya Prashant is teaching Bhagawad Gita, verse by verse.<br>
+            Do not miss</div>
 
-        <div class="flex md:flex-row flex-col w-[360px] rounded-md py-2 px-4 gap-2 border border-red-600 md:items-center">
-            <p>Your enrolment for Gita Samagam is expiriing in 4 days. Please re-enrol for the next month</p>
-            <div class="flex-shrink-0">
-                <button class="font-semibold py-1 px-4 rounded-md bg-red-600">Re-Enrol now</button>
+            <div class="flex mt-5 md:flex-row text-sm  flex-col w-[380px] rounded-md py-3 px-4 gap-2 border border-red-600 md:items-center">
+                <p>Your enrolment for Gita Samagam is expiriing in 4 days. Please re-enrol for the next month</p>
+                <div class="flex-shrink-0">
+                    <button class="font-semibold py-2 px-5 rounded-md text-white bg-red-600">Re-Enrol now</button>
+                </div>
             </div>
         </div>
 
-
-        <div class="flex font-semibold gap-5 md:flex-row flex-col items-center md:items-start">
-            <div class=" md:w-[150px] text-center ">
-                <h1 class="text-[26px] font-bold">30000+</h1>
-                <p>Participants attend live classes together from across the globe</p>
+        <div class="flex font-semibold md:w-[107%] gap-2 md:flex-row flex-col items-center md:items-stretch">
+            <div class=" text-center rounded-l-xl  p-3 md:bg-white ">
+                <h1 class="text-[30px] font-bold">30000+</h1>
+                <p class="font-normal ">Participants attend live classes together from across the globe</p>
             </div>
-            <div class=" md:w-[150px] text-center">
-                <h1 class="text-[26px] font-bold">1,30,000+</h1>
-                <p>Active users on Gita Community</p>
+            <div class=" text-center p-3 md:bg-white">
+                <h1 class="text-[30px] font-bold">1,30,000+</h1>
+                <p class="font-normal ">Active users on Gita Community</p>
             </div>
-            <div class=" md:w-[150px] text-center">
-                <h1 class="text-[26px] font-bold">3000+</h1>
-                <p>Questions answered. Opportunity to ask questions from Acharya Prashant.</p>
+            <div class="text-center  p-3 md:bg-white">
+                <h1 class="text-[30px] font-bold">3000+</h1>
+                <p class="font-normal ">Questions answered. Opportunity to ask questions from Acharya Prashant.</p>
             </div>
-            <div class=" md:w-[150px] text-center">
-                <h1 class="text-[26px] font-bold">300+</h1>
-                <p>Sessions conducted. 30 live sessions every month. Get access to all past sessions.</p>
+            <div class=" md:bg-white p-3 text-center  rounded-r-xl">
+                <h1 class="text-[30px] font-bold ">300+</h1>
+                <p class="font-normal ">Sessions conducted. 30 live sessions every month. Get access to all past sessions.</p>
             </div>
         </div>
     </section>
 
 
     <!-- HIGHLIGHTS -->
-    <section class="my-[70px]"> 
-        <h1 class="font-semibold text-xl">HIGHLIGHTS</h1>
+    <section class="my-[70px] items-center"> 
+        <div class='flex items-center justify-center'>
+            <h1 class="text-[28px] font-semibold my-8">HIGHLIGHTS</h1>
+        </div>
         <Slider>
             {#each $highlightData as highlight}
-                <div class="card flex flex-col overflow-hidden p-3 ">
+                <VideoSeries photoURL={highlight.image} title={highlight.title} description={highlight.description}/>
+                <!-- <div class="card flex flex-col overflow-hidden  p-3  ">
                     <img src="{highlight.image}" alt="unable to load" draggable="false" class="card-image">
-                    <h1 class="mt-[10px] font-semibold">{highlight.title}</h1>
-                    <p class="truncate">{highlight.description}</p>
-                </div>
+                    <h1 class="mt-[10px] text-xl font-bold">{highlight.title}</h1>
+                    <h2 class=" text-md">{highlight.description}</h2>
+                </div> -->
             {/each}
         </Slider>
 
@@ -131,9 +136,10 @@
 
 
     <!--SCHEDULE-->
-    <section class="flex lg:flex-row flex-col justify-between gap-6 mx-[5px]">
+    <section class="flex lg:flex-row flex-col justify-between bg-[#fff4ee] lg:py-[90px] px-[35px] gap-6   my-[150px] mx-[-10px]">
 
-        <div class="lg:hidden flex gap-3 items-center">
+        <!--shown on small screen-->
+        <div class="lg:hidden pt-9  flex gap-3 items-center">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" class="h-[28px] w-[27px]"><path d="M4.596 0a.82.82 0 0 1 .82.82v1.114h4.167V.821a.82.82 0 0 1 .82-.821h.026a.82.82 0 0 1 .821.82v1.114h1.356q1.077 0 1.67.494l.126.116Q15 3.153 15 4.348v9.246q0 1.195-.598 1.8-.6.606-1.796.606H2.394q-1.182 0-1.788-.601Q0 14.797 0 13.594V4.348Q0 3.145.606 2.54q.606-.606 1.788-.606H3.75V.821A.82.82 0 0 1 4.57 0zm8.065 5.519H2.331q-.48 0-.733.256-.252.257-.252.77v7.065q0 .522.252.778.252.257.733.257h10.33q.48 0 .745-.257.263-.256.263-.778V6.545q0-.513-.263-.77-.264-.255-.745-.256M4.04 11.974q.205 0 .28.072.075.073.075.281v.441q0 .201-.075.273t-.28.072h-.433q-.204 0-.28-.072-.074-.073-.074-.273v-.44q0-.21.075-.282t.28-.072Zm2.457 0q.197 0 .272.072.075.073.075.281v.441q0 .201-.075.273t-.272.072h-.433q-.196 0-.28-.072-.082-.073-.082-.273v-.44q0-.21.082-.282.084-.072.28-.072Zm2.457 0q.197 0 .275.072.08.073.08.281v.441q0 .201-.08.273-.078.072-.275.072h-.441q-.197 0-.272-.072-.075-.073-.075-.273v-.44q0-.21.075-.282t.272-.072ZM4.039 9.512q.205 0 .28.073.075.072.075.272v.45q0 .2-.075.276t-.28.076h-.433q-.204 0-.28-.076-.074-.075-.074-.277v-.449q0-.2.075-.272t.28-.073Zm2.457 0q.197 0 .272.073.075.072.075.272v.45q0 .2-.075.276t-.272.076h-.433q-.196 0-.28-.076-.082-.075-.082-.277v-.449q0-.2.082-.272.084-.073.28-.073Zm2.457 0q.197 0 .275.073.08.072.08.272v.45q0 .2-.08.276-.078.076-.275.076h-.441q-.197 0-.272-.076-.075-.075-.075-.277v-.449q0-.2.075-.272t.272-.073Zm2.456 0q.197 0 .272.073.075.072.075.272v.45q0 .2-.075.276t-.272.076h-.44q-.205 0-.28-.076-.075-.075-.075-.277v-.449q0-.2.075-.272t.28-.073ZM6.496 7.05q.197 0 .272.077.075.076.075.276v.441q0 .201-.075.273t-.272.072h-.433q-.196 0-.28-.072-.082-.072-.082-.273v-.44q0-.202.082-.277.084-.077.28-.077Zm2.457 0q.197 0 .275.077.08.076.08.276v.441q0 .201-.08.273-.078.072-.275.072h-.441q-.197 0-.272-.072t-.075-.273v-.44q0-.202.075-.277.075-.077.272-.077Zm2.456 0q.197 0 .272.077.075.076.075.276v.441q0 .201-.075.273t-.272.072h-.44q-.205 0-.28-.072t-.075-.273v-.44q0-.202.075-.277.075-.077.28-.077Z"></path></svg> <div class="flex flex-col"><div class="flex items-center whitespace-nowrap text-3xl font-bold leading-none text-slate-800 laptop:h-[52px]"></div></div>
             </div>
@@ -148,8 +154,10 @@
             <Calendar {data}/>
         </div>
 
-        <div class="flex items-start gap-4">
-            <div class="lg:block hidden">
+        <div class="flex items-start gap-4 px-6">
+
+            <!--shown on large screens-->
+            <div class="lg:block hidden mt-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" class="h-[52px] w-[49px]"><path d="M4.596 0a.82.82 0 0 1 .82.82v1.114h4.167V.821a.82.82 0 0 1 .82-.821h.026a.82.82 0 0 1 .821.82v1.114h1.356q1.077 0 1.67.494l.126.116Q15 3.153 15 4.348v9.246q0 1.195-.598 1.8-.6.606-1.796.606H2.394q-1.182 0-1.788-.601Q0 14.797 0 13.594V4.348Q0 3.145.606 2.54q.606-.606 1.788-.606H3.75V.821A.82.82 0 0 1 4.57 0zm8.065 5.519H2.331q-.48 0-.733.256-.252.257-.252.77v7.065q0 .522.252.778.252.257.733.257h10.33q.48 0 .745-.257.263-.256.263-.778V6.545q0-.513-.263-.77-.264-.255-.745-.256M4.04 11.974q.205 0 .28.072.075.073.075.281v.441q0 .201-.075.273t-.28.072h-.433q-.204 0-.28-.072-.074-.073-.074-.273v-.44q0-.21.075-.282t.28-.072Zm2.457 0q.197 0 .272.072.075.073.075.281v.441q0 .201-.075.273t-.272.072h-.433q-.196 0-.28-.072-.082-.073-.082-.273v-.44q0-.21.082-.282.084-.072.28-.072Zm2.457 0q.197 0 .275.072.08.073.08.281v.441q0 .201-.08.273-.078.072-.275.072h-.441q-.197 0-.272-.072-.075-.073-.075-.273v-.44q0-.21.075-.282t.272-.072ZM4.039 9.512q.205 0 .28.073.075.072.075.272v.45q0 .2-.075.276t-.28.076h-.433q-.204 0-.28-.076-.074-.075-.074-.277v-.449q0-.2.075-.272t.28-.073Zm2.457 0q.197 0 .272.073.075.072.075.272v.45q0 .2-.075.276t-.272.076h-.433q-.196 0-.28-.076-.082-.075-.082-.277v-.449q0-.2.082-.272.084-.073.28-.073Zm2.457 0q.197 0 .275.073.08.072.08.272v.45q0 .2-.08.276-.078.076-.275.076h-.441q-.197 0-.272-.076-.075-.075-.075-.277v-.449q0-.2.075-.272t.272-.073Zm2.456 0q.197 0 .272.073.075.072.075.272v.45q0 .2-.075.276t-.272.076h-.44q-.205 0-.28-.076-.075-.075-.075-.277v-.449q0-.2.075-.272t.28-.073ZM6.496 7.05q.197 0 .272.077.075.076.075.276v.441q0 .201-.075.273t-.272.072h-.433q-.196 0-.28-.072-.082-.072-.082-.273v-.44q0-.202.082-.277.084-.077.28-.077Zm2.457 0q.197 0 .275.077.08.076.08.276v.441q0 .201-.08.273-.078.072-.275.072h-.441q-.197 0-.272-.072t-.075-.273v-.44q0-.202.075-.277.075-.077.272-.077Zm2.456 0q.197 0 .272.077.075.076.075.276v.441q0 .201-.075.273t-.272.072h-.44q-.205 0-.28-.072t-.075-.273v-.44q0-.202.075-.277.075-.077.28-.077Z"></path></svg>
             </div>
 
@@ -157,16 +165,17 @@
                 <div class="hidden lg:flex gap-3 items-start">
          
                     <div class='flex flex-col'>
-                        <h1 class="text-[50px] font-bold">Session Schedule</h1>
+                        <h1 class="text-[40px] font-bold">Session Schedule</h1>
                         <p class="text-xl">31 SESSIONS</p>
                     </div>
                 </div>
                 
     
-                <div class="flex gap-[10px] min-w-[96vw] lg:text-lg lg:flex-col border-l-4 lg:border-l-0 lg:border-t-4  border-purple-300 lg:pt-[10px] pl-[10px] lg:justify-center justify-between items-start">
-                    <div>
-                        <h2>Exam</h2>
-                        <p class="text-gray-700">19:00 PM</p>
+                <div class="flex gap-[10px] min-w-[85vw] lg:text-lg lg:flex-col pb-9 lg:border-l-0  lg:justify-center justify-between items-center lg:items-start">
+                    <div class="h-1 lg:block hidden w-[30%] bg-orange-400"></div>
+                    <div class="">
+                        <h2 class="font-bold text-[24px]">Exam</h2>
+                        <p class="text-white font-normal">19:00 PM</p>
                     </div>
                     <div>
                         <button class="bg-orange-600  lg:text-lg rounded-[20px] text-sm font-semibold lg:my-[10px] px-[10px] lg:px-[40px] py-[8px]">Join now</button>
@@ -180,7 +189,7 @@
 
 
     <!-- YOUR VOICE SECTION -->
-    <section class="flex gap-7 my-[40px] flex-col items-center">
+    <section class=" gap-7 my-[40px] flex-col items-center">
         <h1 class="text-[40px] font-bold">Your Voice</h1>
         <Slider>
             {#each $yourVoiceVideos as video}
