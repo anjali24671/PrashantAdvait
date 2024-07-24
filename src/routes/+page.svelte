@@ -3,6 +3,7 @@
     export let data
     import "./page.css"
     import Slider from "../lib/components/Slider.svelte"
+    import SliderAuto from '../lib/components/SliderAuto.svelte'
 
   </script>
 
@@ -295,81 +296,136 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 
     <!-- SECTION-7 (INSTITUTIONAL TALKS) - HIDDEN ON MEDIUM -->
 
-     <div>
-      <div class="flex w-[80%] m-[15px] flex-col sm:flex-row sm:items-end">
-        <div>
-          <h1 class="font-bold">Institutional Talks</h1>
-          <p>Acharya Prashant loves interacting with the dynamic and vibrant youth, and has a profound faith in their ability to effectuate significant changes.<br>
-            He delivers regular talks at illustrious educational institutes, including prestigious organizations such as IITs and IIMs.<br>
-            With over 100+ college appearances and interactions with thousands of enthusiastic students, Acharya Prashant has left an indelible impression.</p>
+     <div class="w-[90%] relative">
+        <div class="flex w-[80%] m-[15px] gap-4 flex-col md:flex-row md:items-end">
+          <div>
+            <h1 class="font-bold text-[45px]">Institutional Talks</h1>
+            <p class="text-lg">Acharya Prashant loves interacting with the dynamic and vibrant youth, and has a profound faith in their ability to effectuate significant changes.<br>
+              He delivers regular talks at illustrious educational institutes, including prestigious organizations such as IITs and IIMs.<br>
+              With over 100+ college appearances and interactions with thousands of enthusiastic students, Acharya Prashant has left an indelible impression.</p>
+          </div>
+          <button class="bg-orange-600 py-[8px] rounded-[20px] text-lg font-bold text-white w-1/4 ">
+            Invite
+          </button>
         </div>
-        <button class="bg-orange-600 text-white w-1/2  ">
-          Invite
+        <div class="hidden sm:flex my-[60px] gap-7">
+
+          <Slider>
+
+            <div class="flex-shrink-0 mx-[20px] w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-144c7728-ecc9-4526-b85c-0630c8498388/30/image.jpg" alt="">
+              <h2>IIT Delhi</h2>
+              <p>13 April 2024</p>
+            </div>
+            <div class="flex-shrink-0 mx-[20px]  w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-594816fc-7557-4f01-947f-3ae3f7b3ee5b/30/image.jpg" alt="">
+              <h2>IIT Madras</h2>
+              <p>23 September 2023</p>
+            </div>
+            <div class="flex-shrink-0 mx-[20px] w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-234812b8-3ce9-4ad0-a61a-5e7bcd898a92/30/image.jpg" alt="">
+              <h2>SRCC</h2>
+              <p>29 April 2023</p>
+            </div>
+            <div class="flex-shrink-0 mx-[20px] w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-7acb8a82-e919-491e-8a00-f7d3aa61e79f/30/image.jpg" alt="">
+              <h2>NIT Jamshedpur</h2>
+              <p>4 October 2023</p>
+            </div>
+            <div class="flex-shrink-0 mx-[20px] w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-e8e15791-669e-46d2-8836-55e5420db7a5/30/image.jpg" alt="">
+              <h2>Shyamlal College</h2>
+              <p>17 March 2023</p>
+            </div>
+            <div class="flex-shrink-0 mx-[20px] w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-9ee94ac0-9271-4e44-9058-cca0ae5f13a2/30/image.jpg" alt="">
+              <h1>IIT Kanpur</h1>
+              <p>7 June 2023</p>
+            </div>
+            <div class="flex-shrink-0 mx-[20px] w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-8ec9bd76-5c67-45a2-bcce-579f721ad876/30/image.jpg" alt="">
+              <h1>IIT Patna</h1>
+              <p>20 March 2023</p>
+          </div>
+            <div class="flex-shrink-0 mx-[20px] w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-a754c361-4bdf-438a-a51e-24bc9bd81d3e/30/image.jpg" alt="">
+              <h1>IRMA, Ahmedabad</h1>
+              <p>13 April 2023</p>
+            </div>
+            <div class="flex-shrink-0 mx-[20px] w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-476f7ef6-abcb-455d-9ddc-2cdac1aa8d77/30/image.jpg" alt="">
+              <h1>DOMS, IIT Delhi</h1>
+              <p>2 April 2023</p>
+            </div>
+            <div class="flex-shrink-0 mx-[20px] w-[200px] rounded-[10px] overflow-hidden">
+              <img src="https://cimg.acharyaprashant.org/images/img-c520ba30-033f-430a-9c27-18816eca2ae1/30/image.jpg" alt="">
+              <h1>SPA, Delhi</h1>
+              <p>2 February 2023</p>
+            </div>
+
+          </Slider>
+        </div>
+      </div>
+ 
+
+    <!--AP Books-->
+    
+    <div class="w-[90%] relative">
+      <div class="flex w-[80%] m-[15px] gap-4 flex-col md:flex-row md:items-end">
+        <div>
+          <h1 class="font-bold text-[45px]">AP Books</h1>
+          <p class="text-lg">Unique literature shedding light on Vedanta and various spiritual streams, youth awakening, women empowerment, restlessness, love, relationship, environmental crisis and other important topics.<br>
+            Here are 140+ books. These books are compilations of Acharya Prashant's talks in the past 15 years.<br>
+            Millions have found light through them. Truth beckons, respond to its call.</p>
+        </div>
+        <button class="bg-orange-600 py-[8px] rounded-[20px] text-lg font-bold text-white min-w-[200px] ">
+          Start Reading
         </button>
       </div>
-      <div class="hidden sm:flex my-[60px] gap-7">
 
-        <Slider>
-
-          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-144c7728-ecc9-4526-b85c-0630c8498388/30/image.jpg" alt="">
-            <h2>IIT Delhi</h2>
-            <p>13 April 2024</p>
-          </div>
-          <div class="flex-shrink-0 mx-[10px]  w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-594816fc-7557-4f01-947f-3ae3f7b3ee5b/30/image.jpg" alt="">
-            <h2>IIT Madras</h2>
-            <p>23 September 2023</p>
-          </div>
-          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-234812b8-3ce9-4ad0-a61a-5e7bcd898a92/30/image.jpg" alt="">
-            <h2>SRCC</h2>
-            <p>29 April 2023</p>
-          </div>
-          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-7acb8a82-e919-491e-8a00-f7d3aa61e79f/30/image.jpg" alt="">
-            <h2>NIT Jamshedpur</h2>
-            <p>4 October 2023</p>
-          </div>
-          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-e8e15791-669e-46d2-8836-55e5420db7a5/30/image.jpg" alt="">
-            <h2>Shyamlal College</h2>
-            <p>17 March 2023</p>
-          </div>
-          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-9ee94ac0-9271-4e44-9058-cca0ae5f13a2/30/image.jpg" alt="">
-            <h1>IIT Kanpur</h1>
-            <p>7 June 2023</p>
-          </div>
-          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-8ec9bd76-5c67-45a2-bcce-579f721ad876/30/image.jpg" alt="">
-            <h1>IIT Patna</h1>
-            <p>20 March 2023</p>
+      <div class="flex flex-col items-center gap-6 bg-yellow-100 p-7 px-[60px]">
+        <div class="flex gap-6">
+          <div class="w-[150px] h-[200px] bg-green-100"></div>
+          <div class="w-[150px] h-[200px] bg-green-100"></div>
         </div>
-          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-a754c361-4bdf-438a-a51e-24bc9bd81d3e/30/image.jpg" alt="">
-            <h1>IRMA, Ahmedabad</h1>
-            <p>13 April 2023</p>
-          </div>
-          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-476f7ef6-abcb-455d-9ddc-2cdac1aa8d77/30/image.jpg" alt="">
-            <h1>DOMS, IIT Delhi</h1>
-            <p>2 April 2023</p>
-          </div>
-          <div class="flex-shrink-0 mx-[10px] w-[160px] rounded-[10px] overflow-hidden">
-            <img src="https://cimg.acharyaprashant.org/images/img-c520ba30-033f-430a-9c27-18816eca2ae1/30/image.jpg" alt="">
-            <h1>SPA, Delhi</h1>
-            <p>2 February 2023</p>
-          </div>
 
-      </Slider>
+        <div class="flex flex-col">
+          <div class="display-inline"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="40" viewBox="0 0 64 40" class="fill-current"><path d="M29.094 26.083q0-3.863-1.71-6.974-1.711-3.11-4.648-4.966t-6.6-1.856q-2.603 0-4.934.996t-4.118 2.989h-.878q.817-2.657 2.68-4.981 1.86-2.325 4.51-4.06 2.65-1.737 5.858-2.642.697-.212 1.196-.423.5-.21.772-.483.365-.302.56-.68.198-.376.197-.89 0-.936-.666-1.524-.667-.59-1.725-.589-.758 0-1.423.15-.667.153-1.665.454a26.4 26.4 0 0 0-5.54 2.626 23.7 23.7 0 0 0-4.663 3.804q-2.967 3.019-4.632 7.034T0 22.853q0 5.433 2.074 9.268 2.073 3.834 5.495 5.856Q10.989 40 15.077 40q3.996 0 7.16-1.826a13.6 13.6 0 0 0 5.01-4.982q1.847-3.155 1.847-7.109m34.906 0q0-3.863-1.71-6.974-1.71-3.11-4.648-4.966-2.935-1.856-6.57-1.856a12.5 12.5 0 0 0-4.964.996q-2.331.996-4.087 2.989h-.878q.788-2.657 2.649-4.981 1.862-2.325 4.51-4.06 2.65-1.737 5.859-2.642.696-.212 1.196-.423.5-.21.802-.483.363-.302.545-.68.182-.376.182-.89 0-.936-.667-1.524-.666-.59-1.695-.589a6.4 6.4 0 0 0-1.438.15q-.651.153-1.68.454A27 27 0 0 0 45.88 3.23a24.3 24.3 0 0 0-4.708 3.804q-2.906 3.019-4.556 7.034t-1.65 8.785q0 5.433 2.043 9.268 2.044 3.834 5.465 5.856Q45.895 40 50.013 40q3.996 0 7.16-1.826a13.46 13.46 0 0 0 4.995-4.982Q64 30.037 64 26.083"></path></svg></div>
+          <p class="ml-[65px] text-[27px] italic">The mark of a good word is that it takes you to silence</p>
+        </div>
       </div>
     </div>
- 
+
+    <!--VIDEO SECTION-->
+     
+    <div class="w-[90%] relative">
+      <div class="flex w-[80%] m-[15px] gap-4 flex-col md:flex-row md:items-end">
+        <div class="flex flex-col gap-4">
+          <h1 class="font-bold text-[45px]">Video Series</h1>
+          
+          <p class="text-lg"><span class="font-bold">To a roaring spirit yearning for freedom and joy, Acharya Prashant's discourses come as a solace.</span><br><br>
+            Thousands of hours of sessions on various scriptures and life topics (in the light of Vedanta) have been compiled and structured in the form of 300+ video series.<br><br>
+            These video series are aimed at liberating the troubled mind from the shackles of ignorance and suffering.
+          </p>
+        </div>
+        <button class="bg-orange-600 py-[8px] rounded-[20px] text-lg font-bold text-white min-w-[200px] ">
+          Explore Video Series
+        </button>
+      </div>
+
+      <div class="flex flex-col items-center gap-6 bg-yellow-100 p-7 px-[60px]">
+        
+
+        <div class="flex flex-col">
+          <div class="display-inline"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="40" viewBox="0 0 64 40" class="fill-current"><path d="M29.094 26.083q0-3.863-1.71-6.974-1.711-3.11-4.648-4.966t-6.6-1.856q-2.603 0-4.934.996t-4.118 2.989h-.878q.817-2.657 2.68-4.981 1.86-2.325 4.51-4.06 2.65-1.737 5.858-2.642.697-.212 1.196-.423.5-.21.772-.483.365-.302.56-.68.198-.376.197-.89 0-.936-.666-1.524-.667-.59-1.725-.589-.758 0-1.423.15-.667.153-1.665.454a26.4 26.4 0 0 0-5.54 2.626 23.7 23.7 0 0 0-4.663 3.804q-2.967 3.019-4.632 7.034T0 22.853q0 5.433 2.074 9.268 2.073 3.834 5.495 5.856Q10.989 40 15.077 40q3.996 0 7.16-1.826a13.6 13.6 0 0 0 5.01-4.982q1.847-3.155 1.847-7.109m34.906 0q0-3.863-1.71-6.974-1.71-3.11-4.648-4.966-2.935-1.856-6.57-1.856a12.5 12.5 0 0 0-4.964.996q-2.331.996-4.087 2.989h-.878q.788-2.657 2.649-4.981 1.862-2.325 4.51-4.06 2.65-1.737 5.859-2.642.696-.212 1.196-.423.5-.21.802-.483.363-.302.545-.68.182-.376.182-.89 0-.936-.667-1.524-.666-.59-1.695-.589a6.4 6.4 0 0 0-1.438.15q-.651.153-1.68.454A27 27 0 0 0 45.88 3.23a24.3 24.3 0 0 0-4.708 3.804q-2.906 3.019-4.556 7.034t-1.65 8.785q0 5.433 2.043 9.268 2.044 3.834 5.465 5.856Q45.895 40 50.013 40q3.996 0 7.16-1.826a13.46 13.46 0 0 0 4.995-4.982Q64 30.037 64 26.083"></path></svg></div>
+          <p class="ml-[65px] text-[27px] italic">Begin from where you are, and what you are.</p>
+        </div>
+      </div>
+    </div>
 
 </div>
 
-  
+
  
   
 
