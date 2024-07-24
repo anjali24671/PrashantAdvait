@@ -1,1 +1,6 @@
-<h1>print media</h1>
+<script>
+    import SliderAuto from "../../lib/components/SliderAuto.svelte"
+</script>
+
+
+<SliderAuto/>
