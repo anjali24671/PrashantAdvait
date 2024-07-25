@@ -39,17 +39,29 @@
 
   </script>
   
-  <div class="flex flex-col">
+  <div class="flex flex-col gap-[100px] mx-5">
 
     {#each Object.keys(VideoCategoriesData) as key}
 
-      <h1>{key}</h1>
+      <div>
+        {#if key==='campaign'}
+        <div class="flex font-bold text-xl items-center w-full justify-center">
+          <h1>Featured Collections</h1>
+        </div>
+        {:else}
+        <div class="flex font-bold text-xl items-center w-full justify-start">
+          <h1>{key}</h1>
+        </div>
+        {/if}
+   
+      
 
-      <Slider>
-        {#each VideoCategoriesData[key] as category}
-          <VideoSeries id={category._id} photoURL={category.photoURL} title={category.title} language={category.language}/>
-        {/each}
-      </Slider>
+        <Slider>
+          {#each VideoCategoriesData[key] as category}
+            <VideoSeries id={category._id} photoURL={category.photoURL} title={category.title} language={category.language}/>
+          {/each}
+        </Slider>
+      </div>
   
     {/each}
 

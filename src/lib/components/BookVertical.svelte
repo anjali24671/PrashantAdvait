@@ -20,16 +20,16 @@
 <BookCartAlert show={showCartOption} Ebook_id={book_id} {paper_id} {image}  {book_name} {paper_price}/>
 
 
-<div  class="cardV p-4 overflow-hidden border-2 md:m-3 m-1 hover:border-orange-600 flex flex-col  items-center   ">
+<div  class="cardV p-3 bg-white overflow-hidden  md:m-3 m-1 border-2 border-[#fff4ee] hover:border-orange-600 flex flex-col  items-center   ">
     <img class="card-image" src="{image}" alt="book.name" >
     <div class="self-end  w-full flex flex-col justify-center h-full">
         <a href="/books/{book_id}">
-          <h3>{book_name}</h3>
+          <h3 class="font-semibold">{book_name}</h3>
         </a>
-        <p class="text-sm">ebook: {book_price}</p>
+        <p class="text-xs ">ebook: <span class="font-bold">₹{book_price}</span></p>
         <p class="text-xs">Suggested contribution</p>
-        <p class="text-sm">Paperback:</p>
-        <div class="mt-4 flex items-center font-semibold text-sm justify-center">
+        <p class="text-xs">Paperback:</p>
+        <div class="mt-4 flex items-center font-semibold text-orange-600 text-sm justify-center">
           <button on:click={showCartOptions}>Add to Cart</button>
         </div>   
     </div>
@@ -40,9 +40,9 @@
     
   .card-image {
     width: auto; /* Make image responsive */
-    height: 100%; /* Maintain aspect ratio */
-    object-fit: cover; /* Cover the entire card space */
-    border-radius: 5px; /* Optional: Rounded corners */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Cover the entire card space */
+    border-radius: 10x; /* Optional: Rounded corners */
   }
 
   .cardV {
