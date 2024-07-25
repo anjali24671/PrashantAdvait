@@ -46,6 +46,10 @@
     </div>
 
 {:else}
-  <h1>No video modules exists</h1>
-
+  <div class="w-full ">
+    <div class="flex items-center justify-center">
+        <div>No video series found.</div>
+    </div>
+  
+  </div>
 {/if}
