@@ -98,7 +98,7 @@
 
 <nav  class="w-full sticky px-6 py-3 top-0 z-50 text-white  flex justify-between items-center bg-[#d24115] h-[45px]">
     <div class="flex items-center justify-between gap-[20px]">
-      <img class="h-[30px] rounded-[50%]" src="acharya.jpeg">
+      <img class="h-[30px] rounded-[50%]" alt="" src="acharya.jpeg">
         <div><a href="/">Home</a></div>
         <div>
             <select class="bg-[#d24115]" id="sessionSelect" on:click={goto} bind:value={selected}>

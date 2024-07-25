@@ -39,7 +39,7 @@
 
   </script>
   
-  <div class="flex flex-col gap-[100px] mx-5">
+  <div class="flex flex-col gap-[40px] mx-5">
 
     {#each Object.keys(VideoCategoriesData) as key}
 
@@ -62,6 +62,7 @@
           {/each}
         </Slider>
       </div>
+      <hr>
   
     {/each}
 

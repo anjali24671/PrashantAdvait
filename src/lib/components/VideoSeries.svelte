@@ -7,14 +7,13 @@
 </script>
 
 
-<div class="card relative hover:bg-gray-500 text-lg p-3 rounded-[7px]">
+<div class="card relative mt-3 hover:bg-gray-200 text-lg p-3  rounded-[7px]">
     <a href="/video-modules/{id}">
       <img src="{photoURL}" alt="unable to load" draggable="false"  class="card-image mb-3 ">
     </a>
-    <h1 class="font-bold ">{title}</h1>
-    {#if language}
-      <p>{language}</p>
-    {/if}
+    <h1 class="font-semibold ">{title}</h1>
+    <button class="text-xs border px-2 bg-[#c7e6f8] rounded-[5px]">{language}</button>
+  
 
     {#if description}
       <p class="truncate ">{description}</p>
@@ -27,7 +26,7 @@
     
     .card {
       flex: 0 0 auto; /* Prevents flex items from stretching */
-      width: 85vw; /* Use viewport width for responsiveness */
+      /* Use viewport width for responsiveness */
      /* Automatically adjust height based on content */
       max-width: 300px; /* Max width to prevent excessive growth on large screens */
       min-width: 150px; /* Min width to ensure readability on small screens */
@@ -56,13 +55,13 @@
   
     @media (min-width: 1200px) {
       .card {
-        width: 20vw; /* Adjust width for extra-large screens */
+        width: 27vw; /* Adjust width for extra-large screens */
       }
     }
   
     @media (min-width: 1500px) {
       .card {
-        width: 15vw; /* Adjust width for ultra-large screens */
+        width: 25vw; /* Adjust width for ultra-large screens */
       }
     }
   </style>

@@ -51,8 +51,8 @@
 </script>
 
 <div>
-    <header class="mx-4 my-2 flex gap-2">
-        <div><h2>Video series</h2></div>
+    <header class="mx-4 my-6 mb-[40px] flex items-center  gap-2">
+        <div><h2 class="md:text-lg text-sm font-bold italic text-orange-600">Video series</h2></div>
         <div class="flex gap-4 flex-col border overflow-hidden rounded-[8px]">
             <div class="flex md:w-[660px] relative">
 
