@@ -16,25 +16,6 @@
       return sessions.filter(session => format(parseISO(session.date), 'yyyy-MM-dd') === formattedDate);
     }
 
-    let sessionClicked = false
-    function sessionClick(e){
-        console.log("before:", sessionClicked)
-        sessionClicked = !sessionClicked
-        console.log("after:", sessionClicked)
-    
-        if(sessionClicked){
-            e.target.style.backgroundColor="red"
-            e.target.style.padding="0px 6px"
-            e.target.style.borderRadius="50%"
-
-        }else{
-            e.target.style.backgroundColor=""
-            e.target.style.padding=""
-            e.target.style.borderRadius=""
-        }
-       
-        
-    }
     
     function generateDays(year, month) {
       const start = startOfMonth(new Date(year, month));
@@ -90,7 +71,7 @@
     <div class="grid mx-[-10px] grid-cols-7 gap-[2px] place-items-top font-semibold">
       {#each days as { date, sessions }}
         <div class="flex  cursor-pointer flex-col items-center p-[5px] text-center text-lg font-semibold">
-          <span on:click={sessionClick} >{format(date, 'd')}</span>
+          <span  >{format(date, 'd')}</span>
           
           {#each sessions as session}
             <div class={`text-[10px] font-bold px-2 rounded-md session ${session.type}`}>

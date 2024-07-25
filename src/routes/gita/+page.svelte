@@ -6,6 +6,30 @@
 
     export let data;
 
+    function nextSessionTime(dateString) {
+    const date = new Date(dateString);
+
+    // Extract time components
+    let hours = date.getUTCHours();
+    const minutes = date.getUTCMinutes();
+
+    // Determine AM/PM suffix
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+
+    // Convert to 12-hour format
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+
+    // Format minutes with leading zero if needed
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+    // Construct time string
+    const timeString = `${hours}:${formattedMinutes} ${ampm}`;
+
+    console.log(timeString); // Log the formatted time
+    return timeString; // Return the formatted time
+}
+
     let highlightData = writable([
         {   "image":"https://cimg.acharyaprashant.org/images/img-0fa73d10-60d6-4dbd-bcb2-13543d8dfa6f/20/image.jpg"
             ,"title":"Ask Questions",
@@ -145,61 +169,56 @@
             </div>
             <div>
                 <h1 class="text-[30px] font-bold">Session Schedule</h1>
-                <p>31 SESSIONS</p>
+                <p>{data.numberOfSessions} SESSIONS</p>
             </div>
         </div>
 
     
-        <div class="flex lg:w-auto w-full lg:items-start items-center justify-center">
+        <div class="flex lg:w-auto w-full lg:items-start m-0 lg:min-w-[50%] items-center justify-center">
             <Calendar {data}/>
         </div>
 
         <div class="flex items-start gap-4 px-6">
 
-            <!--shown on large screens-->
-            <div class="lg:block hidden mt-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" class="h-[52px] w-[49px]"><path d="M4.596 0a.82.82 0 0 1 .82.82v1.114h4.167V.821a.82.82 0 0 1 .82-.821h.026a.82.82 0 0 1 .821.82v1.114h1.356q1.077 0 1.67.494l.126.116Q15 3.153 15 4.348v9.246q0 1.195-.598 1.8-.6.606-1.796.606H2.394q-1.182 0-1.788-.601Q0 14.797 0 13.594V4.348Q0 3.145.606 2.54q.606-.606 1.788-.606H3.75V.821A.82.82 0 0 1 4.57 0zm8.065 5.519H2.331q-.48 0-.733.256-.252.257-.252.77v7.065q0 .522.252.778.252.257.733.257h10.33q.48 0 .745-.257.263-.256.263-.778V6.545q0-.513-.263-.77-.264-.255-.745-.256M4.04 11.974q.205 0 .28.072.075.073.075.281v.441q0 .201-.075.273t-.28.072h-.433q-.204 0-.28-.072-.074-.073-.074-.273v-.44q0-.21.075-.282t.28-.072Zm2.457 0q.197 0 .272.072.075.073.075.281v.441q0 .201-.075.273t-.272.072h-.433q-.196 0-.28-.072-.082-.073-.082-.273v-.44q0-.21.082-.282.084-.072.28-.072Zm2.457 0q.197 0 .275.072.08.073.08.281v.441q0 .201-.08.273-.078.072-.275.072h-.441q-.197 0-.272-.072-.075-.073-.075-.273v-.44q0-.21.075-.282t.272-.072ZM4.039 9.512q.205 0 .28.073.075.072.075.272v.45q0 .2-.075.276t-.28.076h-.433q-.204 0-.28-.076-.074-.075-.074-.277v-.449q0-.2.075-.272t.28-.073Zm2.457 0q.197 0 .272.073.075.072.075.272v.45q0 .2-.075.276t-.272.076h-.433q-.196 0-.28-.076-.082-.075-.082-.277v-.449q0-.2.082-.272.084-.073.28-.073Zm2.457 0q.197 0 .275.073.08.072.08.272v.45q0 .2-.08.276-.078.076-.275.076h-.441q-.197 0-.272-.076-.075-.075-.075-.277v-.449q0-.2.075-.272t.272-.073Zm2.456 0q.197 0 .272.073.075.072.075.272v.45q0 .2-.075.276t-.272.076h-.44q-.205 0-.28-.076-.075-.075-.075-.277v-.449q0-.2.075-.272t.28-.073ZM6.496 7.05q.197 0 .272.077.075.076.075.276v.441q0 .201-.075.273t-.272.072h-.433q-.196 0-.28-.072-.082-.072-.082-.273v-.44q0-.202.082-.277.084-.077.28-.077Zm2.457 0q.197 0 .275.077.08.076.08.276v.441q0 .201-.08.273-.078.072-.275.072h-.441q-.197 0-.272-.072t-.075-.273v-.44q0-.202.075-.277.075-.077.272-.077Zm2.456 0q.197 0 .272.077.075.076.075.276v.441q0 .201-.075.273t-.272.072h-.44q-.205 0-.28-.072t-.075-.273v-.44q0-.202.075-.277.075-.077.28-.077Z"></path></svg>
-            </div>
-
-            <div class="flex flex-col gap-8 items-start">
-                <div class="hidden lg:flex gap-3 items-start">
-         
-                    <div class='flex flex-col'>
-                        <h1 class="text-[40px] font-bold">Session Schedule</h1>
-                        <p class="text-xl">31 SESSIONS</p>
-                    </div>
-                </div>
-                
-    
-                <div class="flex gap-[10px] min-w-[85vw] lg:text-lg lg:flex-col pb-9 lg:border-l-0  lg:justify-center justify-between items-center lg:items-start">
-                    <div class="h-1 lg:block hidden w-[30%] bg-orange-400"></div>
-                    <div class="">
-                        <h2 class="font-bold text-[24px]">Exam</h2>
-                        <p class="text-white font-normal">19:00 PM</p>
-                    </div>
-                    <div>
-                        <button class="bg-orange-600  lg:text-lg rounded-[20px] text-sm font-semibold lg:my-[10px] px-[10px] lg:px-[40px] py-[8px]">Join now</button>
-                    </div>
-                </div> 
-            </div>
+        <!--shown on large screens-->
+        <div class="lg:block hidden mt-3 ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" class="h-[52px] w-[49px]"><path d="M4.596 0a.82.82 0 0 1 .82.82v1.114h4.167V.821a.82.82 0 0 1 .82-.821h.026a.82.82 0 0 1 .821.82v1.114h1.356q1.077 0 1.67.494l.126.116Q15 3.153 15 4.348v9.246q0 1.195-.598 1.8-.6.606-1.796.606H2.394q-1.182 0-1.788-.601Q0 14.797 0 13.594V4.348Q0 3.145.606 2.54q.606-.606 1.788-.606H3.75V.821A.82.82 0 0 1 4.57 0zm8.065 5.519H2.331q-.48 0-.733.256-.252.257-.252.77v7.065q0 .522.252.778.252.257.733.257h10.33q.48 0 .745-.257.263-.256.263-.778V6.545q0-.513-.263-.77-.264-.255-.745-.256M4.04 11.974q.205 0 .28.072.075.073.075.281v.441q0 .201-.075.273t-.28.072h-.433q-.204 0-.28-.072-.074-.073-.074-.273v-.44q0-.21.075-.282t.28-.072Zm2.457 0q.197 0 .272.072.075.073.075.281v.441q0 .201-.075.273t-.272.072h-.433q-.196 0-.28-.072-.082-.073-.082-.273v-.44q0-.21.082-.282.084-.072.28-.072Zm2.457 0q.197 0 .275.072.08.073.08.281v.441q0 .201-.08.273-.078.072-.275.072h-.441q-.197 0-.272-.072-.075-.073-.075-.273v-.44q0-.21.075-.282t.272-.072ZM4.039 9.512q.205 0 .28.073.075.072.075.272v.45q0 .2-.075.276t-.28.076h-.433q-.204 0-.28-.076-.074-.075-.074-.277v-.449q0-.2.075-.272t.28-.073Zm2.457 0q.197 0 .272.073.075.072.075.272v.45q0 .2-.075.276t-.272.076h-.433q-.196 0-.28-.076-.082-.075-.082-.277v-.449q0-.2.082-.272.084-.073.28-.073Zm2.457 0q.197 0 .275.073.08.072.08.272v.45q0 .2-.08.276-.078.076-.275.076h-.441q-.197 0-.272-.076-.075-.075-.075-.277v-.449q0-.2.075-.272t.272-.073Zm2.456 0q.197 0 .272.073.075.072.075.272v.45q0 .2-.075.276t-.272.076h-.44q-.205 0-.28-.076-.075-.075-.075-.277v-.449q0-.2.075-.272t.28-.073ZM6.496 7.05q.197 0 .272.077.075.076.075.276v.441q0 .201-.075.273t-.272.072h-.433q-.196 0-.28-.072-.082-.072-.082-.273v-.44q0-.202.082-.277.084-.077.28-.077Zm2.457 0q.197 0 .275.077.08.076.08.276v.441q0 .201-.08.273-.078.072-.275.072h-.441q-.197 0-.272-.072t-.075-.273v-.44q0-.202.075-.277.075-.077.272-.077Zm2.456 0q.197 0 .272.077.075.076.075.276v.441q0 .201-.075.273t-.272.072h-.44q-.205 0-.28-.072t-.075-.273v-.44q0-.202.075-.277.075-.077.28-.077Z"></path></svg>
         </div>
+
+        <div class="flex flex-col gap-8 items-start  max-w-[50%]">
+            <div class="hidden lg:flex gap-3 items-start">
+        
+                <div class='flex flex-col'>
+                    <h1 class="text-[40px] font-bold">Session Schedule</h1>
+                    <p class="text-xl text-black">{data.numberOfSessions} SESSIONS</p>
+                </div>
+            </div>
+            
+
+            <div class="flex gap-[10px] min-w-[85vw] lg:text-lg lg:flex-col pb-9 lg:border-l-0  lg:justify-center justify-between items-center lg:items-start">
+                <div class="h-1 lg:block hidden w-[30%] bg-orange-400"></div>
+                <div class="">
+                    <h2 class="font-bold text-[24px]">{data.nextSession.name}</h2>
+                    <p class="text-black font-normal">{nextSessionTime(data.nextSession)}</p>
+                </div>
+                <div>
+                    <button class="bg-orange-600  lg:text-lg rounded-[20px] text-sm font-semibold lg:my-[10px] px-[10px] lg:px-[40px] py-[8px]">Join now</button>
+                </div>
+            </div> 
+        </div>
+    </div>
         
    
     </section>
 
 
     <!-- YOUR VOICE SECTION -->
-    <section class=" gap-7 my-[40px] flex-col items-center">
+    <!-- <section class=" gap-7 my-[40px] flex-col items-center">
         <h1 class="text-[40px] font-bold">Your Voice</h1>
         <Slider>
             {#each $yourVoiceVideos as video}
                 <div class="card flex flex-col gap-4 overflow-hidden p-3 ">
-                    <!-- <video poster="https://cimg.acharyaprashant.org/images/img-41aece10-0782-411a-bf78-a2a168f5a53d/0/image.jpg" controls>
-                       
-                        <source src="blob:https://www.youtube.com/e60228fc-d84e-471c-a001-7c100dca821e" type="video/mp4">
-                        Your browser does not support the video tag.
-                        
-                    </video> -->
+                  
                     <iframe src="https://www.youtube.com/embed/J7EaRL8l5Ww?si=w_KzqS0b3W00HxsW" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     
                  
@@ -212,7 +231,7 @@
                 </div>
             {/each}
         </Slider>
-    </section>
+    </section> -->
 </div>
   
 <style>
