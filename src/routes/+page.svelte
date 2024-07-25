@@ -4,10 +4,17 @@
     import "./page.css"
     import Slider from "../lib/components/Slider.svelte"
     import SliderAuto from '../lib/components/SliderAuto.svelte'
+    import Loading from "$lib/components/Loading.svelte";
+
+    let isloading = false
   
     
   </script>
 
+{#if isloading}
+    <Loading />
+
+{:else}
   <div class="flex bg-gray-800 text-white py-3  justify-center gap-6 items-center lg:text-xl sm:text-sm text-xs">
     <div class="flex gap-2 justify-center items-center">
       <div class="border border-white rounded-[8px] bg-red-600 xs:w-4 xs:h-4 w-3 h-3"></div>
@@ -272,7 +279,7 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
   </div> -->
 
   <!-- SECTION-6 (WAYS TO CONNECT) -->
-   <section class="lg:hidden m-5">
+   <section class="lg:hidden m-5 w-[90%]">
     <h1 class="xs:text-[45px] text-[40px] font-bold mb-4">Ways to connect</h1>
     <div class="grid w-full xs:text-md text-sm gap-[10px] grid-cols-2 font-semibold">
       <div class="flex flex-col gap-[10px]">
@@ -297,7 +304,7 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 
     <!-- SECTION-7 (INSTITUTIONAL TALKS) - HIDDEN ON MEDIUM -->
 
-     <div class="w-[90%] relative">
+     <div class="w-[90%] mt-[70px] relative">
         <div class="flex xs:w-[80%] m-[15px] gap-4 flex-col md:flex-row md:items-end">
           <div>
             <h1 class="font-bold xs:text-[45px] text-[40px]">Institutional Talks</h1>
@@ -384,7 +391,7 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
         </button>
       </div>
 
-      <div class="flex flex-col items-center gap-6 bg-[#fff4ee] overflow-hidden p-7 px-[60px]">
+      <div class="flex flex-col items-center gap-6 bg-[#fff4ee] overflow-scroll scrollbar-hidden p-7 px-[60px]">
         <div class="flex gap-6">
           {#each data.bookURL as book}
             <a href="books">
@@ -403,7 +410,7 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 
     <!--VIDEO SECTION-->
      
-    <div class="w-[90%] relative">
+    <div class="w-[90%] mt-[70px] relative">
       <div class="flex w-[100%] m-[15px] justify-between mb-[40px] gap-4 flex-col md:flex-row md:items-end">
         <div class="flex flex-col gap-4 xs:w-[60%] ">
           <h1 class="font-bold text-[45px]">Video Series</h1>
@@ -413,12 +420,12 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
             These video series are aimed at liberating the troubled mind from the shackles of ignorance and suffering.
           </p>
         </div>
-        <button class="bg-orange-600 py-[8px] mr-6 rounded-[20px] text-lg font-bold text-white min-w-[200px] ">
+        <button class="bg-orange-600 py-[8px] mr-6 rounded-[20px] text-lg font-bold text-white min-w-[200px] overflow-hidden ">
           Explore Video Series
         </button>
       </div>
 
-      <div class="flex flex-col items-center gap-6 bg-[#fff4ee] p-9 px-[60px]">
+      <div class="flex flex-col items-center gap-6 bg-[#fff4ee] p-9 overflow-hidden ">
         
         <SliderAuto data={data.series.series}/>
         
@@ -433,4 +440,4 @@ He is a veganism promoter, an environmental activist, a science activist, a camp
 </div>
 
 
- 
+ {/if}

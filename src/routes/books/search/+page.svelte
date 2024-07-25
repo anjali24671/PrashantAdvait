@@ -36,7 +36,12 @@
 
 
 {#if !data.booksData[0]}
-    <h1>no books exist</h1>
+<div class="w-full ">
+  <div class="flex items-center justify-center">
+      <div>No books found.</div>
+  </div>
+
+</div>
 {:else}
   
     <div class="m-[2vw] flex justify-center md:justify-start items-center">

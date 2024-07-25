@@ -37,35 +37,44 @@
 
 
 <style>
-.slider {
-    width: 113%;
-    margin:30px 0;
-    overflow: hidden;
-    position: relative;
-}
+    .slider {
+        width: 113%;
+        margin:30px 0;
+        overflow: hidden;
+        position: relative;
+    }
 
-.slides {
-    display: flex;
-    width: calc(100% * 3);
+    .slides {
+        display: flex;
+        width: calc(100% * 3);
 
-    animation: slide 45s linear infinite;
-    background-color:white;
+        animation: slide 45s linear infinite;
+        background-color:white;
+        
+    }
+
+    .slides:hover{
+        animation-play-state: paused;
     
-}
+    }
 
-.slides:hover{
-    animation-play-state: paused;
-   
-}
+    .slides img {
+        width: 150px;
+        margin: 10px;
+        margin-right:0px;
+    }
 
-.slides img {
-    width: 150px;
-    margin: 10px;
-    margin-right:0px;
-}
+    @media(max-width:624px){
+        .slider {
+            width: 150%;
+            margin:30px 0;
+            overflow: hidden;
+            position: relative;
+        }
+    }
 
-@keyframes slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-20%); }
-}
+    @keyframes slide {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-20%); }
+    }
 </style>

@@ -28,7 +28,7 @@
 
 
 <div>
-    <header class="px-10 my-4">
+    <header class="px-10 my-4 overflow-hidden">
         <div class="flex gap-4 flex-col">
             <div class="flex rounded-[8px] text-black-700 border-1 shadow overflow-hidden md:w-[660px]  bg-[#f8fafc] relative">
             
