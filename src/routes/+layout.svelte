@@ -155,7 +155,7 @@
       {#if data.authenticated}
         Anjali Sharma
       {:else}
-        <button>Login</button>
+        <button><a href="/signup">Sign Up</a></button>
       {/if}
       <hr>
       <a href="/gita">Gita Samagam</a >
@@ -168,10 +168,20 @@
       <a href="/cart">My Cart</a >
     </div>
   
+
+    {#if data.authenticated}
     <div class="flex flex-col gap-3">
      
-      <button class="my-[10px]">Logout</button>
+      <button class="my-[10px]" on:click={
+        (expand) =>{ 
+          location.reload();
+          expand=false
+          Userfront.logout()
+          
+        }
+        }>Logout</button>
     </div>
+    {/if}
   
 
     <!-- {#if data.authenticated}
