@@ -4,9 +4,10 @@
     import BookVertical from "$lib/components/BookVertical.svelte";
     import {onMount, onDestroy} from 'svelte';
     import searchQuery from "../stores/searchQuery";
-    
-  
     import { goto } from '$app/navigation';
+    import { page } from '$app/stores';
+
+    $: authenticated = $page.data.authenticated;
 
     export let data
   
@@ -50,6 +51,7 @@
       <Slider>
         {#each data.newRelease.newReleaseBooks as book}
           <BookHorizontal 
+            authenticated={authenticated}
             image={book.photoURL} 
             book_name={book.name} 
             book_price={book.price} 
@@ -65,6 +67,7 @@
       <Slider>
         {#each data.newCategories.spiritualWisdomResponse as book}
           <BookVertical 
+            authenticated={authenticated}
             image={book.photoURL}
             paper_id={book.paperID} 
             book_name={book.name} 
@@ -84,6 +87,7 @@
         <Slider>
           {#each data.newCategories.veganismResponse as book}
             <BookVertical 
+              authenticated={authenticated}
               image={book.photoURL}
               paper_id={book.paperID} 
               book_name={book.name} 
@@ -99,7 +103,8 @@
         <h1 class="text-lg md:text-xl font-semibold md:mx-3 mx-1 ">LIFE PROBLEMS</h1>
         <Slider>
           {#each data.newCategories.lifeProblemCategoryResponse as book}
-            <BookVertical 
+            <BookVertical
+            authenticated={authenticated} 
               image={book.photoURL}
               paper_id={book.paperID} 
               book_name={book.name} 
@@ -118,6 +123,7 @@
     <Slider>
       {#each data.loadBestSeller.bestSellerBooks as book}
         <BookVertical 
+          authenticated={authenticated}
           image={book.photoURL}
           paper_id={book.paperID} 
           book_name={book.name} 

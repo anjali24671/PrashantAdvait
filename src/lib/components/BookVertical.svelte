@@ -1,4 +1,6 @@
 <script>
+	import { goto } from "$app/navigation";
+
 
     import BookCartAlert from "./BookCartAlert.svelte";
 
@@ -8,11 +10,15 @@
     export let book_price
     export let paper_id
     export let paper_price = 0
+    export let authenticated = false
 
     let showCartOption = false
 
-  function showCartOptions(){
-      showCartOption = true
+  function showCartOptions(authenticated){
+       if(authenticated)showCartOption = true
+       else{
+        goto('/signup')
+       }
   }
 
 </script>
@@ -30,7 +36,7 @@
         <p class="text-xs">Suggested contribution</p>
         <p class="text-xs">Paperback:</p>
         <div class="mt-4 flex items-center font-semibold text-orange-600 text-sm justify-center">
-          <button on:click={showCartOptions}>Add to Cart</button>
+          <button on:click={()=>showCartOptions(authenticated)}>Add to Cart</button>
         </div>   
     </div>
 </div>

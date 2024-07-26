@@ -2,6 +2,7 @@
     import searchQuery from '../../stores/searchQuery'
     import { goto } from '$app/navigation';
     import {onMount, onDestroy} from 'svelte';
+    import addBookToCart from '../../utils/addBookToCart';
 
     export let data   
 
@@ -29,6 +30,29 @@
         // Mark the end of the initial update phase
         initialUpdate = false;
     });
+
+    function makeDataForCart(Book){
+        let book_data = []
+        let book = {}
+        
+        // is it a book or ebook?
+        if(eClicked){
+            book['type'] = "eBook",
+            book['product_id'] = Book.id
+        }else{
+            if(Book.paperPrice){
+                book['type'] = "book",
+                book['product_id'] = Book.paperPrice
+                book['quantity'] = quantity
+            }else{
+                alert("book is not available")
+                return 
+            }
+          
+        }
+        book_data.push(book)
+        addBookToCart(book_data)
+    }
 
     onDestroy(() => {
       // Clean up the subscription
@@ -75,7 +99,7 @@
                     <h1 class="text-orange-600 font-semibold text-xl">₹{book.paperPrice}</h1>
                 {:else}
                     <p class="text-xs font-semibold text-gray-700">Suggested Contribution</p>
-                    <h1 class="text-orange-600 font-semibold text-sm">Not available</h1>
+                    <h1 class="text-orange-600 font-semibold text-sm">Not Available</h1>
                 {/if}
             </div>
           </div>
@@ -115,7 +139,7 @@
                 <div>Add to cart</div>
                 <div class="text-orange-600 ">GO TO CART</div>
             </div> -->
-            <button class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Add eBook to Cart</button>
+            <button  class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Add eBook to Cart</button>
             <button class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Get eBook now</button>
             {#if eClicked}
                 <button class="text-orange-600 text-lg">request echolarship</button>
@@ -179,8 +203,20 @@
             
           </div>
           {/if}
-        <button class="hover:bg-orange-700 border bg-orange-600 text-white text-md text-orange-600 rounded-lg py-2 border-orange-600">Add eBook to Cart</button>
-        <button class="hover:bg-orange-200 border  text-md text-orange-600 rounded-lg py-2 border-orange-600">Get eBook now</button>
+        <button on:click={()=>makeDataForCart(book)} class="hover:bg-orange-700 border bg-orange-600 text-white text-md text-orange-600 rounded-lg py-2 border-orange-600">
+            {#if eClicked}
+                Add eBook to Cart
+            {:else}
+                Add Book to Cart
+            {/if}
+        </button>
+        <button class="hover:bg-orange-200 border text-md text-orange-600 rounded-lg py-2 border-orange-600">
+            {#if eClicked}
+                Get eBook now
+            {:else}
+                Get Book now
+            {/if}
+        </button>
         {#if eClicked}
             <button class=" text-md text-orange-600 py-2 ">REQUEST SCHOLARSHIP</button>
         {/if}

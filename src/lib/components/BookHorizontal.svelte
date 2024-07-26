@@ -2,6 +2,7 @@
     import addBookToCart from "../../routes/utils/addBookToCart"
     import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
     import BookCartAlert from "./BookCartAlert.svelte";
+    import {goto} from '$app/navigation'
     import Userfront from '@userfront/toolkit/web-components';
     export let image
     export let book_name
@@ -9,10 +10,14 @@
     export let book_price
     export let paper_price = 0
     export let paper_id
+    export let authenticated = false
     let showCartOption = false
 
-    function showCartOptions(){
-        showCartOption = true
+    function showCartOptions(authenticated){
+        if(authenticated) showCartOption = true
+        else{
+            goto('/signup')
+        }
     }
 
 </script>
@@ -34,7 +39,7 @@
         <p class="text-xs">Suggested contribution</p>
         <p class="text-xs"><span class="font-bold">₹{paper_price}</span></p>
         <div class="mt-4 flex items-center font-semibold text-orange-600 text-sm justify-center">
-            <button on:click={showCartOptions}>Add to Cart</button>
+            <button on:click={()=>showCartOptions(authenticated)}>Add to Cart</button>
         </div>   
     </div>
 </div>
