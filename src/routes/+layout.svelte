@@ -1,23 +1,113 @@
 <script>
+  
+  import { PUBLIC_USERFRONT_ACCOUNT_ID, PUBLIC_USERFRONT_PUBLIC_KEY_BASE64, PUBLIC_KEY_ID, PUBLIC_KEY_SECRET } from '$env/static/public';
+
+  import Userfront from '@userfront/toolkit/web-components';
   import { onMount, tick } from 'svelte';
   import { writable } from 'svelte/store';
+  import {goto} from '$app/navigation'
   import "../app.css";
 
-  export let data;
+  Userfront.init(PUBLIC_USERFRONT_ACCOUNT_ID);
 
-  let selected = "";
-  let expand = false;
 
-  function toggleExpand() {
-    expand = !expand
-  }
+  let selected="";
+  let rzp1;
+  let razorpayScriptLoaded = writable(false);
 
-  function goto() {
-    if (selected) {
-     
-      window.location.href = selected;
+
+  const paymentOptions = {
+    key: PUBLIC_KEY_ID, // Replace with your Razorpay key
+    amount: '50000', // Amount in paise (INR 500)
+    currency: 'INR',
+    name: 'Prashant Advait',
+    description: 'Test Transaction',
+    image: 'https://example.com/your_logo',
+    order_id: 'order_IluGWxBm9U8zJ8', // This is a sample Order ID
+    handler: function (response) {
+    
+    },
+    prefill: {
+      name: 'Gaurav Kumar',
+      email: 'gaurav.kumar@example.com',
+      contact: '9000090000'
+    },
+  
+    theme: {
+      color: '#3399cc'
+    }
+  };
+
+
+  async function initializeRazorpay() {
+    try {
+      const loaded = await loadRazorpayScript();
+      if (loaded) {
+        paymentOptions.order_id = data.order_data;
+        // paymentOptions.amount = data.order_data.amount;
+        // paymentOptions.currency = data.order_data.currency;
+        rzp1 = new Razorpay(paymentOptions);
+        razorpayScriptLoaded.set(true);
+
+      }
+    } catch (error) {
+      console.error(error.message);
     }
   }
+
+  // if the script loaded succesfully then add the script tag to document
+  async function loadRazorpayScript() {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve(true);
+      script.onerror = () => reject(new Error('Failed to load Razorpay script.'));
+      document.body.appendChild(script);
+    });
+  }
+
+
+  function openRazorpayCheckout(event) {
+    if (rzp1) {
+      
+      rzp1.open();
+      event.preventDefault();
+    } else {
+      console.error('Razorpay instance is not initialized.');
+    }
+  }
+
+  onMount(async () => {
+    await initializeRazorpay();
+  });
+
+
+  // goto(){
+  // if(selected){
+  //   window.location.href = selected;
+  // }
+  // }
+  export let data
+  let expand=false
+  function toggleExpand(){
+  expand =!expand;
+  }
+
+  function isLoggedIn(){
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
