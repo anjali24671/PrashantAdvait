@@ -24,4 +24,4 @@ const LiveSessionsSchema = new mongoose.Schema({
  
 })
 
-export default  mongoose.model('LiveSessions', LiveSessionsSchema)
+export default mongoose.models.LiveSessions || mongoose.model('LiveSessions', LiveSessionsSchema)

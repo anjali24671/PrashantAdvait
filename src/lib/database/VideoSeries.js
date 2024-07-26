@@ -36,4 +36,4 @@ const VideoSeriesSchema = new mongoose.Schema({
     }
 })
 
-export default mongoose.model('VideoSeries', VideoSeriesSchema);
+export default mongoose.models.VideoSeries || mongoose.model('VideoSeries', VideoSeriesSchema);

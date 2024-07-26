@@ -1,0 +1,1 @@
+import{s as r,n}from"../chunks/scheduler.BOylP72J.js";import{S as i,i as c,e as m,c as l,a as p,d as a,k as f}from"../chunks/index.DZ48zt5Z.js";function u(s){let e;return{c(){e=m("signup-form")},l(t){e=l(t,"SIGNUP-FORM",{}),p(e).forEach(a)},m(t,o){f(t,e,o)},p:n,i:n,o:n,d(t){t&&a(e)}}}class h extends i{constructor(e){super(),c(this,e,null,u,r,{})}}export{h as component};

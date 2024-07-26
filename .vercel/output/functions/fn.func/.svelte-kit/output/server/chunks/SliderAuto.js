@@ -1,0 +1,22 @@
+import { c as create_ssr_component, b as each, a as add_attribute } from "./ssr.js";
+import "./client.js";
+const css = {
+  code: ".slider.svelte-120129a.svelte-120129a{width:113%;margin:30px 0;overflow:hidden;position:relative}.slides.svelte-120129a.svelte-120129a{display:flex;width:calc(100% * 3);animation:svelte-120129a-slide 45s linear infinite;background-color:white}.slides.svelte-120129a.svelte-120129a:hover{animation-play-state:paused}.slides.svelte-120129a img.svelte-120129a{width:150px;margin:10px;margin-right:0px}@media(max-width:624px){.slider.svelte-120129a.svelte-120129a{width:150%;margin:30px 0;overflow:hidden;position:relative}}@keyframes svelte-120129a-slide{0%{transform:translateX(0)}100%{transform:translateX(-20%)}}",
+  map: '{"version":3,"file":"SliderAuto.svelte","sources":["SliderAuto.svelte"],"sourcesContent":["<script>\\r\\n    import {goto} from \'$app/navigation\'\\r\\n    export let data;\\r\\n\\r\\n    function gotoVideoDescription(id){\\r\\n        goto(`/video-modules/${id}`)\\r\\n    }\\r\\n<\/script>\\r\\n\\r\\n\\r\\n<div class=\\"slider\\">\\r\\n    <div class=\\"slides\\" >\\r\\n        {#each data as video}\\r\\n            <button on:click={()=>gotoVideoDescription(video._id)}>\\r\\n                <img alt=\\"{video.title}\\" src=\\"{video.photoURL}\\">\\r\\n            </button>\\r\\n\\r\\n        {/each}\\r\\n\\r\\n        {#each data as video}\\r\\n            <button on:click={()=>gotoVideoDescription(video._id)}>\\r\\n                <img alt=\\"{video.title}\\" src=\\"{video.photoURL}\\">\\r\\n            </button>\\r\\n        {/each}\\r\\n\\r\\n        \\r\\n        {#each data as video}\\r\\n            <button on:click={()=>gotoVideoDescription(video._id)}>\\r\\n                <img alt=\\"{video.title}\\" src=\\"{video.photoURL}\\">\\r\\n            </button>\\r\\n        {/each}\\r\\n       \\r\\n       \\r\\n\\r\\n    </div>\\r\\n</div>\\r\\n\\r\\n\\r\\n<style>\\r\\n    .slider {\\r\\n        width: 113%;\\r\\n        margin:30px 0;\\r\\n        overflow: hidden;\\r\\n        position: relative;\\r\\n    }\\r\\n\\r\\n    .slides {\\r\\n        display: flex;\\r\\n        width: calc(100% * 3);\\r\\n\\r\\n        animation: slide 45s linear infinite;\\r\\n        background-color:white;\\r\\n        \\r\\n    }\\r\\n\\r\\n    .slides:hover{\\r\\n        animation-play-state: paused;\\r\\n    \\r\\n    }\\r\\n\\r\\n    .slides img {\\r\\n        width: 150px;\\r\\n        margin: 10px;\\r\\n        margin-right:0px;\\r\\n    }\\r\\n\\r\\n    @media(max-width:624px){\\r\\n        .slider {\\r\\n            width: 150%;\\r\\n            margin:30px 0;\\r\\n            overflow: hidden;\\r\\n            position: relative;\\r\\n        }\\r\\n    }\\r\\n\\r\\n    @keyframes slide {\\r\\n        0% { transform: translateX(0); }\\r\\n        100% { transform: translateX(-20%); }\\r\\n    }\\r\\n</style>"],"names":[],"mappings":"AAuCI,qCAAQ,CACJ,KAAK,CAAE,IAAI,CACX,OAAO,IAAI,CAAC,CAAC,CACb,QAAQ,CAAE,MAAM,CAChB,QAAQ,CAAE,QACd,CAEA,qCAAQ,CACJ,OAAO,CAAE,IAAI,CACb,KAAK,CAAE,KAAK,IAAI,CAAC,CAAC,CAAC,CAAC,CAAC,CAErB,SAAS,CAAE,oBAAK,CAAC,GAAG,CAAC,MAAM,CAAC,QAAQ,CACpC,iBAAiB,KAErB,CAEA,qCAAO,MAAM,CACT,oBAAoB,CAAE,MAE1B,CAEA,sBAAO,CAAC,kBAAI,CACR,KAAK,CAAE,KAAK,CACZ,MAAM,CAAE,IAAI,CACZ,aAAa,GACjB,CAEA,MAAM,WAAW,KAAK,CAAC,CACnB,qCAAQ,CACJ,KAAK,CAAE,IAAI,CACX,OAAO,IAAI,CAAC,CAAC,CACb,QAAQ,CAAE,MAAM,CAChB,QAAQ,CAAE,QACd,CACJ,CAEA,WAAW,oBAAM,CACb,EAAG,CAAE,SAAS,CAAE,WAAW,CAAC,CAAG,CAC/B,IAAK,CAAE,SAAS,CAAE,WAAW,IAAI,CAAG,CACxC"}'
+};
+const SliderAuto = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { data } = $$props;
+  if ($$props.data === void 0 && $$bindings.data && data !== void 0)
+    $$bindings.data(data);
+  $$result.css.add(css);
+  return `<div class="slider svelte-120129a"><div class="slides svelte-120129a">${each(data, (video) => {
+    return `<button><img${add_attribute("alt", video.title, 0)}${add_attribute("src", video.photoURL, 0)} class="svelte-120129a"> </button>`;
+  })} ${each(data, (video) => {
+    return `<button><img${add_attribute("alt", video.title, 0)}${add_attribute("src", video.photoURL, 0)} class="svelte-120129a"> </button>`;
+  })} ${each(data, (video) => {
+    return `<button><img${add_attribute("alt", video.title, 0)}${add_attribute("src", video.photoURL, 0)} class="svelte-120129a"> </button>`;
+  })}</div> </div>`;
+});
+export {
+  SliderAuto as S
+};
