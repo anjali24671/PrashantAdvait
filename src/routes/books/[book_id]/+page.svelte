@@ -127,7 +127,12 @@
                 </div>
             </div>
             <div class="font-semibold flex flex-col justify-end">
-                <p class="text-green-600 self-end">In stock</p>
+                {#if book.paperPrice}
+                    <p class="text-green-600 self-end">In stock</p>
+                {:else}
+                    <p class="text-red-600 self-end">Out of Stock</p>
+                {/if}
+                
                 <p class="font-bold text-orange-600 text-xs">Free Delivery</p>
             </div>
           </div>
@@ -139,8 +144,13 @@
                 <div>Add to cart</div>
                 <div class="text-orange-600 ">GO TO CART</div>
             </div> -->
-            <button on:click={()=>makeDataForCart(book)}  class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Add eBook to Cart</button>
-            <button class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Get eBook now</button>
+            {#if eClicked}
+                <button on:click={()=>makeDataForCart(book)}  class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Add eBook to Cart</button>
+                <button class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Get eBook now</button>
+            {:else}
+                <button on:click={()=>makeDataForCart(book)}  class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Add Book to Cart</button>
+                <button class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Get Book now</button>
+            {/if}
             {#if eClicked}
                 <button class="text-orange-600 text-lg">request echolarship</button>
             {/if}
@@ -187,7 +197,11 @@
         {#if pClicked}
           <div class=" flex flex-col justify-between items-start gap-3 ">
             <div class="font-semibold flex items-center gap-3 justify-center">
-                <p class="text-green-600 text-lg">In Stock</p>
+                {#if book.paperPrice}
+                    <p class="text-green-600 text-lg">In Stock</p>
+                {:else}
+                    <p class="text-red-600 text-lg">Out of Stock</p>
+                {/if}
                 <p class="font-bold text-orange-600 text-sm">Free Delivery</p>
             </div>
             <div class="flex items-center  mb-5 gap-2">
