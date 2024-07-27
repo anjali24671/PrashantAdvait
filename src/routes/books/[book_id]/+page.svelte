@@ -139,7 +139,7 @@
                 <div>Add to cart</div>
                 <div class="text-orange-600 ">GO TO CART</div>
             </div> -->
-            <button  class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Add eBook to Cart</button>
+            <button on:click={()=>makeDataForCart(book)}  class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Add eBook to Cart</button>
             <button class="hover:bg-orange-600 hover:text-white border  text-lg text-orange-600 rounded-lg py-2 border-orange-600">Get eBook now</button>
             {#if eClicked}
                 <button class="text-orange-600 text-lg">request echolarship</button>

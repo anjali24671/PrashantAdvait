@@ -37,3 +37,35 @@ export async function POST({ request }) {
 }
 
 
+
+export async function GET({ url }) {
+    const query = url.searchParams.get('query');
+    const user_id = (url.searchParams.get('user_id'))
+   
+    try {
+        await connect(); // Establish MongoDB connection
+        
+        const userCart = await Carts.find({"user_id":user_id})
+       
+        
+        return new Response(JSON.stringify(userCart));
+
+
+    } catch (error) {
+        console.error('Error fetching user cart:', error);
+        return new Response(JSON.stringify({ status: 401, message: error.message }), {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            status: 401
+        });
+    }
+}
+
+
+
+
+
+
+
+

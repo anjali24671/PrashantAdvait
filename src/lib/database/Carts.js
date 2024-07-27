@@ -9,7 +9,7 @@ const cartsSchema = new mongoose.Schema({
     product_id: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        unique:true,
+       
         default: null // Set default to null
     },
     
@@ -30,7 +30,7 @@ const cartsSchema = new mongoose.Schema({
 });
 
 // Create the model
-const Carts = mongoose.model('Carts', cartsSchema);
+const Carts = mongoose.models.Carts || mongoose.model('Carts', cartsSchema);
 
 
 export default Carts;

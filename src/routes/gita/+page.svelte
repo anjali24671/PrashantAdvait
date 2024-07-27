@@ -7,28 +7,28 @@
     export let data;
 
     function nextSessionTime(dateString) {
-    const date = new Date(dateString);
+        const date = new Date(dateString);
 
-    // Extract time components
-    let hours = date.getUTCHours();
-    const minutes = date.getUTCMinutes();
+        // Extract time components
+        let hours = date.getUTCHours();
+        const minutes = date.getUTCMinutes();
 
-    // Determine AM/PM suffix
-    const ampm = hours >= 12 ? 'PM' : 'AM';
+        // Determine AM/PM suffix
+        const ampm = hours >= 12 ? 'PM' : 'AM';
 
-    // Convert to 12-hour format
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
+        // Convert to 12-hour format
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
 
-    // Format minutes with leading zero if needed
-    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+        // Format minutes with leading zero if needed
+        const formattedMinutes ='00'
 
-    // Construct time string
-    const timeString = `${hours}:${formattedMinutes} ${ampm}`;
+        // Construct time string
+        const timeString = `${hours}:${formattedMinutes} ${ampm}`;
 
-    console.log(timeString); // Log the formatted time
-    return timeString; // Return the formatted time
-}
+        console.log(timeString); // Log the formatted time
+        return timeString; // Return the formatted time
+    }
 
     let highlightData = writable([
         {   "image":"https://cimg.acharyaprashant.org/images/img-0fa73d10-60d6-4dbd-bcb2-13543d8dfa6f/20/image.jpg"
@@ -102,7 +102,7 @@
     ])
 </script>
 
-<div class="mx-[10px]">
+<div class="mx-[10px] overflow-hidden">
     <!-- MAIN SECTION -->
     <section class="flex gap-7 mx-[-10px] px-[70px] py-9 flex-col justify-center bg-[#fff4ee] w-[100vw] items-center">
         <div class="flex p-8 flex-col gap-5 justify-center items-center w-[100vw] ">

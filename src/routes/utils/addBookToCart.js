@@ -8,7 +8,6 @@ export default async function addBookToCart(bookData) {
     try {
 
         // get the user_id from userfront_id
-        console.log(user)
         const res = await fetch(`/api/users?userfront_id=${user.userUuid}`)
         const userObj = await res.json()
         const user_id = userObj.user._id
@@ -19,7 +18,7 @@ export default async function addBookToCart(bookData) {
             book['user_id'] = user_id
 
           
-            const exists = await fetch('/api/carts')
+            const exists = await fetch(`/api/carts?user_id=${user_id}`)
 
             
             // // add book to the cart of the above user
@@ -34,7 +33,7 @@ export default async function addBookToCart(bookData) {
             const res = await response.json()
 
             if (res.status!==401) alert("Book added to cart")
-            else alert("Book already in cart")
+            else console.log(res)
             
          
         }

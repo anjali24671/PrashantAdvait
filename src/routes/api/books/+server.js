@@ -45,8 +45,13 @@ export async function POST({ request }) {
 
 
 export async function GET({ url }) {
+    let urlParam = ''
     const query = url.searchParams.get('query');
+    urlParam = 'query'
     const price = Number(url.searchParams.get('price'))
+    urlParam = 'price'
+    const id = (url.searchParams.get('id'))
+    urlParam = 'id'
 
     try {
         await connect(); // Establish MongoDB connection
@@ -54,19 +59,22 @@ export async function GET({ url }) {
         const regex = new RegExp(query, 'i'); // Case-insensitive regex pattern
 
         let books
-        if (query) {
-             books = await Books.find({ name: { $regex: regex } })
-        }
-        if (price) {
-    
-            books = await Books.find({price:price})
-        }
-        else {
-             books = await Books.find().sort({ name: 1 })
-        }
-        
 
-        
+        switch (urlParam) {
+            case 'id':
+                books = await Books.findOne({ _id: id })
+                break;
+            case 'price':
+                books = await Books.find({price:price})
+                break;
+            case 'query':
+                books = await Books.find({ name: { $regex: regex } })
+                break;
+            default:
+                books = await Books.find().sort({ name: 1 })
+                break;
+        }
+      
         return new Response(JSON.stringify(books));
 
 

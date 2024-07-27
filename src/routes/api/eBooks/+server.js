@@ -42,28 +42,38 @@ export async function POST({ request }) {
 
 
 export async function GET({ url }) {
+    let urlParam = ''
     const query = url.searchParams.get('query');
+    urlParam = 'query'
     const price = Number(url.searchParams.get('price'))
+    urlParam = 'price'
+    const id = (url.searchParams.get('id'))
+    urlParam = 'id'
+
     try {
         await connect(); // Establish MongoDB connection
         // Case-insensitive regex pattern
         const regex = new RegExp(query, 'i'); // Case-insensitive regex pattern
 
         let eBooks
-        if (query) {
-             eBooks = await EBooks.find({ name: { $regex: regex } })
-        }
-        else {
-            if (price) {
-    
+
+        switch (urlParam) {
+            case 'id':
+                eBooks = await EBooks.findOne({ _id: id })
+                break;
+            case 'price':
                 eBooks = await EBooks.find({price:price})
-            }
-            else {
-                 eBooks = await EBooks.find()
-            }
+                break;
+            case 'query':
+                eBooks = await EBooks.find({ name: { $regex: regex } })
+                break;
+            default:
+                eBooks = await EBooks.find()
+                break;
         }
+      
         
-        
+        console.log(eBooks)
         return new Response(JSON.stringify(eBooks));
 
 
