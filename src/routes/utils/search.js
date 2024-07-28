@@ -19,7 +19,7 @@ async function search(query, type) {
     else if (type == 'video_series') {
         try {
             // make an api request to the video series table
-            const response = await fetch(`https://prashant-advait.vercel.app/api/eBooks?query=${query}`)
+            const response = await fetch(`https://prashant-advait.vercel.app/api/videoSeries?query=${query}`)
             const videoSeries = await response.json()
            
             return videoSeries
