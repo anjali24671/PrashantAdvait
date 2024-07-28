@@ -10,8 +10,6 @@
 
 </script>
 
-<h1>I am MY BOOK</h1>
-<p>Radhey Radhey bol, Barsana mein dol</p>
 
 {#if eBooks}
     <div class="m-[2vw] flex justify-start items-center">
