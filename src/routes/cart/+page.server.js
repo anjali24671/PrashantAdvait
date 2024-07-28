@@ -1,10 +1,12 @@
+
+
 import connect from "$lib/database/connection";
 import Carts from "$lib/database/Carts";
 
 
   
 
-export async function load({fetch}) {
+export async function load({fetch, locals}) {
     try {
         await connect()
         const cartsResponse = await Carts.find()
@@ -26,14 +28,20 @@ export async function load({fetch}) {
             
         }
 
+      
         cartData['book'] = books
         cartData['eBook'] = ebooks
-      
-        
-        return {
+
+        if (!locals.auth) return {
+            "authenticated": false,
             cartData
         }
-        
+        else return {
+            "authenticated": true,
+            cartData
+        }
+      
+   
     } catch (err) {
         console.log(err)
         }

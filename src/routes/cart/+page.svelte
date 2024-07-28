@@ -1,3 +1,4 @@
+
 <script>
     import { PUBLIC_USERFRONT_ACCOUNT_ID } from '$env/static/public';
     import Userfront from '@userfront/toolkit/web-components';
@@ -14,6 +15,7 @@
 
         if (user) {
             await loadCart(user);
+            
         } else {
             console.log("User not found");
             isLoading = false;
@@ -24,16 +26,23 @@
         try {
        
             // get the user id
+          
             const userFront_id = user.userUuid;
             const ourUserRes = await fetch(`/api/users?userfront_id=${userFront_id}`);
             if (!ourUserRes.ok) throw new Error("Failed to fetch user data");
             const ourUser = await ourUserRes.json();
 
+
+        
             // fetch cart data for the logged in useer
             const cartsResponse = await fetch(`/api/carts?user_id=${ourUser.user._id}`);
+         
 
             if (!cartsResponse.ok) throw new Error("Failed to fetch cart data");
             const cart = await cartsResponse.json();
+         
+
+
             let cartData = { book: [], eBook: [] };
 
             for (let product of cart) {
@@ -43,6 +52,7 @@
                     const bookData = await bookDataRes.json();
 
                     cartData.book.push(bookData)
+                   
                 
 
                 } else if (product.type === "eBook") {
@@ -51,10 +61,12 @@
                     const bookData = await bookDataRes.json();
             
                     cartData.eBook.push(bookData)
+                 
                 }
             }
 
             userCartData = cartData;
+            console.log(cartData.eBook)
            
 
             isLoading = false;
@@ -65,6 +77,7 @@
             isLoading = false;
         }
     }
+    console.log(userCartData.eBook)
 </script>
 
 <h1>carts</h1>
@@ -73,7 +86,8 @@
     <p>Loading...</p>
 {:else if error}
     <p>Error: {error}</p>
-{:else if userCartData.book}
+{:else if userCartData.book.length || userCartData.eBook.length}
+   
     <h1>Books</h1>
     <div class="flex flex-col gap-7 mt-5">
         {#each userCartData.book as product}
@@ -92,11 +106,11 @@
     <div class="flex flex-col gap-7 mt-5">
         {#each userCartData.eBook as product}
             <div class="flex gap-3">
-                <img class="w-[100px] rounded-md" src={product.photoURL}>
+                <img class="w-[100px] rounded-md" src={product[0].photoURL}>
                 <div class="flex flex-col">
-                    <h2 class="font-bold">{product.name}</h2>
-                    <h2>Contribution: {product.price}</h2>
-                    <div class="">{product.language}</div>
+                    <h2 class="font-bold">{product[0].name}</h2>
+                    <h2>Contribution: {product[0].price}</h2>
+                    <div class="">{product[0].language}</div>
                 </div>
             </div>
         {/each}
@@ -105,3 +119,5 @@
 {:else}
     <p>No items in cart</p>
 {/if}
+
+
