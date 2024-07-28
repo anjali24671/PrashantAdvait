@@ -1,3 +1,4 @@
+
 import connect from '$lib/database/connection'
 import Books from '$lib/database/Books'
 
@@ -47,11 +48,11 @@ export async function POST({ request }) {
 export async function GET({ url }) {
     let urlParam = ''
     const query = url.searchParams.get('query');
-    urlParam = 'query'
+    if(query) urlParam = 'query'
     const price = Number(url.searchParams.get('price'))
-    urlParam = 'price'
+    if(price) urlParam = 'price'
     const id = (url.searchParams.get('id'))
-    urlParam = 'id'
+    if(id) urlParam = 'id'
 
     try {
         await connect(); // Establish MongoDB connection
@@ -88,8 +89,4 @@ export async function GET({ url }) {
         });
     }
 }
-
-
-
-
 
