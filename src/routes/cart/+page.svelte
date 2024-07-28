@@ -86,8 +86,15 @@
     <p>Loading...</p>
 {:else if error}
     <p>Error: {error}</p>
+<<<<<<< HEAD
 {:else if userCartData.book.length || userCartData.eBook.length}
    
+=======
+{:else if userCartData.book}
+    {data}
+    {data.userCartData}
+    {userCartData.book}
+>>>>>>> 44c859e9f0666b54dbb3628c1c01fc25011aea4e
     <h1>Books</h1>
     <div class="flex flex-col gap-7 mt-5">
         {#each userCartData.book as product}
