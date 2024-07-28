@@ -7,7 +7,8 @@ async function search(query, type) {
             // make an api request to the ebook table
             const response = await fetch(`http://localhost:5173/api/eBooks?query=${query}`)
             const book = await response.json()
-           
+
+        
             return book
             
         }catch (err) {
@@ -17,7 +18,7 @@ async function search(query, type) {
     }
     else if (type == 'video_series') {
         try {
-            // make an api request to the ebook table
+            // make an api request to the video series table
             const response = await fetch(`http://localhost:5173/api/videoSeries/?query=${query}`)
             const videoSeries = await response.json()
            

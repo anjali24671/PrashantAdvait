@@ -42,13 +42,17 @@ export async function POST({ request }) {
 
 
 export async function GET({ url }) {
+  
     let urlParam = ''
+    
     const query = url.searchParams.get('query');
-    urlParam = 'query'
+    if (query) urlParam = 'query'
+    
     const price = Number(url.searchParams.get('price'))
-    urlParam = 'price'
+    if (price) urlParam = 'price'
+    
     const id = (url.searchParams.get('id'))
-    urlParam = 'id'
+    if(id) urlParam = 'id'
 
     try {
         await connect(); // Establish MongoDB connection
@@ -59,7 +63,7 @@ export async function GET({ url }) {
 
         switch (urlParam) {
             case 'id':
-                eBooks = await EBooks.findOne({ _id: id })
+                eBooks = await EBooks.find({ _id: id })
                 break;
             case 'price':
                 eBooks = await EBooks.find({price:price})
@@ -72,8 +76,7 @@ export async function GET({ url }) {
                 break;
         }
       
-        
-        console.log(eBooks)
+   
         return new Response(JSON.stringify(eBooks));
 
 

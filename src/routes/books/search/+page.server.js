@@ -6,6 +6,7 @@ export async function load({ url }) {
    
     const booksData = await search(query, "book");
 
+
     return {
         booksData
     }

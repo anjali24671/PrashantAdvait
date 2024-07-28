@@ -8,6 +8,7 @@
     let unsubscribe;
     let initialUpdate = true;
 
+
     onMount(() => {
       // Subscribe to the searchQuery store
       unsubscribe = searchQuery.subscribe(async (query) => {
