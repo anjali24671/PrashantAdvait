@@ -27,7 +27,9 @@
 
 
 <div  class="cardV p-3 bg-white overflow-hidden  md:m-3 m-1 border-2 border-[#fff4ee] hover:border-orange-600 flex flex-col  items-center   ">
-    <img class="card-image" src="{image}" alt="book.name" >
+    <a href="/books/{book_id}">  
+      <img class="card-image" src="{image}" alt="book.name" >
+    </a>
     <div class="self-end  w-full flex flex-col justify-center h-full">
         <a href="/books/{book_id}">
           <h3 class="font-semibold">{book_name}</h3>

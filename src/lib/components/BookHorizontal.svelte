@@ -26,8 +26,9 @@
 
 
 <div style="height:22vh;" class="overflow-hidden cardH border-2 m-3 border-gray-300 rounded-sm flex hover:border-3 hover:border-orange-600 ">
-   
+    <a href="/books/{book_id}">
         <img src="{image}" class="card-image" alt="book.name" >
+    </a>
 
   
     <div class="self-end p-4 flex flex-col justify-center h-full">
