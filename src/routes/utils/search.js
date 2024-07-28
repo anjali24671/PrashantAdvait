@@ -5,7 +5,7 @@ async function search(query, type) {
 
         try {
             // make an api request to the ebook table
-            const response = await fetch(`http://localhost:5173/api/eBooks?query=${query}`)
+            const response = await fetch(`https://prashant-advait-hh3n.vercel.app/api/eBooks?query=${query}`)
             const book = await response.json()
 
         
@@ -19,7 +19,7 @@ async function search(query, type) {
     else if (type == 'video_series') {
         try {
             // make an api request to the video series table
-            const response = await fetch(`http://localhost:5173/api/videoSeries/?query=${query}`)
+            const response = await fetch(`https://prashant-advait-hh3n.vercel.app/api/videoSeries/?query=${query}`)
             const videoSeries = await response.json()
            
             return videoSeries
