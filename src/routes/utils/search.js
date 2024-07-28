@@ -5,7 +5,7 @@ async function search(query, type) {
 
         try {
             // make an api request to the ebook table
-            const response = await fetch(`https://prashant-advait-hh3n.vercel.app/api/eBooks?query=${query}`)
+            const response = await fetch(`https://prashant-advait.vercel.app/api/eBooks?query=${query}`)
             const book = await response.json()
 
         
