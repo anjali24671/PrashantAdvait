@@ -55,7 +55,7 @@
             }
 
             userCartData = cartData;
-            console.log(userCartData)
+           
 
             isLoading = false;
           

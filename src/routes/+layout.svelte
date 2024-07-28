@@ -9,6 +9,7 @@
   import "../app.css";
 
   Userfront.init(PUBLIC_USERFRONT_ACCOUNT_ID);
+  const {user} = Userfront
 
 
   let selected="";
@@ -153,7 +154,7 @@
     
     <div on:click={()=>toggleExpand()} class="flex flex-col items-start gap-3">
       {#if data.authenticated}
-        Anjali Sharma
+        {user.username}
       {:else}
         <button><a href="/signup">Sign Up</a></button>
       {/if}
