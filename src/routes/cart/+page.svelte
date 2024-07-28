@@ -74,6 +74,9 @@
 {:else if error}
     <p>Error: {error}</p>
 {:else if userCartData.book}
+    {data}
+    {data.userCartData}
+    {userCartData.book}
     <h1>Books</h1>
     <div class="flex flex-col gap-7 mt-5">
         {#each userCartData.book as product}
