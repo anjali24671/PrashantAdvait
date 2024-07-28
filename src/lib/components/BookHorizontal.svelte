@@ -26,7 +26,7 @@
 
 
 <div style="height:22vh;" class="overflow-hidden cardH border-2 m-3 border-gray-300 rounded-sm flex hover:border-3 hover:border-orange-600 ">
-    <a href="/books/{book_id}">
+    <a class="max-w-[120px]" href="/books/{book_id}">
         <img src="{image}" class="card-image" alt="book.name" >
     </a>
 
@@ -92,3 +92,4 @@
      /* Optional: Rounded corners */
   }
 </style>
+
